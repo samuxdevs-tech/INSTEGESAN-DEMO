@@ -25,15 +25,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    // Cargar sesión guardada si existe
-    const savedUser = localStorage.getItem('instegesans_user')
-    if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser))
-      } catch (e) {
-        localStorage.removeItem('instegesans_user')
-      }
-    }
+    // Por seguridad, no se persiste la sesión en almacenamiento local.
+    // Siempre se exige ingresar usuario y contraseña.
+    try {
+      localStorage.removeItem('instegesans_user')
+      sessionStorage.removeItem('instegesans_user')
+    } catch (e) {}
     loadActivePeriod()
   }, [])
 
@@ -90,7 +87,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
         setUser(loggedUser)
         setImpersonatedUser(null)
-        localStorage.setItem('instegesans_user', JSON.stringify(loggedUser))
         setIsLoading(false)
         return true
       }
@@ -107,7 +103,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = () => {
     setUser(null)
     setImpersonatedUser(null)
-    localStorage.removeItem('instegesans_user')
+    try {
+      localStorage.removeItem('instegesans_user')
+      sessionStorage.removeItem('instegesans_user')
+    } catch (e) {}
   }
 
   const startImpersonation = (docente: Docente) => {

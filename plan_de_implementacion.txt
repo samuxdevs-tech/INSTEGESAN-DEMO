@@ -1,0 +1,144 @@
+================================================================================
+PLAN DE IMPLEMENTACIÓN Y ARQUITECTURA TÉCNICA (ACTUALIZADO)
+PLATAFORMA INSTITUCIONAL DE PREINFORMES ACADÉMICOS
+Institución Educativa General Santander (Instegesans)
+================================================================================
+
+Este documento integra las 5 mejoras críticas de ingeniería y producto:
+1. Impresión nativa CSS Print sin colapsar el navegador.
+2. Autoguardado optimizado con debounce de 600 ms en móvil.
+3. Banco rápido de frases/dificultades frecuentes (un solo toque).
+4. Impersonación limpia y segura desde el rol Admin (sin claves maestras expuestas).
+5. Interruptor de bloqueo de periodo (Modo solo lectura).
+
+--------------------------------------------------------------------------------
+1. OBJETIVO DEL PRODUCTO Y PROBLEMA QUE RESUELVE
+--------------------------------------------------------------------------------
+- Problema: Los preinformes verbales a mitad de periodo son informales y no generan 
+  a tiempo el registro documental para citar acudientes.
+- Solución: Plataforma institucional ligera, sobria y de alto rendimiento que:
+  a) Permite a 31 docentes calificar su salón en menos de 2 minutos mediante 
+     selectores rápidos de estado y banco de frases frecuentes.
+  b) Permite a Coordinación monitorear el avance docente en tiempo real, bloquear 
+     ediciones tras el cierre e imprimir cientos de boletas vectoriales en segundos 
+     sin saturar la memoria del navegador.
+
+--------------------------------------------------------------------------------
+2. PRINCIPIOS UNIVERSALES DE DISEÑO Y EXPERIENCIA (UX/UI)
+--------------------------------------------------------------------------------
+1. Móvil Primero (Mobile First Real):
+   - Elementos táctiles grandes (mínimo 48px).
+   - Operación completa con una sola mano.
+   - Cero tablas horizontales con scroll infinito en teléfonos.
+
+2. Minimalismo y Sobriedad Institucional:
+   - Cero textos innecesarios. Sin adjetivos de marketing ("rápido", "fácil").
+   - Cero emojis decorativos (solo indicadores semánticos esenciales: ✓ de guardado, 
+     candado de periodo cerrado).
+
+3. Idioma Simple y Humano:
+   - Vocabulario escolar claro ("Iniciar sesión", "Guardado", "Descargar citaciones").
+
+4. Prueba del Docente de 60-65 Años:
+   - Cero menús escondidos.
+   - Banco de dificultades frecuentes con un solo toque (evita escribir párrafos en el teclado móvil).
+   - Autoguardado inteligente sin botones manuales.
+
+--------------------------------------------------------------------------------
+3. ARQUITECTURA TÉCNICA Y OPTIMIZACIONES CLAVE
+--------------------------------------------------------------------------------
+
+A. Generación de Documentos sin Colapso de Memoria (CSS Print Nativo):
+   - Se prescinde de html2canvas (que satura la RAM al rasterizar 35+ imágenes).
+   - Se utiliza CSS Print Nativo (@media print, break-after: page, @page { size: letter; margin: 10mm; }).
+   - Rendimiento: Genera 35 o 600 boletas en menos de 1 segundo de forma vectorial, 
+     nítida y lista para la impresora física o exportación a PDF vía window.print().
+
+B. Motor de Autoguardado Optimizado:
+   - Acciones binarias ([ Normal ] / [ En riesgo ]) disparan actualización inmediata.
+   - Entradas de texto (Dificultades / Observaciones) cuentan con debounce de 600 ms:
+     espera a que el docente termine de tipear antes de enviar la petición a Supabase.
+   - Indicador sutil de estado: "Guardando..." -> "✓ Guardado".
+
+C. Selector Rápido de Dificultades (Chips de 1 toque):
+   - Banco de frases predeterminadas:
+     * "Bajo rendimiento en evaluaciones escritas"
+     * "Incumplimiento reiterado de talleres y tareas"
+     * "Inasistencias injustificadas recurrentes"
+     * "Falta de participación y seguimiento en clase"
+     * "Dificultad en comprensión y aplicación de conceptos"
+   - El docente pulsa un chip y se agrega al instante. Dispone de un campo abierto 
+     opcional si desea complementar.
+
+D. Impersonación Limpia y Segura (Admin Only):
+   - No existen contraseñas maestras estáticas expuestas en el bundle cliente.
+   - El usuario con rol 'ADMIN' (Coordinación) tiene la opción "Ver como docente...".
+   - Al seleccionar un profesor, la interfaz carga el contexto de ese docente con una 
+     barra superior de retorno: [ Viendo como: Andrés Doria ] [ Volver a Coordinación ].
+
+E. Bloqueo de Periodo (Modo Solo Lectura):
+   - Interruptor en el panel de Coordinación: [ Periodo Abierto / Periodo Cerrado ].
+   - Cuando el periodo está cerrado, las planillas docentes quedan bloqueadas para 
+     edición y muestran: "Periodo cerrado por Coordinación".
+
+--------------------------------------------------------------------------------
+4. MODELO DE DATOS EN SUPABASE (POSTGRESQL)
+--------------------------------------------------------------------------------
+Tablas ya creadas y sembradas en Supabase:
+- `instituciones`: Datos de la IE General Santander.
+- `periodos`: Control de estado (id, nombre, ano, activo).
+- `grados`: 22 salones oficiales (1-01 hasta 11-01 y Aceleración).
+- `materias`: 23 asignaturas clasificadas por áreas.
+- `docentes`: 31 profesores + 1 Coordinación (Admin).
+- `estudiantes`: 630 alumnos matriculados con su código oficial.
+- `asignaciones`: 354 cruces de carga académica.
+- `preinformes`: Alertas tempranas con clave única (periodo_id, asignacion_id, estudiante_codigo).
+
+--------------------------------------------------------------------------------
+5. ESTRUCTURA DE PANTALLAS
+--------------------------------------------------------------------------------
+
+1. PANTALLA DE ACCESO (LOGIN)
+   - Usuario y Contraseña.
+   - Docente -> Va a "Mis Asignaturas".
+   - Admin -> Va a "Panel de Coordinación".
+
+2. VISTA DOCENTE: MIS ASIGNATURAS
+   - Tarjetas verticales con sus clases asignadas.
+   - Contador de estudiantes y cantidad de reportados en riesgo.
+   - Aviso de estado si el periodo está cerrado.
+
+3. VISTA DOCENTE: PLANILLA DE REGISTRO
+   - Listado vertical de estudiantes con código y nombre.
+   - Selector [ Normal ] / [ En riesgo ].
+   - Si marca [ En riesgo ]: Banco de frases rápidas + campo opcional de compromiso.
+   - Indicador de guardado automático (debounce 600 ms).
+
+4. VISTA COORDINACIÓN: PANEL DE CONTROL
+   - Semáforo de entrega docente (% al día vs. pendientes).
+   - Interruptor de Bloqueo de Periodo.
+   - Botón "Ver como docente..." para impersonación instantánea.
+   - Generador de Documentos:
+     * Citaciones por Salón (PDF / Impresión en lote con salto de página).
+     * Boleta Individual por Estudiante (solo materias en riesgo + firmas).
+     * Reporte Consolidado por Docente.
+     * Sábana / Matriz de Grado.
+
+5. VISTA DE IMPRESIÓN OFICIAL (PLANTILLA CSS PRINT)
+   - Membrete oficial de la Institución Educativa General Santander.
+   - Formato de citación a acudientes con fecha, compromisos y firmas legales.
+
+--------------------------------------------------------------------------------
+6. HOJA DE RUTA DE CONSTRUCCIÓN
+--------------------------------------------------------------------------------
+Paso 1: Crear proyecto Vite + React + TypeScript + Tailwind en D:/My Apps/Instegesans.
+Paso 2: Configurar cliente Supabase y tipos TypeScript.
+Paso 3: Módulo de Autenticación y Contexto de Sesión (con soporte de Impersonación Admin).
+Paso 4: Vistas del Docente (Mis Asignaturas + Planilla con chips rápidos y debounce).
+Paso 5: Vista de Coordinación (Control de avance, bloqueo de periodo, impersonación).
+Paso 6: Plantillas de Impresión CSS Print oficiales (@media print para boletas y lotes).
+Paso 7: Verificación final en móvil y PC.
+
+================================================================================
+FIN DEL DOCUMENTO
+================================================================================

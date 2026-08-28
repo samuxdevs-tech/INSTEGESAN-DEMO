@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tirillas de Acceso para Docentes - IE General Santander</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #F1F5F9;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 10mm;
+            margin: 0 auto 20px auto;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 8mm;
+            page-break-after: always;
+            break-after: page;
+        }
+        .card-wrapper {
+            border: 1.5px dashed #94A3B8;
+            padding: 2px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .card-wrapper::after {
+            content: '✂ Recortar';
+            position: absolute;
+            top: -9px;
+            right: 15px;
+            background: white;
+            padding: 0 4px;
+            font-size: 9px;
+            color: #64748B;
+            font-weight: bold;
+        }
+        .card-wrapper svg {
+            width: 100%;
+            height: auto;
+        }
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #1D4ED8;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.4);
+            z-index: 999;
+        }
+        .print-btn:hover {
+            background: #1E40AF;
+        }
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 8mm;
+                width: 100%;
+                height: 100%;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Todas las Tirillas (Ctrl + P)</button>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Acosta Lopez Leidys Maria</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">alopez</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-102</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Naturales:</text>
+            <text x="178.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Religiosa:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01</text>
+        </g>
+        
+        <g transform="translate(45, 345)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lengua Castellana:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01</text>
+        </g>
+        
+        <g transform="translate(45, 365)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lectura Crítica:</text>
+            <text x="152.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01</text>
+        </g>
+        
+        <text x="45" y="385" font-family="'Inter', system-ui, sans-serif" font-size="11" font-style="italic" fill="#64748B">+ 5 asignaturas adicionales registradas</text>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-02</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Adrián Olivero</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">aolivero</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-131</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lengua Castellana:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-01, 7-02, 8-01, 8-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra Socioemocional:</text>
+            <text x="212.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-31</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Andrés Doria</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">adoria</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-123</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra Socioemocional:</text>
+            <text x="212.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Biología:</text>
+            <text x="93.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-03, 8-01, 8-02</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Química:</text>
+            <text x="84.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-02, 7-03, 8-01, 8-02</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Física:</text>
+            <text x="76.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-02, 7-03, 8-01, 8-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-23</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Cañavera Mejia Padys De Jesus</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">cmejia</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-106</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Naturales:</text>
+            <text x="178.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-01</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-01</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Religiosa:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-01</text>
+        </g>
+        
+        <g transform="translate(45, 345)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lengua Castellana:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-01</text>
+        </g>
+        
+        <g transform="translate(45, 365)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lectura Crítica:</text>
+            <text x="152.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-01</text>
+        </g>
+        
+        <text x="45" y="385" font-family="'Inter', system-ui, sans-serif" font-size="11" font-style="italic" fill="#64748B">+ 5 asignaturas adicionales registradas</text>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-06</text>
+</svg>
+
+  </div>
+</div>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Cecilia Bula</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">cbula</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-129</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Tecnología e Informática:</text>
+            <text x="229.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02, 7-03, 8-01, 8-02, 8-03, 9-01, 9-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-29</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Diana Acosta Castro</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">dacosta</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-121</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-01, 8-01, 8-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Ética y en Valores Humanos:</text>
+            <text x="331.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Inglés:</text>
+            <text x="76.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra Socioemocional:</text>
+            <text x="212.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-02, 7-03, 8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-21</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Durango Leon Isabel Cristina</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">dleon</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-107</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Naturales:</text>
+            <text x="178.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-02</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra de la Paz:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-02</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-02</text>
+        </g>
+        
+        <g transform="translate(45, 345)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Ética y en Valores Humanos:</text>
+            <text x="331.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-02</text>
+        </g>
+        
+        <g transform="translate(45, 365)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Física, Recreación y Deportes:</text>
+            <text x="356.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">3-02</text>
+        </g>
+        
+        <text x="45" y="385" font-family="'Inter', system-ui, sans-serif" font-size="11" font-style="italic" fill="#64748B">+ 9 asignaturas adicionales registradas</text>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-07</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Edgardo Pérez</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">eperez</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-118</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lengua Castellana:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-18</text>
+</svg>
+
+  </div>
+</div>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Eiver Lambraño</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">elambrano</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-111</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Aritmética:</text>
+            <text x="110.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Geometría:</text>
+            <text x="101.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Estadística:</text>
+            <text x="118.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Tecnología e Informática:</text>
+            <text x="229.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-11</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Fernando Guzmán</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">fguzman</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-116</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Física, Recreación y Deportes:</text>
+            <text x="356.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02, 7-03, 8-01, 8-02, 8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-16</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Francisco Vidal</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">fvidal</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-128</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Geometría:</text>
+            <text x="101.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02, 7-03, 8-01, 8-02, 8-03, 9-01, 9-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Estadística:</text>
+            <text x="118.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02, 7-03, 8-01, 8-02, 8-03, 9-01, 9-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-28</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Gabriel Rossi</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">grossi</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-113</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-02, 7-03, 8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Física:</text>
+            <text x="76.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-13</text>
+</svg>
+
+  </div>
+</div>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Héctor Doria</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">hdoria</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-103</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra de la Paz:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01, 2-01, 3-01, 4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra Socioemocional:</text>
+            <text x="212.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01, 2-01, 3-01, 4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-03</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Idamith León</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">ileon</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-109</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lectura Crítica:</text>
+            <text x="152.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-09</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Iván Darío Pérez Lambraño</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">idario</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-130</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Inglés:</text>
+            <text x="76.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-03, 7-01, 7-02, 7-03, 8-01, 8-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-30</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Jasulith Berrío</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">jberrio</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-126</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lectura Crítica:</text>
+            <text x="152.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02, 7-03, 8-01, 8-02, 8-03, 9-01, 9-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-26</text>
+</svg>
+
+  </div>
+</div>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Katia Gloria</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">kgloria</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-115</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Ética y en Valores Humanos:</text>
+            <text x="331.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-03, 7-01, 7-02, 7-03, 8-01, 8-02, 8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Religiosa:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02, 7-03, 8-01, 8-02, 8-03, 9-01, 9-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-15</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Luis Camilo Burgos</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">lcamilo</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-120</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-03, 8-01, 8-02, 8-03</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra de la Paz:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-03, 8-01, 8-02, 8-03</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Tecnología e Informática:</text>
+            <text x="229.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-20</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Luna Saenz Edelsy Cecilia</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">lsaenz</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-101</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Naturales:</text>
+            <text x="178.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">Aceleración 01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">Aceleración 01</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra de la Paz:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">Aceleración 01</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">Aceleración 01</text>
+        </g>
+        
+        <g transform="translate(45, 345)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Ética y en Valores Humanos:</text>
+            <text x="331.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">Aceleración 01</text>
+        </g>
+        
+        <g transform="translate(45, 365)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Física, Recreación y Deportes:</text>
+            <text x="356.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">Aceleración 01</text>
+        </g>
+        
+        <text x="45" y="385" font-family="'Inter', system-ui, sans-serif" font-size="11" font-style="italic" fill="#64748B">+ 9 asignaturas adicionales registradas</text>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-01</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Luz Marina Berrío</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">lmarina</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-122</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra Socioemocional:</text>
+            <text x="212.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Biología:</text>
+            <text x="93.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Química:</text>
+            <text x="84.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Física:</text>
+            <text x="76.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">7-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-22</text>
+</svg>
+
+  </div>
+</div>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Marelby Pérez</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">mperez</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-125</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra de la Paz:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lengua Castellana:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-03</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-25</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Mariem Madera</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">mmadera</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-114</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra de la Paz:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Económicas y Políticas:</text>
+            <text x="288.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">10-01, 11-01</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Filosofía:</text>
+            <text x="101.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-14</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Mario Flórez</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">mflorez</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-124</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cátedra de la Paz:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-02, 6-03, 7-01, 7-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-24</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Martín González</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">mgonzalez</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-117</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Religiosa:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">10-01, 11-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Inglés:</text>
+            <text x="76.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-17</text>
+</svg>
+
+  </div>
+</div>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Neider Vides</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">nvides</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-119</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Trigonometría:</text>
+            <text x="135.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">10-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Cálculo:</text>
+            <text x="84.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">11-01</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Álgebra:</text>
+            <text x="84.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-02, 8-03, 9-01, 9-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-19</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Nhora Montero</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">nmontero</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-112</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Biología:</text>
+            <text x="93.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Química:</text>
+            <text x="84.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-03, 9-01, 9-02, 10-01, 11-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-12</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Rafael Becerra</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">rbecerra</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-104</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Ética y en Valores Humanos:</text>
+            <text x="331.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01, 2-01, 3-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Física, Recreación y Deportes:</text>
+            <text x="356.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">1-01, 2-01, 3-01, 4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-04</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Rolando Ramos</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">rramos</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-108</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Naturales:</text>
+            <text x="178.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Inglés:</text>
+            <text x="76.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-08</text>
+</svg>
+
+  </div>
+</div>
+<div class="page">
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Rosmery Altamiranda</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">raltamiranda</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-110</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Ética y en Valores Humanos:</text>
+            <text x="331.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Religiosa:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lengua Castellana:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">4-01, 4-02, 5-01, 5-02</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-10</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Vanessa Meneses</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">vmeneses</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-127</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Aritmética:</text>
+            <text x="110.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">6-01, 6-02, 6-03, 7-01, 7-02, 7-03</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Álgebra:</text>
+            <text x="84.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">8-01</text>
+        </g>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-27</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fondo de la tarjeta -->
+  <rect x="2" y="2" width="596" height="376" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  
+  <!-- Borde interior -->
+  <rect x="12" y="12" width="576" height="356" rx="8" fill="none" stroke="#F1F5F9" stroke-width="1" />
+
+  <!-- Encabezado Institucional -->
+  <path d="M 12 12 L 588 12 Q 588 12 588 12 L 588 68 L 12 68 Z" fill="#0F172A" />
+  <rect x="12" y="66" width="576" height="3" fill="#2563EB" />
+
+  <text x="32" y="38" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">INSTITUCIÓN EDUCATIVA GENERAL SANTANDER</text>
+  <text x="32" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CREDENCIAL DE ACCESO • PLATAFORMA DE PREINFORMES</text>
+
+  <!-- Información del Docente -->
+  <text x="35" y="98" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">DOCENTE TITULAR</text>
+  <text x="35" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A">Velasquez Borja Indira Lucecita</text>
+  <line x1="35" y1="132" x2="565" y2="132" stroke="#E2E8F0" stroke-width="1.5" />
+
+  <!-- Caja de Credenciales -->
+  <rect x="35" y="145" width="530" height="70" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+  
+  <text x="55" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Usuario:</text>
+  <rect x="115" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="125" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#0F172A">vborja</text>
+
+  <text x="320" y="172" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#475569">Contraseña:</text>
+  <rect x="410" y="156" width="160" height="26" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+  <text x="420" y="174" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#2563EB">GS-105</text>
+
+  <text x="55" y="202" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#64748B">Enlace de acceso: <tspan font-weight="700" fill="#0F172A">http://localhost:3000</tspan> (o red del colegio)</text>
+
+  <!-- Salones asignados -->
+  <text x="35" y="242" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#64748B">SALONES Y ASIGNATURAS ASIGNADAS PARA ESTE PERIODO:</text>
+  
+  
+        <g transform="translate(45, 265)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Naturales:</text>
+            <text x="178.0" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">2-01</text>
+        </g>
+        
+        <g transform="translate(45, 285)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Ciencias Sociales:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">2-01</text>
+        </g>
+        
+        <g transform="translate(45, 305)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Artística:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">2-01</text>
+        </g>
+        
+        <g transform="translate(45, 325)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Educación Religiosa:</text>
+            <text x="186.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">2-01</text>
+        </g>
+        
+        <g transform="translate(45, 345)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lengua Castellana:</text>
+            <text x="169.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">2-01</text>
+        </g>
+        
+        <g transform="translate(45, 365)">
+            <circle cx="0" cy="-4" r="3" fill="#2563EB" />
+            <text x="12" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0F172A">Lectura Crítica:</text>
+            <text x="152.5" y="0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#475569">2-01</text>
+        </g>
+        
+        <text x="45" y="385" font-family="'Inter', system-ui, sans-serif" font-size="11" font-style="italic" fill="#64748B">+ 5 asignaturas adicionales registradas</text>
+        
+
+  <!-- Pie de Tarjeta -->
+  <line x1="35" y1="356" x2="565" y2="356" stroke="#E2E8F0" stroke-width="1" />
+  <text x="35" y="370" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#94A3B8">Uso personal e intransferible • Coordinación Académica 2026</text>
+  <text x="565" y="370" text-anchor="end" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#64748B">DOC-05</text>
+</svg>
+
+  </div>
+  <div class="card-wrapper" style="border-style: dotted; opacity: 0.3;"></div>
+</div>
+
+</body>
+</html>

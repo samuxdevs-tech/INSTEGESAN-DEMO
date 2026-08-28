@@ -1,23 +1,34 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
-import { Lock, User, AlertCircle, ArrowRight } from 'lucide-react'
+import { Lock, User, AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react'
 
 export const LoginView: React.FC = () => {
   const { login, isLoading } = useAuth()
   const [usuario, setUsuario] = useState('')
   const [clave, setClave] = useState('')
   const [error, setError] = useState<string | null>(null)
+  const [resetSuccess, setResetSuccess] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
+    setResetSuccess(null)
     if (!usuario.trim() || !clave.trim()) {
       setError('Ingresa tu usuario y contraseña')
       return
     }
 
-    const ok = await login(usuario, clave)
-    if (!ok) {
+    const res = await login(usuario, clave)
+    if (res.isReset) {
+      setResetSuccess(
+        'Base de datos restablecida con éxito. Se han eliminado todos los reportes, dificultades y estadísticas de preinformes. La base institucional (docentes, estudiantes, grados y carga académica) permanece 100% intacta.'
+      )
+      setUsuario('')
+      setClave('')
+      return
+    }
+
+    if (!res.ok) {
       setError('El usuario o la contraseña no coinciden')
     }
   }
@@ -40,6 +51,18 @@ export const LoginView: React.FC = () => {
         </div>
 
         <div className="mt-8 bg-slate-900 py-8 px-6 shadow-xl border border-slate-800 rounded-2xl sm:px-10">
+          {resetSuccess && (
+            <div className="mb-5 p-4 rounded-xl bg-emerald-950/80 border border-emerald-800 text-emerald-200 text-xs sm:text-sm flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 flex-shrink-0 text-emerald-400 mt-0.5" />
+              <div className="space-y-1">
+                <span className="font-bold block text-emerald-100">
+                  Restablecimiento Maestro Ejecutado
+                </span>
+                <span>{resetSuccess}</span>
+              </div>
+            </div>
+          )}
+
           {error && (
             <div className="mb-5 p-3 rounded-xl bg-rose-950/60 border border-rose-800/80 text-rose-200 text-sm flex items-center gap-2">
               <AlertCircle className="w-4 h-4 flex-shrink-0 text-rose-400" />

@@ -825,15 +825,15 @@ export function generateAndDownloadTirillasPDF(): void {
       const x = marginX + col * (cardWidth + gapX)
       const y = marginY + row * (cardHeight + gapY)
 
-      renderSingleTirillaWithQR(doc, d, x, y, cardWidth, cardHeight)
+      renderSingleTirillaClean(doc, d, x, y, cardWidth, cardHeight)
     })
   }
 
-  // Descarga directa del archivo PDF generado
-  doc.save('Tirillas_Acceso_Docentes_IE_General_Santander_con_QR.pdf')
+  // Descarga directa del archivo con el nombre solicitado: Credenciales_de_acesso.pdf
+  doc.save('Credenciales_de_acesso.pdf')
 }
 
-function renderSingleTirillaWithQR(
+function renderSingleTirillaClean(
   doc: jsPDF,
   d: DocenteTirillaData,
   x: number,
@@ -891,52 +891,46 @@ function renderSingleTirillaWithQR(
   doc.setLineWidth(0.3)
   doc.line(x + 4, y + 27.5, x + w - 4, y + 27.5)
 
-  // 5. Caja de Credenciales
+  // 5. Caja de Credenciales (Limpia, sin enlace directo)
   doc.setFillColor(248, 250, 252)
   doc.setDrawColor(203, 213, 225)
   doc.setLineWidth(0.3)
-  doc.roundedRect(x + 4, y + 30, w - 8, 22, 2, 2, 'FD')
+  doc.roundedRect(x + 4, y + 30, w - 8, 14, 2, 2, 'FD')
 
   // Usuario
   doc.setTextColor(71, 85, 105)
   doc.setFontSize(7)
   doc.setFont('helvetica', 'bold')
-  doc.text('Usuario:', x + 7, y + 36)
+  doc.text('Usuario:', x + 7, y + 38.5)
 
   doc.setFillColor(255, 255, 255)
-  doc.roundedRect(x + 20, y + 32, 24, 5.5, 1, 1, 'FD')
+  doc.roundedRect(x + 20, y + 33.5, 24, 7, 1, 1, 'FD')
   doc.setTextColor(15, 23, 42)
   doc.setFont('courier', 'bold')
-  doc.setFontSize(8)
-  doc.text(d.usuario, x + 22, y + 36)
+  doc.setFontSize(8.5)
+  doc.text(d.usuario, x + 22, y + 38.5)
 
   // Contraseña
   doc.setTextColor(71, 85, 105)
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(7)
-  doc.text('Clave:', x + 48, y + 36)
+  doc.text('Clave:', x + 48, y + 38.5)
 
   doc.setFillColor(255, 255, 255)
-  doc.roundedRect(x + 58, y + 32, 25, 5.5, 1, 1, 'FD')
+  doc.roundedRect(x + 58, y + 33.5, 25, 7, 1, 1, 'FD')
   doc.setTextColor(37, 99, 235)
   doc.setFont('courier', 'bold')
-  doc.setFontSize(8)
-  doc.text(d.password, x + 60, y + 36)
+  doc.setFontSize(8.5)
+  doc.text(d.password, x + 60, y + 38.5)
 
-  // Enlace
-  doc.setTextColor(100, 116, 139)
-  doc.setFont('helvetica', 'normal')
-  doc.setFontSize(6)
-  doc.text('Enlace directo: http://localhost:3000 (o escanee el QR)', x + 7, y + 46)
-
-  // 6. Salones Asignados (Columna Izquierda, ancho max 58mm)
+  // 6. Salones Asignados (Columna Izquierda)
   doc.setTextColor(71, 85, 105)
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(6.2)
-  doc.text('SALONES ASIGNADOS:', x + 4, y + 56)
+  doc.text('SALONES ASIGNADOS:', x + 4, y + 50)
 
-  let curY = y + 61
-  const maxLines = 6
+  let curY = y + 55
+  const maxLines = 7
   const displayMats = d.materias.slice(0, maxLines)
 
   displayMats.forEach((m) => {
@@ -977,9 +971,9 @@ function renderSingleTirillaWithQR(
 
   // 7. ESTAMPADO QR EN LA ESQUINA INFERIOR DERECHA
   const qrBoxX = x + w - 28
-  const qrBoxY = y + 54
+  const qrBoxY = y + 48
   const qrBoxW = 24
-  const qrBoxH = 34
+  const qrBoxH = 38
 
   doc.setFillColor(248, 250, 252)
   doc.setDrawColor(203, 213, 225)
@@ -995,16 +989,16 @@ function renderSingleTirillaWithQR(
   doc.text('ACCESO MOVIL', qrBoxX + qrBoxW / 2, qrBoxY + 4.2, { align: 'center' })
 
   // Imagen QR
-  doc.addImage(QR_BASE64, 'PNG', qrBoxX + 2.5, qrBoxY + 6.5, 19, 19)
+  doc.addImage(QR_BASE64, 'PNG', qrBoxX + 2.5, qrBoxY + 7, 19, 19)
 
   // Subtítulo
   doc.setTextColor(100, 116, 139)
   doc.setFont('helvetica', 'normal')
-  doc.setFontSize(4)
-  doc.text('Escanear con camara', qrBoxX + qrBoxW / 2, qrBoxY + 28, { align: 'center' })
+  doc.setFontSize(4.2)
+  doc.text('Escanear con camara', qrBoxX + qrBoxW / 2, qrBoxY + 30, { align: 'center' })
   doc.setFont('helvetica', 'bold')
   doc.setTextColor(37, 99, 235)
-  doc.text('Ingreso directo', qrBoxX + qrBoxW / 2, qrBoxY + 31.5, { align: 'center' })
+  doc.text('Ingreso directo', qrBoxX + qrBoxW / 2, qrBoxY + 34, { align: 'center' })
 
   // 8. Pie de Tarjeta
   doc.setDrawColor(226, 232, 240)

@@ -4,6 +4,9 @@ import { supabase } from '../lib/supabase'
 import { Docente, Grado } from '../types/database'
 import { Users, Printer, CheckCircle, Clock, Lock, Unlock, Eye, Search, AlertTriangle, FileDown } from 'lucide-react'
 import { generateAndDownloadTirillasPDF } from '../utils/generateTirillasPdf'
+import { EstudiantesEnRiesgoModal } from './admin/EstudiantesEnRiesgoModal'
+import { CumplimientoDocenteModal } from './admin/CumplimientoDocenteModal'
+import { SalonesActivosModal } from './admin/SalonesActivosModal'
 
 interface AdminDashboardProps {
   onOpenReports: () => void
@@ -26,6 +29,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports })
   const [searchTerm, setSearchTerm] = useState('')
   const [showImpersonateModal, setShowImpersonateModal] = useState(false)
   const [showLockConfirmModal, setShowLockConfirmModal] = useState(false)
+  const [showRiesgoModal, setShowRiesgoModal] = useState(false)
+  const [showCumplimientoModal, setShowCumplimientoModal] = useState(false)
+  const [showSalonesModal, setShowSalonesModal] = useState(false)
   const [isLocking, setIsLocking] = useState(false)
 
   useEffect(() => {
@@ -191,41 +197,84 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports })
         </div>
       </div>
 
-      {/* Tarjetas de Métricas */}
+      {/* Tarjetas de Métricas Touch / Interactivas */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
+        {/* Box 1: Estudiantes en Riesgo */}
+        <div
+          onClick={() => setShowRiesgoModal(true)}
+          className="bg-slate-900 hover:bg-slate-850 p-5 rounded-2xl border border-slate-800 hover:border-amber-500/80 shadow-md cursor-pointer transition active:scale-[0.98] group relative overflow-hidden"
+          role="button"
+          tabIndex={0}
+        >
           <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider">Estudiantes en Riesgo</span>
-            <AlertTriangle className="w-5 h-5 text-amber-400" />
+            <span className="text-xs font-bold uppercase tracking-wider group-hover:text-amber-300 transition">
+              Estudiantes en Riesgo
+            </span>
+            <div className="p-1.5 rounded-lg bg-amber-950/60 border border-amber-800/80 text-amber-400 group-hover:scale-110 transition">
+              <AlertTriangle className="w-4 h-4" />
+            </div>
           </div>
-          <p className="text-3xl font-extrabold text-slate-100">
+          <p className="text-3xl font-extrabold text-slate-100 group-hover:text-amber-200 transition">
             {totalEnRiesgoInstitucional}
           </p>
-          <p className="text-xs text-slate-400 mt-1">Alertas tempranas registradas</p>
+          <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
+            <span>Alertas tempranas registradas</span>
+            <span className="text-[11px] font-bold text-amber-400 opacity-0 group-hover:opacity-100 transition">
+              Ver lista →
+            </span>
+          </div>
         </div>
 
-        <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
+        {/* Box 2: Cumplimiento Docente */}
+        <div
+          onClick={() => setShowCumplimientoModal(true)}
+          className="bg-slate-900 hover:bg-slate-850 p-5 rounded-2xl border border-slate-800 hover:border-emerald-500/80 shadow-md cursor-pointer transition active:scale-[0.98] group relative overflow-hidden"
+          role="button"
+          tabIndex={0}
+        >
           <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider">Cumplimiento Docente</span>
-            <CheckCircle className="w-5 h-5 text-emerald-400" />
+            <span className="text-xs font-bold uppercase tracking-wider group-hover:text-emerald-300 transition">
+              Cumplimiento Docente
+            </span>
+            <div className="p-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800/80 text-emerald-400 group-hover:scale-110 transition">
+              <CheckCircle className="w-4 h-4" />
+            </div>
           </div>
-          <p className="text-3xl font-extrabold text-slate-100">
+          <p className="text-3xl font-extrabold text-slate-100 group-hover:text-emerald-200 transition">
             {pctCumplimiento}%
           </p>
-          <p className="text-xs text-slate-400 mt-1">
-            {docentesAlDia} de {totalDocentes} profesores al día
-          </p>
+          <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
+            <span>{docentesAlDia} de {totalDocentes} profesores al día</span>
+            <span className="text-[11px] font-bold text-emerald-400 opacity-0 group-hover:opacity-100 transition">
+              Ver gráficas →
+            </span>
+          </div>
         </div>
 
-        <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
+        {/* Box 3: Salones Activos */}
+        <div
+          onClick={() => setShowSalonesModal(true)}
+          className="bg-slate-900 hover:bg-slate-850 p-5 rounded-2xl border border-slate-800 hover:border-blue-500/80 shadow-md cursor-pointer transition active:scale-[0.98] group relative overflow-hidden"
+          role="button"
+          tabIndex={0}
+        >
           <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider">Salones Activos</span>
-            <Users className="w-5 h-5 text-blue-400" />
+            <span className="text-xs font-bold uppercase tracking-wider group-hover:text-blue-300 transition">
+              Salones Activos
+            </span>
+            <div className="p-1.5 rounded-lg bg-blue-950/60 border border-blue-800/80 text-blue-400 group-hover:scale-110 transition">
+              <Users className="w-4 h-4" />
+            </div>
           </div>
-          <p className="text-3xl font-extrabold text-slate-100">
+          <p className="text-3xl font-extrabold text-slate-100 group-hover:text-blue-200 transition">
             {allGrados.length}
           </p>
-          <p className="text-xs text-slate-400 mt-1">Grados en la institución</p>
+          <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
+            <span>Grados en la institución</span>
+            <span className="text-[11px] font-bold text-blue-400 opacity-0 group-hover:opacity-100 transition">
+              Explorar salones →
+            </span>
+          </div>
         </div>
       </div>
 
@@ -451,6 +500,31 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports })
             </div>
           </div>
         </div>
+      )}
+
+      {/* Modal 1: Estudiantes en Riesgo (Lazy Loaded) */}
+      {showRiesgoModal && (
+        <EstudiantesEnRiesgoModal
+          onClose={() => setShowRiesgoModal(false)}
+          periodoId={activePeriod?.id || 'P-2026-3'}
+        />
+      )}
+
+      {/* Modal 2: Cumplimiento Docente con Gráfica Circular */}
+      {showCumplimientoModal && (
+        <CumplimientoDocenteModal
+          onClose={() => setShowCumplimientoModal(false)}
+          docentesProgress={docentesProgress}
+          onImpersonate={(docente) => startImpersonation(docente)}
+        />
+      )}
+
+      {/* Modal 3: Salones Activos con Boxes por Docente/Materia y Gráfica */}
+      {showSalonesModal && (
+        <SalonesActivosModal
+          onClose={() => setShowSalonesModal(false)}
+          periodoId={activePeriod?.id || 'P-2026-3'}
+        />
       )}
     </div>
   )

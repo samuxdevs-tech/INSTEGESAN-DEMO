@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import { Docente, Grado } from '../types/database'
-import { Users, Printer, CheckCircle, Clock, Lock, Unlock, Eye, Search, AlertTriangle, FileDown } from 'lucide-react'
+import { Users, Printer, CheckCircle, Clock, Lock, Unlock, Eye, Search, AlertTriangle, FileDown, FileText } from 'lucide-react'
 import { generateAndDownloadTirillasPDF } from '../utils/generateTirillasPdf'
 import { EstudiantesEnRiesgoModal } from './admin/EstudiantesEnRiesgoModal'
 import { CumplimientoDocenteModal } from './admin/CumplimientoDocenteModal'
@@ -10,6 +10,7 @@ import { SalonesActivosModal } from './admin/SalonesActivosModal'
 
 interface AdminDashboardProps {
   onOpenReports: () => void
+  onOpenActas: () => void
 }
 
 interface DocenteProgress {
@@ -20,7 +21,7 @@ interface DocenteProgress {
   alDia: boolean
 }
 
-export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports }) => {
+export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports, onOpenActas }) => {
   const { activePeriod, togglePeriodLock, startImpersonation } = useAuth()
   const [docentesProgress, setDocentesProgress] = useState<DocenteProgress[]>([])
   const [allGrados, setAllGrados] = useState<Grado[]>([])
@@ -168,10 +169,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports })
 
           <button
             onClick={onOpenReports}
+            className="flex items-center gap-2 px-3.5 py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 rounded-xl text-sm font-semibold transition active:scale-95 shadow-sm"
+          >
+            <Printer className="w-4 h-4 text-slate-400" />
+            <span>Citaciones Oficiales (PDF)</span>
+          </button>
+
+          <button
+            onClick={onOpenActas}
             className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-bold shadow-md transition active:scale-95"
           >
-            <Printer className="w-4 h-4" />
-            <span>Generar Documentos (PDF)</span>
+            <FileText className="w-4 h-4" />
+            <span>Actas de Compromiso</span>
           </button>
 
           <button

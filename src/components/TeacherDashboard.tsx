@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import { Asignacion } from '../types/database'
-import { Users, AlertTriangle, ChevronRight, Lock } from 'lucide-react'
+import { Users, AlertTriangle, ChevronRight, Lock, FileText } from 'lucide-react'
 
 interface TeacherDashboardProps {
   onSelectAsignacion: (asignacion: Asignacion) => void
+  onOpenActas: () => void
 }
 
 interface AsignacionConConteo extends Asignacion {
@@ -13,7 +14,7 @@ interface AsignacionConConteo extends Asignacion {
   totalEnRiesgo: number
 }
 
-export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onSelectAsignacion }) => {
+export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onSelectAsignacion, onOpenActas }) => {
   const { effectiveUser, activePeriod } = useAuth()
   const [asignaciones, setAsignaciones] = useState<AsignacionConConteo[]>([])
   const [loading, setLoading] = useState(true)
@@ -75,11 +76,13 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onSelectAsig
     }
   }
 
+  const totalEnRiesgoGeneral = asignaciones.reduce((acc, curr) => acc + curr.totalEnRiesgo, 0)
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6">
-      {/* Encabezado del Docente */}
-      <div className="mb-6 bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      {/* Encabezado del Docente con Acciones Rápidas */}
+      <div className="mb-6 bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="text-xl font-bold text-slate-100">
               {effectiveUser?.nombre}
@@ -89,12 +92,27 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onSelectAsig
             </p>
           </div>
 
-          {!activePeriod?.activo && (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-800/80 text-amber-200 text-xs font-medium">
-              <Lock className="w-4 h-4 text-amber-400" />
-              <span>Periodo cerrado por Coordinación (Solo lectura)</span>
-            </div>
-          )}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={onOpenActas}
+              className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md transition active:scale-95"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Actas de Compromiso</span>
+              {totalEnRiesgoGeneral > 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-blue-950 text-blue-200 text-xs font-black border border-blue-400/40">
+                  {totalEnRiesgoGeneral}
+                </span>
+              )}
+            </button>
+
+            {!activePeriod?.activo && (
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-800/80 text-amber-200 text-xs font-medium">
+                <Lock className="w-4 h-4 text-amber-400" />
+                <span>Periodo cerrado (Solo lectura)</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

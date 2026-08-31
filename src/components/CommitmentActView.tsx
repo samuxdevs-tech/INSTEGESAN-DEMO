@@ -382,8 +382,8 @@ export const CommitmentActView: React.FC<CommitmentActViewProps> = ({ onBack }) 
                   Yo, <strong>{selectedStudent.estudiante.nombre}</strong>, me comprometo a:
                 </p>
                 <ul className="list-disc list-inside text-[9.5px] text-slate-700 space-y-0.5 pl-1 leading-tight">
-                  <li>Asistir puntualmente a clases y presentar con honestidad la totalidad de guías, talleres y actividades de nivelación.</li>
-                  <li>Portar los útiles escolares indispensables y mantener un comportamiento respetuoso acorde al Manual de Convivencia.</li>
+                  <li>Asistir puntualmente a clases y presentar con honestidad la totalidad de guías, talleres y actividades.</li>
+                  <li>Cumplir en los tiempos estipulados las actividades acordadas en la aula de clases.</li>
                 </ul>
               </div>
 
@@ -396,7 +396,7 @@ export const CommitmentActView: React.FC<CommitmentActViewProps> = ({ onBack }) 
                   En calidad de acudiente legal, me comprometo formalmente a:
                 </p>
                 <ul className="list-disc list-inside text-[9.5px] text-slate-700 space-y-0.5 pl-1 leading-tight">
-                  <li>Supervisar diariamente en casa el horario de estudio, repaso y cumplimiento efectivo de tareas escolares.</li>
+                  <li>Supervisar activamente en casa el horario de estudio, repaso y cumplimiento efectivo de tareas escolares.</li>
                   <li>Acudir puntualmente a las citaciones convocadas por los docentes y Coordinación Académica.</li>
                   <li>Garantizar los materiales indispensables y fomentar hábitos de disciplina y puntualidad en el hogar.</li>
                 </ul>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { Estudiante, Grado } from '../types/database'
-import { ArrowLeft, Printer, Search, FileText, User, AlertTriangle, CheckCircle, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, Printer, Search, FileText, User } from 'lucide-react'
 
 interface CommitmentActViewProps {
  onBack: () => void
@@ -336,9 +336,8 @@ export const CommitmentActView: React.FC<CommitmentActViewProps> = ({ onBack }) 
 
  {/* Sección 2: Citación Textual de Asignaturas en Riesgo */}
  <div className="mb-4">
- <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 font-sans mb-2 flex items-center gap-1.5">
- <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
- <span>1. Situación Académica y Asignaturas Diagnosticadas en Riesgo</span>
+ <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 font-sans mb-2">
+ 1. Situación Académica y Asignaturas Diagnosticadas en Riesgo
  </h4>
 
  <div className="border border-slate-300 rounded-lg overflow-hidden font-sans text-xs">
@@ -375,9 +374,8 @@ export const CommitmentActView: React.FC<CommitmentActViewProps> = ({ onBack }) 
 
  {/* Sección 3: Compromisos del Estudiante */}
  <div className="mb-4 text-justify">
- <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 font-sans mb-1.5 flex items-center gap-1.5">
- <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
- <span>2. Compromisos Formales del Estudiante</span>
+ <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 font-sans mb-1.5">
+ 2. Compromisos Formales del Estudiante
  </h4>
  <p className="text-[11.5px] text-slate-800 leading-relaxed">
  Yo, <strong>{selectedStudent.estudiante.nombre}</strong>, reconozco mis dificultades académicas en las asignaturas citadas y me comprometo a:
@@ -391,9 +389,8 @@ export const CommitmentActView: React.FC<CommitmentActViewProps> = ({ onBack }) 
 
  {/* Sección 4: Compromisos del Padre de Familia / Acudiente */}
  <div className="mb-4 text-justify">
- <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 font-sans mb-1.5 flex items-center gap-1.5">
- <CheckCircle className="w-3.5 h-3.5 text-emerald-700" />
- <span>3. Compromisos del Padre de Familia o Acudiente</span>
+ <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 font-sans mb-1.5">
+ 3. Compromisos del Padre de Familia o Acudiente
  </h4>
  <p className="text-[11.5px] text-slate-800 leading-relaxed">
  En calidad de acudiente legal, me comprometo formalmente con el proceso formativo de mi acudido a:

@@ -306,30 +306,49 @@ export const CommitmentActView: React.FC<CommitmentActViewProps> = ({ onBack }) 
  </p>
 
  {/* Sección 1: Datos de Identificación */}
- <div className="bg-slate-50 border border-slate-300 rounded-lg p-3.5 mb-4 text-xs font-sans space-y-1.5">
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+ <div className="bg-slate-50 border border-slate-300 rounded-lg p-4 mb-5 text-xs font-sans space-y-3">
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  <div>
- <span className="text-slate-500 font-semibold uppercase text-[10px]">ESTUDIANTE:</span>
+ <span className="text-slate-500 font-semibold uppercase text-[10px] block mb-0.5">ESTUDIANTE:</span>
  <p className="font-bold text-slate-900 text-sm">{selectedStudent.estudiante.nombre}</p>
  </div>
  <div>
- <span className="text-slate-500 font-semibold uppercase text-[10px]">CÓDIGO / DOCUMENTO:</span>
- <p className="font-mono font-bold text-slate-900">{selectedStudent.estudiante.codigo}</p>
+ <span className="text-slate-500 font-semibold uppercase text-[10px] block mb-0.5">CÓDIGO / DOCUMENTO:</span>
+ <p className="font-mono font-bold text-slate-900 text-sm">{selectedStudent.estudiante.codigo}</p>
  </div>
  </div>
 
- <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 border-t border-slate-200">
+ <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2.5 border-t border-slate-200">
  <div>
- <span className="text-slate-500 font-semibold uppercase text-[10px]">GRADO:</span>
+ <span className="text-slate-500 font-semibold uppercase text-[10px] block mb-0.5">GRADO:</span>
  <p className="font-bold text-slate-900">{selectedStudent.grado.nombre}</p>
  </div>
+ <div className="sm:col-span-2">
+ <span className="text-slate-500 font-semibold uppercase text-[10px] block mb-1">
+ NOMBRE DEL PADRE DE FAMILIA / ACUDIENTE:
+ </span>
+ <div className="border-b-2 border-slate-900 h-9 w-full"></div>
+ </div>
+ </div>
+
+ <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2.5 border-t border-slate-200">
  <div>
- <span className="text-slate-500 font-semibold uppercase text-[10px]">ACUDIENTE / PADRE:</span>
- <p className="font-medium text-slate-800">_________________________________</p>
+ <span className="text-slate-500 font-semibold uppercase text-[10px] block mb-1">
+ C.C. / DOCUMENTO ACUDIENTE:
+ </span>
+ <div className="border-b-2 border-slate-900 h-8 w-full"></div>
  </div>
  <div>
- <span className="text-slate-500 font-semibold uppercase text-[10px]">FECHA DE SUSCRIPCIÓN:</span>
- <p className="font-medium text-slate-800">{fechaHoy}</p>
+ <span className="text-slate-500 font-semibold uppercase text-[10px] block mb-1">
+ TELÉFONO DE CONTACTO:
+ </span>
+ <div className="border-b-2 border-slate-900 h-8 w-full"></div>
+ </div>
+ <div>
+ <span className="text-slate-500 font-semibold uppercase text-[10px] block mb-0.5">
+ FECHA DE SUSCRIPCIÓN:
+ </span>
+ <p className="font-medium text-slate-800 pt-2">{fechaHoy}</p>
  </div>
  </div>
  </div>

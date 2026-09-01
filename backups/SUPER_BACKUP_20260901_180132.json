@@ -1,0 +1,6626 @@
+{
+  "backup_info": {
+    "institution": "Institución Educativa General Santander",
+    "created_at": "2026-09-01T18:01:29.362692",
+    "type": "SUPER_EMERGENCY_FULL_BACKUP",
+    "system_version": "1.0-master"
+  },
+  "tables": {
+    "grados": [
+      {
+        "id": "G-1-01",
+        "nombre": "1-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-Aceleracion-01",
+        "nombre": "Aceleración 01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-2-01",
+        "nombre": "2-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-3-01",
+        "nombre": "3-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-3-02",
+        "nombre": "3-02",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-4-01",
+        "nombre": "4-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-4-02",
+        "nombre": "4-02",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-5-01",
+        "nombre": "5-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-5-02",
+        "nombre": "5-02",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-6-01",
+        "nombre": "6-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-6-02",
+        "nombre": "6-02",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-6-03",
+        "nombre": "6-03",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-7-01",
+        "nombre": "7-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-7-02",
+        "nombre": "7-02",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-7-03",
+        "nombre": "7-03",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-8-01",
+        "nombre": "8-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-8-02",
+        "nombre": "8-02",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-8-03",
+        "nombre": "8-03",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-9-01",
+        "nombre": "9-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-9-02",
+        "nombre": "9-02",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-10-01",
+        "nombre": "10-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "G-11-01",
+        "nombre": "11-01",
+        "institucion_id": "INST-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      }
+    ],
+    "materias": [
+      {
+        "id": "ASIG-19",
+        "nombre": "Ciencias Económicas y Políticas",
+        "area": "Ciencias Económicas y Políticas",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-16",
+        "nombre": "Biología",
+        "area": "Ciencias Naturales y Educación Ambiental",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-01",
+        "nombre": "Ciencias Naturales",
+        "area": "Ciencias Naturales y Educación Ambiental",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-18",
+        "nombre": "Física",
+        "area": "Ciencias Naturales y Educación Ambiental",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-17",
+        "nombre": "Química",
+        "area": "Ciencias Naturales y Educación Ambiental",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-02",
+        "nombre": "Ciencias Sociales",
+        "area": "Ciencias Sociales",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-03",
+        "nombre": "Cátedra de la Paz",
+        "area": "Ciencias Sociales",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-15",
+        "nombre": "Cátedra Socioemocional",
+        "area": "Cátedra Socioemocional",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-04",
+        "nombre": "Educación Artística",
+        "area": "Educación Artística",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-06",
+        "nombre": "Educación Física, Recreación y Deportes",
+        "area": "Educación Física, Recreación y Deportes",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-07",
+        "nombre": "Educación Religiosa",
+        "area": "Educación Religiosa",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-05",
+        "nombre": "Educación Ética y en Valores Humanos",
+        "area": "Educación Ética y en Valores Humanos",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-20",
+        "nombre": "Filosofía",
+        "area": "Filosofía",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-09",
+        "nombre": "Lectura Crítica",
+        "area": "Humanidades y Lengua Castellana",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-08",
+        "nombre": "Lengua Castellana",
+        "area": "Humanidades y Lengua Castellana",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-10",
+        "nombre": "Inglés",
+        "area": "Idioma Extranjero (Inglés)",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-11",
+        "nombre": "Aritmética",
+        "area": "Matemáticas",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-22",
+        "nombre": "Cálculo",
+        "area": "Matemáticas",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-13",
+        "nombre": "Estadística",
+        "area": "Matemáticas",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-12",
+        "nombre": "Geometría",
+        "area": "Matemáticas",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-21",
+        "nombre": "Trigonometría",
+        "area": "Matemáticas",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-23",
+        "nombre": "Álgebra",
+        "area": "Matemáticas",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "id": "ASIG-14",
+        "nombre": "Tecnología e Informática",
+        "area": "Tecnología e Informática",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      }
+    ],
+    "docentes": [
+      {
+        "id": "DOC-ADMIN",
+        "nombre": "Coordinación Académica",
+        "usuario": "admin",
+        "password": "admin123",
+        "rol": "ADMIN",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-02",
+        "nombre": "Acosta Lopez Leidys Maria",
+        "usuario": "alopez",
+        "password": "GS-102",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-31",
+        "nombre": "Adrián Olivero",
+        "usuario": "aolivero",
+        "password": "GS-131",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-23",
+        "nombre": "Andrés Doria",
+        "usuario": "adoria",
+        "password": "GS-123",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-06",
+        "nombre": "Cañavera Mejia Padys De Jesus",
+        "usuario": "cmejia",
+        "password": "GS-106",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-29",
+        "nombre": "Cecilia Bula",
+        "usuario": "cbula",
+        "password": "GS-129",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-21",
+        "nombre": "Diana Acosta Castro",
+        "usuario": "dacosta",
+        "password": "GS-121",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-07",
+        "nombre": "Durango Leon Isabel Cristina",
+        "usuario": "dleon",
+        "password": "GS-107",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-18",
+        "nombre": "Edgardo Pérez",
+        "usuario": "eperez",
+        "password": "GS-118",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-11",
+        "nombre": "Eiver Lambraño",
+        "usuario": "elambrano",
+        "password": "GS-111",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-16",
+        "nombre": "Fernando Guzmán",
+        "usuario": "fguzman",
+        "password": "GS-116",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-28",
+        "nombre": "Francisco Vidal",
+        "usuario": "fvidal",
+        "password": "GS-128",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-13",
+        "nombre": "Gabriel Rossi",
+        "usuario": "grossi",
+        "password": "GS-113",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-03",
+        "nombre": "Héctor Doria",
+        "usuario": "hdoria",
+        "password": "GS-103",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-09",
+        "nombre": "Idamith León",
+        "usuario": "ileon",
+        "password": "GS-109",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-30",
+        "nombre": "Iván Darío Pérez Lambraño",
+        "usuario": "idario",
+        "password": "GS-130",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-26",
+        "nombre": "Jasulith Berrío",
+        "usuario": "jberrio",
+        "password": "GS-126",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-15",
+        "nombre": "Katia Gloria",
+        "usuario": "kgloria",
+        "password": "GS-115",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-20",
+        "nombre": "Luis Camilo Burgos",
+        "usuario": "lcamilo",
+        "password": "GS-120",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-01",
+        "nombre": "Luna Saenz Edelsy Cecilia",
+        "usuario": "lsaenz",
+        "password": "GS-101",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-22",
+        "nombre": "Luz Marina Berrío",
+        "usuario": "lmarina",
+        "password": "GS-122",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-25",
+        "nombre": "Marelby Pérez",
+        "usuario": "mperez",
+        "password": "GS-125",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-14",
+        "nombre": "Mariem Madera",
+        "usuario": "mmadera",
+        "password": "GS-114",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-24",
+        "nombre": "Mario Flórez",
+        "usuario": "mflorez",
+        "password": "GS-124",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-17",
+        "nombre": "Martín González",
+        "usuario": "mgonzalez",
+        "password": "GS-117",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-19",
+        "nombre": "Neider Vides",
+        "usuario": "nvides",
+        "password": "GS-119",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-12",
+        "nombre": "Nhora Montero",
+        "usuario": "nmontero",
+        "password": "GS-112",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-04",
+        "nombre": "Rafael Becerra",
+        "usuario": "rbecerra",
+        "password": "GS-104",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-08",
+        "nombre": "Rolando Ramos",
+        "usuario": "rramos",
+        "password": "GS-108",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-10",
+        "nombre": "Rosmery Altamiranda",
+        "usuario": "raltamiranda",
+        "password": "GS-110",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-27",
+        "nombre": "Vanessa Meneses",
+        "usuario": "vmeneses",
+        "password": "GS-127",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      },
+      {
+        "id": "DOC-05",
+        "nombre": "Velasquez Borja Indira Lucecita",
+        "usuario": "vborja",
+        "password": "GS-105",
+        "rol": "DOCENTE",
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "debe_cambiar_password": false
+      }
+    ],
+    "estudiantes": [
+      {
+        "codigo": "2025143",
+        "nombre": "AVILEZ ASCANIO ROSE MIA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025384",
+        "nombre": "BARRAGAN SIMANCA ALDAIR DAVID",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025386",
+        "nombre": "BARRAGAN SIMANCA NEIMAR JESUS",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025383",
+        "nombre": "BARRAGAN SIMANCA SHARIT ANDREA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023537",
+        "nombre": "BURGOS VILLALBA MALKA IRINA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025002",
+        "nombre": "FERNANDEZ NEGRETE ANALIA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025039",
+        "nombre": "GALINDO RODRIGUEZ LEANDRIS VANESA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025003",
+        "nombre": "GARCIA ESPINOSA MATEO",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023511",
+        "nombre": "GOMEZ DORIA DYLAN",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025036",
+        "nombre": "GONZALEZ BRAVO HAROL DE JESUS",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025269",
+        "nombre": "GUZMAN MEJIAS AINHOA VALENTINA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025040",
+        "nombre": "HIDALGO LINAREZ SAMANTHA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025437",
+        "nombre": "HOYOS FLOREZ LIAM",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025464",
+        "nombre": "LOPEZ BARRERA NICOL SOFIA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025230",
+        "nombre": "LOPEZ MARTINEZ ORIANNY ISABEL",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025234",
+        "nombre": "LOPEZ MARTINEZ YORGELIS DEL CARMEN",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023471",
+        "nombre": "MARQUEZ VILLARREAL MATHEO ALEJANDRO",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025118",
+        "nombre": "MARTINEZ ROCA ALLAN ALEXANDER",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025440",
+        "nombre": "MENA MERCADO DANNA SOFIA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025353",
+        "nombre": "MESTRE CARDOZO DUVAN ELIAS",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025263",
+        "nombre": "MOGROVEJO MARIN SARA SOFIA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023659",
+        "nombre": "NEGRETE INFANTE AMINA SAMARA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025483",
+        "nombre": "ORTEGA HERRERA ALLISON SAMANTHA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025029",
+        "nombre": "ORTEGA RODRIGUEZ NAYARA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025345",
+        "nombre": "PEREZ ROA NAIVER JADITH",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025137",
+        "nombre": "SAENZ VELLOJIN THIAGO",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025052",
+        "nombre": "SANCHEZ PEREZ SANTIAGO JOSE",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025213",
+        "nombre": "SUAREZ SUAREZ MISAEL JUNIOR",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025001",
+        "nombre": "TORRES MEDINA ANDREA",
+        "grado_id": "G-1-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025126",
+        "nombre": "ALARCON JIMENEZ JOSE ANGEL",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025412",
+        "nombre": "ARIZAL JIMENEZ CRISTIAN CAMILO",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023466",
+        "nombre": "AVILA TORIBIO JOSE FELIX",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021645",
+        "nombre": "BELTRAN GONZALEZ JOSE ALEJANDRO",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023421",
+        "nombre": "BÁRCENAS MARTINEZ EMMANUEL",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025262",
+        "nombre": "CANABAL REDONDO LEYNIS CAMILA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023459",
+        "nombre": "CANTILLO TORRES OSCAR DAVID",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023066",
+        "nombre": "CARDENAS DICKSON LEYNA PATRICIA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025167",
+        "nombre": "CHARRIS ALTAMIRANDA YEIMI PAOLA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023449",
+        "nombre": "COGOLLO BEDOYA SANTIAGO JOSÉ",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021881",
+        "nombre": "CONTRERAS ALVAREZ ANDERSON OMAR",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023422",
+        "nombre": "CONTRERAS GUERRA ALEXANDER DE JESUS",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023540",
+        "nombre": "CONTRERAS IBAÑEZ PATRICK STIVEN",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022112",
+        "nombre": "DORIA LOPEZ JEISY ALEJANDRA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025336",
+        "nombre": "GALINDO CACERES MAHIA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021356",
+        "nombre": "GENES GARCES LORENA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021315",
+        "nombre": "GONZALEZ HERRAN DANIELA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023105",
+        "nombre": "GONZALEZ LOPEZ HEYVER DAVID",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022267",
+        "nombre": "HERRERA GARCIA JONAS ANDRES",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021317",
+        "nombre": "HERRERA VILORIA JEAN PEER",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022479",
+        "nombre": "HOLGUIN CARTAGENA JUAN MANUEL",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025482",
+        "nombre": "HOYOS ALMANZA ISAAC",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022504",
+        "nombre": "JARAMILLO MEJIA THALIA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025337",
+        "nombre": "LOPEZ GARRIDO JESUS MANUEL",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021364",
+        "nombre": "LOZANO SARMIENTO DEIMER",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025279",
+        "nombre": "MUÑOZ ARROYO MATIAS",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022165",
+        "nombre": "MUÑOZ SOTELO YEIMI CAROLINA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025476",
+        "nombre": "NISPERUZA ORTEGA KATIUSKA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021325",
+        "nombre": "PEREZ MONTIEL LUIS CAMILO",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021667",
+        "nombre": "PEREZ OSORIO EMMANUEL",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022179",
+        "nombre": "PEREZ TORRENEGRA IVAN SAMUEL",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023701",
+        "nombre": "PERTUZ CARRILLO CESAR ADRIAN",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025409",
+        "nombre": "POLO GUERRERO MARIA ANGELICA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021700",
+        "nombre": "POLO GUERRERO YAYILECT",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025258",
+        "nombre": "RAMIREZ SUAREZ SEBASTIAN JOSE",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022393",
+        "nombre": "ROJAS SUAREZ YULY CAROLINA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021330",
+        "nombre": "ROMERO CRUZ CESAR ENRIQUE",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021455",
+        "nombre": "RUIZ MORELO MARIA JOSE",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023530",
+        "nombre": "YEMZ VILLALOBOS KAROL TATIANA",
+        "grado_id": "G-10-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021338",
+        "nombre": "AGAMEZ CAUSIL MAYRA MARCELA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023517",
+        "nombre": "ALVAREZ CUELLO JUAN SEBASTIAN",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021341",
+        "nombre": "AVILA POLO MARIA FERNANDA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021346",
+        "nombre": "BORJA FLOREZ LUIS DAVID",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023058",
+        "nombre": "CALI RAMOS WALTER MANUEL",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025035",
+        "nombre": "CALLEJAS DORIA ISRAEL DAVID",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022191",
+        "nombre": "CAMACHO MOGROVEJO LUIS FERNANDO",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022335",
+        "nombre": "CASSAB CALDERAS SHEILA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025079",
+        "nombre": "CASTRO SOLANO LUISA FERNANDA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025257",
+        "nombre": "DIAZ HERRERA MARIA JOSE",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021435",
+        "nombre": "DIAZ LOPEZ JUAN DAVID",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022038",
+        "nombre": "ESPITIA AVILEZ MARIO ANDRES",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022288",
+        "nombre": "FUENTES ZAMBRANO JUAN MANUEL",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022185",
+        "nombre": "GOMEZ HERNANDEZ MARIANA SOFIA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025401",
+        "nombre": "HERNANDEZ NIÑO MARYORI DAYANNA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022416",
+        "nombre": "HERRERA TORDECILLA MIGUEL ANGEL",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025268",
+        "nombre": "JIMENEZ MARTINEZ JHOSTYN SAMYR",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021362",
+        "nombre": "LOPEZ ARRIETA SALOME MARIA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025406",
+        "nombre": "MACEA PATERNINA SHEYLA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022310",
+        "nombre": "MARQUEZ PIÑERO DONYER JESUS",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025043",
+        "nombre": "MARQUEZ RUIZ SAMUEL DAVID",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022020",
+        "nombre": "MARTINEZ NAVEA ARIANNA SARAI",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023072",
+        "nombre": "MEDRANO CORREA CARLOS ANDRES",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023095",
+        "nombre": "OLIVERA URAN VALENTINA SADAY",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025253",
+        "nombre": "PACHECO NARVAEZ MANUELA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023182",
+        "nombre": "PADILLA URUETA LUNA SILVANA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022050",
+        "nombre": "PEÑA PESTANA SANTIAGO",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023369",
+        "nombre": "RAMIREZ BARBA KARLA VALENTINA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021703",
+        "nombre": "ROMERO GONZALEZ DAVID SANTIAGO",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023017",
+        "nombre": "ROYO PADILLA DYLAN YAIR",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023411",
+        "nombre": "SOTO ASSIS IVAN JOSE",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025087",
+        "nombre": "SOTO PALOMO JIREH SOFIA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021375",
+        "nombre": "TIRADO PACHECO MARI LUZ",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025275",
+        "nombre": "URANGO SOLANO ANDRES DAVID",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023629",
+        "nombre": "VARGAS MADARIAGA LARRY",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023268",
+        "nombre": "VEGA YULIETH PAOLA",
+        "grado_id": "G-11-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023674",
+        "nombre": "ANAYA TORRES JESUS DAVID",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025147",
+        "nombre": "AYALA PACHECO JOSE ANTONIO",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025114",
+        "nombre": "BADEL HERNANDEZ ADALBERTO",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025404",
+        "nombre": "BARBOZA BARRIOS SEBASTIAN DAVID",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025293",
+        "nombre": "BARRIOS MENDOZA JOSE ANGEL",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023526",
+        "nombre": "BUELVAS PEINADO MILAGROS NICOLL",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023624",
+        "nombre": "ESPAÑA PASTRANA VALERY SOFIA",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025091",
+        "nombre": "ESPITIA PADILLA KEIDER YESID",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023566",
+        "nombre": "GARCIA GONZALEZ ANDREILYS DEL MAR",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025438",
+        "nombre": "IBARRA HOYOS BREYNER",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023468",
+        "nombre": "JAVE MENDEZ ANYOLI",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023603",
+        "nombre": "JULIO SARIEGO MARTIN",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023706",
+        "nombre": "LONGA PEREZ SHAROLD EDGARIANGELIS",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025465",
+        "nombre": "LOPEZ BARRERA KEIDER ANDRES",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025231",
+        "nombre": "LOPEZ MARTINEZ WILIANNYS VICTORIA",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023496",
+        "nombre": "MEDRANO PASTRANA MILAGRO DE JESUS",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025334",
+        "nombre": "MONTIEL VELASQUEZ AZIR ARIAN",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023401",
+        "nombre": "MUÑOZ DURANGO SHAIRA SOFIA",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023645",
+        "nombre": "PACHECO HERNANDEZ MARIA JOSE",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023137",
+        "nombre": "PALENCIA FARIÑO SAMUEL JESUS",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025247",
+        "nombre": "PEREZ LOZANO KENDRY PAOLA",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023465",
+        "nombre": "RAMIREZ PEREZ CRISTIAN DAVID",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025338",
+        "nombre": "SANCHEZ PEREZ CALEB DAVID",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025308",
+        "nombre": "SIERRA TORRALVO AARON DE JESUS",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025228",
+        "nombre": "SUAREZ GUZMAN BRILLIS",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025414",
+        "nombre": "TORRES CARO JUAN PABLO",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022005",
+        "nombre": "URDANETA ZAMBRANO ARANZA VALENTINA",
+        "grado_id": "G-2-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025403",
+        "nombre": "ACOSTA MENDOZA SHIRLY SOFIA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025058",
+        "nombre": "ALGARIN GALVAN RAMIRO",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023018",
+        "nombre": "ALVAREZ DIAZ OVER LUIS",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025024",
+        "nombre": "ARRIETA MARTINEZ TAYLER SANTIAGO",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025149",
+        "nombre": "AVILEZ ASCANIO LEISHLER JOSE",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023736",
+        "nombre": "BARBOZA SALCEDO STEVAN ELIAS",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025056",
+        "nombre": "BETANCUR CORTES YOHELIS SOFIA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023679",
+        "nombre": "CABALLERO PINEDA JOSE GREGORIO",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025399",
+        "nombre": "CASTAÑEDA OQUENDO JESUS DANIEL",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023043",
+        "nombre": "CHOURIO BERRIO ZULEYKA ISABELLA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023427",
+        "nombre": "COGOLLO BENITEZ PAULINA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025434",
+        "nombre": "ESPITIA SEÑA ANA LUCIA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023255",
+        "nombre": "FERNANDEZ NEGRETE ALEX MANUEL",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022463",
+        "nombre": "GOMEZ HIDALGO JHONANYELI NAZARETH",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023347",
+        "nombre": "GONZALEZ ANAYA LILIAN SOFIA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025145",
+        "nombre": "HOYOS PACHECO LUIS FELIPE",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025252",
+        "nombre": "JAIME GALLEGO DEMIAN ANDRES",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023007",
+        "nombre": "LAMBRAÑO LEON ISAAC DAVID",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025466",
+        "nombre": "LONDOÑO OVIEDO DILAN",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023412",
+        "nombre": "MENDEZ QUIMBAYA THALIANA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023493",
+        "nombre": "OSORIO BORJA ROBERT DARIO",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022182",
+        "nombre": "PADILLA COGOLLO MARTIN ELIAS",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023431",
+        "nombre": "PALMERA WARNES EMMANUEL",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023173",
+        "nombre": "PATERNINA NUÑEZ ADRIANA LUCIA",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022320",
+        "nombre": "PEREIRA PEREZ ANGEL DAVID",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023224",
+        "nombre": "PIÑA GIMENEZ JESUS ALBERTO",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025441",
+        "nombre": "ROMERO GONZALEZ EMANUEL DAVID",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023742",
+        "nombre": "ROSSO PALMERA ADRIAN",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022190",
+        "nombre": "SUAREZ MIRANDA GEISY",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023101",
+        "nombre": "TORRES MEDINA ESTIVEN DAVID",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025478",
+        "nombre": "TORRES NARANJO MAURICIO ENRIQUE",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023415",
+        "nombre": "VELASQUEZ GOMEZ MARIA ANGEL",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025311",
+        "nombre": "YEPEZ NAVARRO ALIZ",
+        "grado_id": "G-3-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025422",
+        "nombre": "ALVARADO PEREZ JHON WAIDER",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025352",
+        "nombre": "BARBOSA ARRIETA MARIA SALOME",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023593",
+        "nombre": "CORONADO TORRES EIDER YESID",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025400",
+        "nombre": "GONZALEZ ROMERO SEBASTIAN",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025376",
+        "nombre": "LOPEZ PATERNINA EVELY ANDREA",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023690",
+        "nombre": "LOPEZ PEREZ ISAIAS",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025188",
+        "nombre": "LOPEZ VASQUEZ HEMILIS DEL CARMEN",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023737",
+        "nombre": "MUÑOZ FLOREZ SEBASTIAN",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023151",
+        "nombre": "OLIVARES FUENMAYOR DONNY DEIVIS",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023677",
+        "nombre": "RAMIREZ PEREZ JORGE LUIS",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023700",
+        "nombre": "SUAREZ MONTALVO EINER MANUEL",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025425",
+        "nombre": "TATIS CARMONA SEBASTIAN",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025473",
+        "nombre": "VELASQUEZ SOLAR SANTIAGO JOSE",
+        "grado_id": "G-3-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022439",
+        "nombre": "ALVAREZ GALVAN DANIEL LUIS",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025395",
+        "nombre": "ARGUMEDO PEREZ VALENTINA",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025381",
+        "nombre": "ARIAS CASTILLO ARIDAY ANDREINA",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023149",
+        "nombre": "BELTRAN GONZALEZ CHAROL AIDETH",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023389",
+        "nombre": "BENAVIDES CARVAJAL ISAAC",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023370",
+        "nombre": "BERNAL CONTRERAS ANGEL DAVID",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023388",
+        "nombre": "CARVAJAL AGAMEZ ISAIAS",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022145",
+        "nombre": "CARVAJAL VILORIA THIAGO ANDRES",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022285",
+        "nombre": "ESPINOSA SANCHEZ SALOME",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023694",
+        "nombre": "ESPINOZA SULBARAN JOSEANGELYS SOFIA",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023273",
+        "nombre": "GASPAR ZAPATA EDER",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023254",
+        "nombre": "GOMEZ ALVAREZ KEYLER",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025310",
+        "nombre": "HERRERA ANGULO ADRIANA LUCIA",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025229",
+        "nombre": "MARTINEZ MARTINEZ ADER ALFONSO",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022151",
+        "nombre": "MORALES MERCADO LIAN DAVID",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023152",
+        "nombre": "MORELO BARON JAMES EDUARDO",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022126",
+        "nombre": "MUÑOZ FLOREZ DANIEL",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023646",
+        "nombre": "PACHECO HERNANDEZ GABRIELA",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023698",
+        "nombre": "PASTRANA VARILLA JOSE MANUEL",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025442",
+        "nombre": "RESTAN ACOSTA CARMEN CECILIA",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023666",
+        "nombre": "TALAIGUA MARTINEZ LUIS MARIO",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023287",
+        "nombre": "VARGAS MENDEZ OSCAR DAVID",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023082",
+        "nombre": "VILORIA GONZALEZ JAIME DAVID",
+        "grado_id": "G-4-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025155",
+        "nombre": "ARRIETA GONZALEZ SHAROL MICHELL",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022097",
+        "nombre": "AVILA PAYARES GERARDO MIGUEL",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022161",
+        "nombre": "CANCHILA MARTINEZ DIGNAYEL",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025343",
+        "nombre": "CORREA RIVERA DUVAN",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023661",
+        "nombre": "DIAZ HERNANDEZ SAMUEL",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023371",
+        "nombre": "GAVIRIA CORDERO SAMUEL",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023582",
+        "nombre": "GOMEZ FLOREZ ANGELICA PATRICIA",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023630",
+        "nombre": "IZQUIERDO MADARIAGA IZA MARA",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023037",
+        "nombre": "MACEA MERCADO SION CELESTE",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022166",
+        "nombre": "MUÑOZ SOTELO KATTY YULIETH",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023112",
+        "nombre": "NAVA PALENCIA REYMAIKELL",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023157",
+        "nombre": "OYOLA BEDOYA DYLAN ANDRES",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023676",
+        "nombre": "PADILLA NARVAEZ DULCE MARIA",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022111",
+        "nombre": "PALACIOS INFANTE RUXSELL JOSUE",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025451",
+        "nombre": "PEREZ TAPIA MARIA SALOME",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023079",
+        "nombre": "PUCHE PAEZ GELEN SOFIA",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022465",
+        "nombre": "REYES NEGRETE MARIA JOSE",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025405",
+        "nombre": "SANCHEZ SOLANO JUAN DIEGO",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023442",
+        "nombre": "SOLAR RESTREPO MANUEL JOSE",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023693",
+        "nombre": "SULBARAN SULBARAN LUIS ANGEL DE JESUS",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025012",
+        "nombre": "TORRES MARIN ANDREA ISABELA",
+        "grado_id": "G-4-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025057",
+        "nombre": "ALGARIN GALVAN KEINER JESUS",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023175",
+        "nombre": "BOLAÑOS MARTINEZ SHEYLA PATRICIA",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023416",
+        "nombre": "BURGOS VIOLA EMELY SOFIA",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021197",
+        "nombre": "CARRASCAL DIAZ GABRIELA SOFIA",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022394",
+        "nombre": "DIAZ CAUSIL DOLLYS MICHELLE",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022469",
+        "nombre": "DIN TIRADO MATHIAS DANIEL",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023291",
+        "nombre": "DONADO BOLAÑOS JAMES JOSE",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025069",
+        "nombre": "FUENTES SANCHEZ IVAN DAVID",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021202",
+        "nombre": "GOMEZ DORIA BRIAN JOSE",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025064",
+        "nombre": "MARTINEZ PINEDO MATIAS",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021205",
+        "nombre": "MONTOYA VEGA JHEN ALEXANDRA",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022060",
+        "nombre": "MURILLO ROMERO ELCY LUCIA",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025460",
+        "nombre": "NIÑO ARCIA SAMUEL ANTONIO",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025471",
+        "nombre": "ORTEGA VARGAS YOISER",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022456",
+        "nombre": "PADILLA ALEAN KRISTIAN ANDRES",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022473",
+        "nombre": "PARDEY GUZMAN MARIA CECILIA",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022075",
+        "nombre": "PASTRANA VARILLA MARLENIS DEL CARMEN",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021207",
+        "nombre": "PATERNINA VELASQUEZ MARIA ANGEL",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025018",
+        "nombre": "SALCEDO MANJARREZ LUIS STEVEN",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022116",
+        "nombre": "SANDON GONZALEZ DEREK JAYDEN",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023319",
+        "nombre": "SOLERA VELLOJIN ISAAC",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021211",
+        "nombre": "SUAREZ MIRANDA CARLOS DAVID",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022186",
+        "nombre": "SUAREZ MORILLO DIANNYS ELIZABETH",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025349",
+        "nombre": "TORRES UTRIA LUIS STIVEN",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025457",
+        "nombre": "URANGOS RAMOS FRAY DAVID",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022008",
+        "nombre": "VARGAS SIERRA ROBERNIS",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022432",
+        "nombre": "VIDAL URANGO ISAAC DAVID",
+        "grado_id": "G-5-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022410",
+        "nombre": "BOHORQUEZ LUNA ABRAHAM DAVID",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023399",
+        "nombre": "CANCHILA GAVIRIA LAURA SOFIA",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021218",
+        "nombre": "CANTILLO MIRANDA EMMANUEL ALEXANDER",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022334",
+        "nombre": "CASSAB CALDERA ZHARICK",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023337",
+        "nombre": "CASTILLO ALARCON EMMANUEL",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025159",
+        "nombre": "CHINCHILLA ROMERO WILLDER DAVID",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022010",
+        "nombre": "CHOURIO BERRIO FRANCHESKA ISABELLA",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022004",
+        "nombre": "DIAZ AMUNDARAY VIAN VALENTINA",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021201",
+        "nombre": "DORIA AGAMEZ JESUS ELIAS",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023330",
+        "nombre": "GAVIRIA PACHECO MATIAS GABRIEL",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023614",
+        "nombre": "GOMEZ ZAMBRANO ANDREA ELISABET",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025372",
+        "nombre": "GOMEZ ZAMBRANO EDUARDO PAOLO",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025430",
+        "nombre": "HENAO RAMIREZ SANTIAGO",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025060",
+        "nombre": "HERNANDEZ ESQUIVEL YAIKO STIVEN",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025134",
+        "nombre": "HOYOS MISAT CION PAOLA",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025480",
+        "nombre": "LORA PATERNINA MARIAJESU",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025411",
+        "nombre": "MARTINEZ LUNA JUAN SEBASTIAN",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023296",
+        "nombre": "MORELO MORENO IVAN DARIO",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023397",
+        "nombre": "MUÑOZ DURANGO DEIVID ABEL",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025356",
+        "nombre": "NISPERUZA ORTEGA ZHARICK",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023285",
+        "nombre": "PASTRANA BASILIO ANA KATERINE",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025259",
+        "nombre": "PEINADO TORRES MARIA JOSE",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023183",
+        "nombre": "PUPO FRIAS KATY YULIETH",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023207",
+        "nombre": "ROMERO NOGUERA LARRY ANDRES",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025340",
+        "nombre": "SANCHEZ PEREZ JESIEL DAVID",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023671",
+        "nombre": "VELASQUEZ MORALES MARIA ALEJANDRA",
+        "grado_id": "G-5-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025212",
+        "nombre": "ALVAREZ YANEZ MARIANGEL",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025429",
+        "nombre": "ARBOLEDA GOMEZ ISABELLA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023626",
+        "nombre": "ARGUELLO DEL TORO LUIS ENRIQUE",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025048",
+        "nombre": "AVENDAÑO PORTACIO EVELIN SOFIA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025348",
+        "nombre": "BARRETO ARROYO ISABELLA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025325",
+        "nombre": "CAMPO DORIA JOSE ANGEL",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022327",
+        "nombre": "CANTILLO CORREA DAYANIS PAOLA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022326",
+        "nombre": "CANTILLO CORREA PAULA ANDREA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025455",
+        "nombre": "COGOLLO LOPEZ PAULA ANDREA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021173",
+        "nombre": "CONTRERAS HOYOS NARED DAVID",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023539",
+        "nombre": "CONTRERAS IBAÑEZ ORIANA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021199",
+        "nombre": "CORDERO ALVAREZ MILAN ANDRES",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025387",
+        "nombre": "DIAZ GARAVITO JAVIER EMILIO",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025037",
+        "nombre": "FUENTES VELASQUEZ CAMILO ANDRES",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025306",
+        "nombre": "GARCIA IBAÑEZ EVER DAVID",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023583",
+        "nombre": "GOMEZ FLOREZ ORFELINA PATRICIA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025467",
+        "nombre": "HERRERA ALVAREZ AMELIA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025010",
+        "nombre": "HOYOS TORRES ISAIAS ELIAS",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025408",
+        "nombre": "LIZCANO SOLANO SAMUEL",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025075",
+        "nombre": "MEDINA ROMERO JOSE DANIEL",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021232",
+        "nombre": "MEZA PORTACIO LUIS ALFREDO",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021235",
+        "nombre": "NAZOA INFANTE SANTIAGO RAFAEL",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025299",
+        "nombre": "OJEDA PEREZ CHARLIE",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021239",
+        "nombre": "PIÑA GIMENEZ YONEIBHER ANTONIO",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023281",
+        "nombre": "RICARDO MARTINEZ SANTIAGO ANDRES",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022041",
+        "nombre": "SANCHEZ MOLINA LUCIANA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025148",
+        "nombre": "SOTELO GONZALEZ SARA SOFIA",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025431",
+        "nombre": "VARGAS TRUYOL DANIEL",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023021",
+        "nombre": "VELASQUEZ CUADRADO JORGE MARIO",
+        "grado_id": "G-6-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025194",
+        "nombre": "ALEAN HERNANDEZ SNEIDER JESUS",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023212",
+        "nombre": "ALMANZA MARTINEZ LUIS SANTIAGO",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023305",
+        "nombre": "ALVINO SEQUERA MARIANGEL CAROLINA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025271",
+        "nombre": "ARRIETA BADER SHAIRA SOFIA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025020",
+        "nombre": "ARRIETA DE LA ROSA SHAIRA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023680",
+        "nombre": "AVILEZ MERCADO EMMANUEL",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023494",
+        "nombre": "BENITEZ VERONA YINA YULIETH",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023563",
+        "nombre": "BRUNAL CUELLO LUIS JOSE",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025303",
+        "nombre": "CHICA MENDEZ STIVEN DAVID",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021224",
+        "nombre": "GALVIS HERNANDEZ CLARIBEL NATALIA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025201",
+        "nombre": "GARCES CUADRADO ALEXANDER GABRIEL",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023331",
+        "nombre": "GAVIRIA PACHECO CAMILO ANDRES",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023329",
+        "nombre": "GAVIRIA PACHECO CRISTIAN DAVID",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022258",
+        "nombre": "GONZALEZ GARCIA XAVIER DAVID",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025407",
+        "nombre": "HERRERA SANCHEZ CARLIS YULIETH",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025419",
+        "nombre": "HOYOS MORA JUAN ESTEBAN",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025360",
+        "nombre": "IGUARAN GARCIA HERIBEB DE LOS ANGELES",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023712",
+        "nombre": "ISTURIZ MORALES JOSSTYN JOSE",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025397",
+        "nombre": "MACIAS GARCIA YEIMI",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025396",
+        "nombre": "MACIAS GARCIA YULIS PAOLA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023437",
+        "nombre": "MARTINEZ DORADO LUIS FELIPE",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023586",
+        "nombre": "MONTIEL COHEZ CHEIRO JOSE",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025333",
+        "nombre": "NEGRETE SAENZ KELLERY SOFIA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023554",
+        "nombre": "PADILLA LOPEZ ANDERSON",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023423",
+        "nombre": "PEREZ URANGO JESÚS ALEJANDRO",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023696",
+        "nombre": "PEÑATA ORDOÑEZ ANGELA MARIA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025222",
+        "nombre": "QUINTANA PADILLA SARA BRIYITH",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025162",
+        "nombre": "RAMOS MORENO ALIS YOHANA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023588",
+        "nombre": "RUIZ SANCHEZ SEBASTIAN",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023321",
+        "nombre": "SOLERA VELLOJIN MELISA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025193",
+        "nombre": "SUAREZ PAREJO DELKA BEATRIZ",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023550",
+        "nombre": "TORRES MARIN DANIELA ANDREA",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023714",
+        "nombre": "VANEGAS MORELO NEYRIS MICHELTH",
+        "grado_id": "G-6-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025179",
+        "nombre": "ARBOLEDA GOMEZ EDWIN",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021170",
+        "nombre": "ARCIA PACHECO YEIKA KAROLAYTH",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025176",
+        "nombre": "ARTEAGA PADILLA DONARIS",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025468",
+        "nombre": "BELTRAN LOPEZ XIMENA ANDREA",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025370",
+        "nombre": "CUERO ARCIA MELANY SARAY",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023675",
+        "nombre": "DIAZ QUINTANA CRISTIAN DAVID",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025125",
+        "nombre": "FABRA URANGO DANNA PAOLA",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022378",
+        "nombre": "GONZALEZ BRAVO ALBERTO JESUS",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023689",
+        "nombre": "GONZALEZ GONZALEZ JOELIHANNIS JUMBRANIS",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023535",
+        "nombre": "HERNANDEZ MARTINEZ DIMERSON ELIAS",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025368",
+        "nombre": "HUMANEZ FLOREZ LUIS DAVID",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022073",
+        "nombre": "JIMENEZ PASTRANA ERIK MANUEL",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025264",
+        "nombre": "LOPEZ COGOLLO NEYMAR ANDRES",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023692",
+        "nombre": "MESTRA PATERNINA JESUS MANUEL",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025459",
+        "nombre": "NIÑO ARCIA DARA ALEXANDRA",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025121",
+        "nombre": "PADILLA ESTRADA TATIANA ISABEL",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025141",
+        "nombre": "REGINO ESTRADA KATYA ELENA",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025346",
+        "nombre": "RODRIGUEZ HURTADO ALEXANDER DAVID",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023638",
+        "nombre": "ROJAS CALDERON JUAN ESTEBAN",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025350",
+        "nombre": "SANDOVAL LLORENTE OSCAR IVAN",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025283",
+        "nombre": "SIBAJA SEGURA LUZ ADRIANA",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025291",
+        "nombre": "SIERRA DURANGO DANILUZ",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023158",
+        "nombre": "TRUJILLO ARRIETA CARLA YURLEI",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023618",
+        "nombre": "VELASQUEZ MORALES YULIETH PAOLA",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025282",
+        "nombre": "VIDAL MUÑOZ KAMILO ARTURO",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023607",
+        "nombre": "ZABALA BARRAZA MALENA",
+        "grado_id": "G-6-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025373",
+        "nombre": "ALVAREZ JULIO LUIS GABRIEL",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023536",
+        "nombre": "BARRERA BARRERA JOSE MIGUEL",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025047",
+        "nombre": "BELTRAN LUNA NATALY",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025080",
+        "nombre": "BUSTAMANTE MARQUEZ IVAN ANDRES",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021219",
+        "nombre": "CARDENAS NEGRETE LAURA SOFIA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025477",
+        "nombre": "CAUSIL CARABALLO MICHELLE ANDREA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022222",
+        "nombre": "CORDERO MORALES MARIANA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023662",
+        "nombre": "DIAZ HERNANDEZ KENIA JOHANA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022276",
+        "nombre": "FERRARI PEREIRA LAUREN DAYANA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021223",
+        "nombre": "FUENTES MURILLO MARCOS JULIO",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025402",
+        "nombre": "GALVAN OVIEDO SALOME",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021225",
+        "nombre": "GARCIA COGOLLO JUAN FELIPE",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021178",
+        "nombre": "INFANTE NEIRE MERVIN JOSE",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021181",
+        "nombre": "LAGUNA OZUNA MARIANGEL",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025461",
+        "nombre": "LICONA VASQUEZ MARIA JOSE",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022007",
+        "nombre": "LOPERA GIL SHARITH DAYANA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021230",
+        "nombre": "MENDOZA BERRIO EZEQUIEL ANTONIO",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022440",
+        "nombre": "MERCADO MIRANDA ROMAN JOSE",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023278",
+        "nombre": "MONTIEL PIRELA ANGEL FABIAN",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023160",
+        "nombre": "MORALES PAEZ ISABEL CRISTINA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021236",
+        "nombre": "NEGRETE ALVAREZ ANUAR JUNIOR",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025053",
+        "nombre": "NORATTO HERNANDEZ THALIANA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022491",
+        "nombre": "OSSA PADILLA SARA VALENTINA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025021",
+        "nombre": "PEÑA SAEZ SEBASTIAN",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023004",
+        "nombre": "ROJAS SUAREZ JOHAN STIVEN",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023705",
+        "nombre": "SANCHEZ WILCHEZ CARLA JHOVANA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025318",
+        "nombre": "SENA JIMENEZ BELEN SOFIA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025177",
+        "nombre": "VASQUEZ NARANJO MATIAS ELIAS",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021241",
+        "nombre": "VELASQUEZ AGAMEZ KARLA ALEXANDRA",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021243",
+        "nombre": "VILLALBA RANGEL KIMBERLY",
+        "grado_id": "G-7-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025374",
+        "nombre": "AGAMEZ GARCES JUAN ANDRES",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023556",
+        "nombre": "ALEAN VERGARA JEAN CARLOS",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023390",
+        "nombre": "BENAVIDES CARVAJAL ISAELYS",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023410",
+        "nombre": "CLEMEN LOPEZ SANTIAGO",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025302",
+        "nombre": "DE HOYOS AVILA SAMUEL",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025472",
+        "nombre": "ECHAVARRIA CARDONA EMANUEL",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025232",
+        "nombre": "ESPAÑA PASTRANA VIANNEY SOFIA",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023619",
+        "nombre": "FERNANDEZ MEJIA JEAN PAUL",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023409",
+        "nombre": "FUENTES MURILLO NICOLLE VANESSA",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023424",
+        "nombre": "GARCES RAMOS MATIAS",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025463",
+        "nombre": "LOPEZ BARRERA ANDRES FELIPE",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025367",
+        "nombre": "LOPEZ HERNANDEZ JHOAN ALEXANDER",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023413",
+        "nombre": "MEJIA QUIMBAYA ALEJANDRA",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023234",
+        "nombre": "MURLACO TAPIA ELIAS",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023233",
+        "nombre": "MURLACO TAPIA NATALIA YULIETH",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025342",
+        "nombre": "PAEZ CORREA MICHEL SOFIA",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023161",
+        "nombre": "PAREDES RUIZ SAMUEL DAVID",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023458",
+        "nombre": "PEREZ MEZA DANA SOFIA",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023455",
+        "nombre": "PETRO ANAYA GREYS SOFIA",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022215",
+        "nombre": "PEÑA GONZALEZ YOHENDRY DAVID",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023335",
+        "nombre": "PINEDA DIAZ CAMILO ANDRES",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023122",
+        "nombre": "RAMIREZ CAUSIL DERICK DANIEL",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025068",
+        "nombre": "SANCHEZ ORTIZ ALVIERI",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025390",
+        "nombre": "SIBAJA VELASQUEZ DALY DAYANA",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025006",
+        "nombre": "VILCHEZ CEÑA SEBASTIAN DAVID",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021193",
+        "nombre": "WILCHES MEJIA LUIS MIGUEL",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023454",
+        "nombre": "ZUÑIGA URANGO ESTYVEN YESITH",
+        "grado_id": "G-7-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025244",
+        "nombre": "ALARCON MAZA GABRIEL JAIME",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025280",
+        "nombre": "ALVAREZ HERNANDEZ MARTIN",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022149",
+        "nombre": "ANDRADE ANDRADE JOSTIN JOSE",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025166",
+        "nombre": "BANDA ESPITIA JUAN PABLO",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025286",
+        "nombre": "BAO SOTO YULIANA MATILDE",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025207",
+        "nombre": "CARVAJAL AGAMEZ CRISTIAN",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025278",
+        "nombre": "DIAZ PINTA LUNA MICHEL",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021882",
+        "nombre": "DIAZ SOTO JUAN DAVID",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023312",
+        "nombre": "DONADO BOLAÑOS MARLEY SOFIA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025221",
+        "nombre": "ENSUNCHO PEÑATA EINER ADRIAN",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025270",
+        "nombre": "ESCOBAR USTA MANUEL SALIM",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022259",
+        "nombre": "FERNANDEZ GARCIA ESNEIKER MANUEL",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023288",
+        "nombre": "FLORES LONGA MEUDGELIS ANYELIS",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025335",
+        "nombre": "GALINDO CACERES STIT LEONARDO",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023613",
+        "nombre": "GOMEZ ZAMBRANO HADASA PAOLA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025292",
+        "nombre": "HERNANDEZ AVILEZ YERLIS JOHANA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025469",
+        "nombre": "HOYOS PACHECO YULIANA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023551",
+        "nombre": "MARTINEZ ROLDAN LEIDY SOFIA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025444",
+        "nombre": "MEDRANO ALVAREZ ENADIS MARGARITA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025284",
+        "nombre": "MEJIA RODRIOGUEZ SARAY ANDREA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023310",
+        "nombre": "MURILLO ALTAMIRANDA SARA ESTHER",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025273",
+        "nombre": "NAVARRO MARTINEZ DULCE MARIA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023664",
+        "nombre": "PADILLA LOPEZ KEYLA SOFIA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022272",
+        "nombre": "PALMAR PIRELA NEIRO JESUS",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022221",
+        "nombre": "PINO VERTEL JHON NEIL",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025209",
+        "nombre": "SUAREZ SUAREZ ANYI PAOLA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025173",
+        "nombre": "TAMARA TUIRAN SARA LUCIA",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022367",
+        "nombre": "VILLARREAL PEREZ JAMER JAVIER",
+        "grado_id": "G-7-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025088",
+        "nombre": "AGUIRRE TORDECILLA LORAINIS LORENA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021286",
+        "nombre": "ARTEAGA ALTAMIRANDA LEYBER ANDRES",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021269",
+        "nombre": "CARRASCAL DIAZ LUISA FERNANDA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025101",
+        "nombre": "CASTILLO GUEVARA CRISTIAN DAVID",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025426",
+        "nombre": "CHARRIS ALTAMIRANDA KENIA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023417",
+        "nombre": "CONTRERAS MADERA MATHIAS JOSE",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022104",
+        "nombre": "CRUZ MADERA ISAAC DAVID",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021176",
+        "nombre": "GALVIS BARBA SARIANA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022184",
+        "nombre": "GOMEZ HERNANDEZ DUVER ANDRES",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025130",
+        "nombre": "HERNANDEZ ESQUIVEL EMANUEL ENRIQUE",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023658",
+        "nombre": "HERRERA SANTANA SANTIAGO",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025120",
+        "nombre": "JARABA HERRERA SARA SOFIA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025119",
+        "nombre": "JARABA HERRERA STEFANIA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021182",
+        "nombre": "LAMBRAÑO LEON JUAN DAVID",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021298",
+        "nombre": "LLANOS GOMEZ MARIA VICTORIA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025361",
+        "nombre": "LOARTE REYES MARIANA ALEJANDRA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023136",
+        "nombre": "MEDINA RODRIGUEZ CRISTIAN JOSE",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023180",
+        "nombre": "MESA BRAVO ESTEBAN ANDRES",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023201",
+        "nombre": "MESTRA SOTO LUIS ANGEL",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022002",
+        "nombre": "MESTRE MEDINA JUAN PABLO",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023617",
+        "nombre": "PACHECO HERNANDEZ SEBASTIAN",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021259",
+        "nombre": "PALACIOS INFANTE JEANELIS RAXYBEL",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021666",
+        "nombre": "PALACIOS INFANTE REINNEL JOSE",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025240",
+        "nombre": "PAZ BENITEZ SAMANTHA ROSE",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022220",
+        "nombre": "PITALUA DORIA DANIEL",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021261",
+        "nombre": "RAMOS OROZCO BRAYAN",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023024",
+        "nombre": "SANDOVAL PASTRANA TALIANA PAOLA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021263",
+        "nombre": "SARIEGO BASA CHARITH ANDREA",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021264",
+        "nombre": "SEGURA CARRASCAL MARIA JOSE",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021282",
+        "nombre": "SOLERA RECUERO SEBASTIAN ANDRES",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021266",
+        "nombre": "ZAPATA GOMEZ LIZETH",
+        "grado_id": "G-8-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025456",
+        "nombre": "AGUDELO ARANGO BRAYAN DAVID",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025197",
+        "nombre": "ALMONTI DELGADO MARIA DEL CARMEN",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021214",
+        "nombre": "ARGUMEDO ARGUMEDO BLANCA MARGARITA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021245",
+        "nombre": "ARRIETA SAENZ LAUREN SOFIA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021171",
+        "nombre": "BASTIDAS RAMOS CARLOS ALBERTO",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023114",
+        "nombre": "CABRALES DIAZ ALEXANDER",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025307",
+        "nombre": "CARDENAS LUNA MARIA JOSE",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022228",
+        "nombre": "CASTILLO MORA ANDRES FELIPE",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025138",
+        "nombre": "DAZA GRANDETT YOLANDA CAROLINA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022176",
+        "nombre": "DIAZ MOLINA MARIA ANGELICA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025479",
+        "nombre": "GALARAGA ARBOLEDA GABRIELA FERNANDA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025070",
+        "nombre": "LOZANO HERRERA DAVID ESTIVEN",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025410",
+        "nombre": "LUNA FABRA ANA LUCIA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022398",
+        "nombre": "MERCADO OYOLA LUIS FELIPE",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025357",
+        "nombre": "MIRANDA CHACIN GEIFER SANTIAGO",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021183",
+        "nombre": "MURILLO ROMERO JULIO STIVEN",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025329",
+        "nombre": "NIETO VARILLA MICHAEL",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021301",
+        "nombre": "OSORNO PITALUA ROXANA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022009",
+        "nombre": "PEREZ COGOLLO NICOLAS",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025328",
+        "nombre": "PEREZ NIETO KEVIN JOSE",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022229",
+        "nombre": "PICO MOLINA JUAN DIEGO",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022308",
+        "nombre": "ROMERO DIAZ INGRID PAOLA",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022434",
+        "nombre": "TIRADO PACHECO MARIA ANGEL",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025059",
+        "nombre": "TORRES RUIZ SAMIR STEVEN",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025033",
+        "nombre": "VILORIA GONZALEZ SAMARA DAINETH",
+        "grado_id": "G-8-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025389",
+        "nombre": "ALTAMIRANDA PICO NAOMIS MICHAEL",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023425",
+        "nombre": "ARGUMEDO PEREZ SHARON HEYLIN",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023504",
+        "nombre": "BARBOSA CONTRERA JUAN PABLO",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025062",
+        "nombre": "BERROCAL RODRIGUEZ JUAN DIEGO",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025245",
+        "nombre": "CASTILLA PEDROZA RONAL JOSE",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023184",
+        "nombre": "CASTILLO COLMENARES YULISSA YIRETH",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022164",
+        "nombre": "CORREA POLO VALERIA",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025326",
+        "nombre": "ESQUIBEL MESTRA JAIDER",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023426",
+        "nombre": "GOMEZ CUADRADO WESLEY",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021255",
+        "nombre": "GUZMAN LLORENTE CHAYRA FERNANDA",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025071",
+        "nombre": "LOPEZ LOPEZ BAYOLET",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025365",
+        "nombre": "MACHACON PICO BLAS",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025364",
+        "nombre": "MAZA VILLA DEINER DE JESUS",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023179",
+        "nombre": "MESA BRAVO YEINIS LUCIA",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025322",
+        "nombre": "MIRANDA BABILONIA ESTEBAN STIVEN",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023457",
+        "nombre": "MUÑOZ DURANGO ALAN DAVID",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025313",
+        "nombre": "ORTIZ IZQUIERDO VALERIA",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025090",
+        "nombre": "OVIEDO SALAS BRAYAN DAVID",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023509",
+        "nombre": "POLO GUERRERO LUIS ENRIQUE",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025319",
+        "nombre": "SENA JIMENEZ BENJAMIN",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025276",
+        "nombre": "SIERRA DURANGO JEAN CARLOS",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025327",
+        "nombre": "TOLEDO ARGUMEDO GISSELLE YULIETH",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025092",
+        "nombre": "VELASQUEZ MARTINEZ SHADAY JOHANA",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023729",
+        "nombre": "ZAPA ROMERO LINDA VANESSA",
+        "grado_id": "G-8-03",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025475",
+        "nombre": "ALVAREZ BENEDETY KALET DAVID",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025046",
+        "nombre": "BELTRAN LUNA MATEO DAVID",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023071",
+        "nombre": "BELTRAN VILORIA JULIAN ANDRES",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025191",
+        "nombre": "BONILLA CANABAL SAMUEL ALEJANDRO",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023059",
+        "nombre": "CALI RAMOS VALERIA SOFIA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021821",
+        "nombre": "CANCHILA MARTINEZ ALEXANDER SAID",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022470",
+        "nombre": "CORDERO ALVAREZ ELKIN ALEJANDRO",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025233",
+        "nombre": "CORONADO PASTRANA VICTORIA SOFIA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021270",
+        "nombre": "DORIA AGAMEZ YOIS ANDREA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021175",
+        "nombre": "ESTRADA PADILLA LICETH PAOLA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022275",
+        "nombre": "FERRARI PEREIRA KIARA ESTHER",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022505",
+        "nombre": "FERRARI SOLA MESSI JOSE",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025417",
+        "nombre": "FLOREZ FRANCO FRANDIER",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021271",
+        "nombre": "FUENTES MURILLO ASHLY YULIANA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025369",
+        "nombre": "GALLEGO GUERRA DARY LUZ",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021294",
+        "nombre": "GOMEZ VEGA LUIS ADRIAN",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022343",
+        "nombre": "GUILLEN DUGARTE IVAMAR VICTORIA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023432",
+        "nombre": "HERNANDEZ PACHECO JOSE LUIS",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021694",
+        "nombre": "JARAMILLO LEON MOISES DAVID",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021274",
+        "nombre": "MARTINEZ ALVAREZ KELLY JOHANA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023438",
+        "nombre": "MARTINEZ DORADO ENA SOFIA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023200",
+        "nombre": "MESTRA SOTO SADI MARIA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025277",
+        "nombre": "MORALES FLOREZ SEBASTIAN ANDRES",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023102",
+        "nombre": "MORALES MARTINEZ EVA SANDRITH",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022388",
+        "nombre": "MURILLO MOSQUERA ANYELO STIVINSON",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021368",
+        "nombre": "PACHECO VELASQUEZ JHOHN IVERSON",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022417",
+        "nombre": "PADILLA QUINTERO CRISTIAN DAVID",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025246",
+        "nombre": "PATERNINA VARGAS JAIR JOSE",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021279",
+        "nombre": "PEREZ HERRERA BRITNEY",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022273",
+        "nombre": "PIRELA PALMAR SAMUEL ANDRES",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021916",
+        "nombre": "PULGARIN HERNANDEZ ANGEL ENRIQUE",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023215",
+        "nombre": "RAMIREZ CAUSIL BARACK",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022399",
+        "nombre": "RAMOS GUARIN ISABELA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025481",
+        "nombre": "RICARDO LOPEZ JESUS DANIEL",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025032",
+        "nombre": "SIERRA ARGEL NATALIA",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022034",
+        "nombre": "VARGAS PIÑA MARIANYELY ISABEL",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022069",
+        "nombre": "VILORIA GONZALEZ JAIME ANDRES",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023111",
+        "nombre": "ZUÑIGA MUÑOZ WILSON ANTONIO",
+        "grado_id": "G-9-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025174",
+        "nombre": "AGUIRRE TORDECILLA LISILORENA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025420",
+        "nombre": "ALVAREZ VILLALOBOS ANNY LORAINE",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025272",
+        "nombre": "ARGEL CORDERO ESTEBAN DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022415",
+        "nombre": "ARGUMEDO RODRIGUEZ DANIEL ESTEBAN",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025315",
+        "nombre": "ARROYO PAJARO ANGEL DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025172",
+        "nombre": "AVILEZ ASCANIO CHRISTOPHER SAMUEL",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025285",
+        "nombre": "BAO SOTO JUAN DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021288",
+        "nombre": "BLANQUICET RODRIGUEZ NAYELIS",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023216",
+        "nombre": "BUELVAS ARROYO AURA MARCELA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025314",
+        "nombre": "CANTILLO TORRES SEBASTIAN ANDRES",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021289",
+        "nombre": "CARDENAS NEGRETE YORLADIS SOFIA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025077",
+        "nombre": "CASTRO VILLALBA NAFER DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025097",
+        "nombre": "CORDERO PESTANA MILEY YISETH",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023325",
+        "nombre": "DIAZ ALVAREZ KEIDY JOHANA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023500",
+        "nombre": "ESCUDERO IBAÑEZ MARTIN ELIAS",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025261",
+        "nombre": "ESCUDERO LOPEZ JUAN DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025260",
+        "nombre": "ESCUDERO LOPEZ JULIAN ANDRES",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023120",
+        "nombre": "EXTREMOR MATOS KEYNER DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025023",
+        "nombre": "GALARCIO LOPEZ ISAAC DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025113",
+        "nombre": "GUERRA CAMPO NEVER STIVEN",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025317",
+        "nombre": "HERNANDEZ MESTRA AMELY ANDREA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023217",
+        "nombre": "LEYVA POLO DINA LUZ",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025254",
+        "nombre": "MARTINEZ RAMOS ABRAHAM ARMANDO",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023030",
+        "nombre": "MARTINEZ SANCHEZ CAMILO ANDRES",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023723",
+        "nombre": "MEDINA MEDRANO MILAGRO",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025123",
+        "nombre": "MIRANDA BABILONIA JOHAN SEBASTIAN",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025274",
+        "nombre": "NORIEGA FERIA DANNA GISSEL",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025321",
+        "nombre": "PACHECO TORRES YASSER",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021324",
+        "nombre": "PEREZ COGOLLO VICTOR MANUEL",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025190",
+        "nombre": "PIRELA PIRELA FRANKLIN JOSUE",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025160",
+        "nombre": "RIVERA OROZCO TIAGO RAUL",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2021305",
+        "nombre": "SANDON GONZALEZ JEREMI JAY Z",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025415",
+        "nombre": "SANDOVAL BARRIOS MARIA CAMILA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025421",
+        "nombre": "SIERRA ESTRADA SAMUEL DAVID",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025323",
+        "nombre": "SUAREZ VILLALBA HELEN FADELA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025267",
+        "nombre": "TAPIA DORIA ELKIN DE JESUS",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025288",
+        "nombre": "TEJADA GUZMAN FABIANA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025295",
+        "nombre": "VILLADIEGO LOPEZ LUNA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023497",
+        "nombre": "YENZ VILLALOBOS CHAYRA YULIANA",
+        "grado_id": "G-9-02",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025462",
+        "nombre": "AGUIAR MONTES YANGEL DAVID",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025443",
+        "nombre": "ALARCON GONZALEZ JUNIOR STEVEN",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025355",
+        "nombre": "ALVARADO ROMERO CESAR LUIS",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022280",
+        "nombre": "ANAYA TORRES YESENIA",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025385",
+        "nombre": "BARRAGAN SIMANCA YULIANIS MARCELA",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025379",
+        "nombre": "CANCHILA ROCA ISMAEL ARTURO",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025378",
+        "nombre": "CANCHILA ROCA ISRAEL ARTURO",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025296",
+        "nombre": "CARO DE AVILA LUISA FERNANDA",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025366",
+        "nombre": "CUESTA BADER ADRIANO",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025449",
+        "nombre": "DIAZ GOMEZ KEIDIS TATINA",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025169",
+        "nombre": "DIAZ MARTINEZ VALENTINA",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025014",
+        "nombre": "GOMEZ ROJAS NANDO YESID",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025324",
+        "nombre": "GUZMAN LLORENTE DAYAN FERNANDO",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025183",
+        "nombre": "JIMENEZ VILLALBA JHOSUA",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025470",
+        "nombre": "MORA MORALES ANTONY",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2022442",
+        "nombre": "PADILLA SUAREZ JOSE MANUEL",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025200",
+        "nombre": "PAEZ BEDOLLA JOSE LUIS",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025199",
+        "nombre": "PALOMINO RAMOS KEIDY",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025416",
+        "nombre": "PEÑA NARVAEZ DILAN JOEL",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023318",
+        "nombre": "PEÑA NARVAEZ JAVID DAVID",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2023584",
+        "nombre": "RAMIREZ PEREZ PEDRO LUIS",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025354",
+        "nombre": "RODRIGUEZ MESTRE GABRIEL ALEJANDRO",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025380",
+        "nombre": "RUIZ GUERRERO ROBERTO ANTONIO",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025393",
+        "nombre": "SANDOVAL NEIRA JEREMIAS JOSE",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025341",
+        "nombre": "SANTOS PEREZ VALERY",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      },
+      {
+        "codigo": "2025474",
+        "nombre": "TORRES PEREZ JEAN CARLOS",
+        "grado_id": "G-Aceleracion-01",
+        "created_at": "2026-08-28T15:25:12.835923+00:00"
+      }
+    ],
+    "asignaciones": [
+      {
+        "id": 1,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 2,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 3,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 4,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 5,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 6,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 7,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 8,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 9,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 10,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 11,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 12,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 13,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 14,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 15,
+        "docente_id": "DOC-01",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-Aceleracion-01"
+      },
+      {
+        "id": 16,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 17,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 18,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 19,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 20,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 21,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 22,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 23,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 24,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 25,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 26,
+        "docente_id": "DOC-02",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 27,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 28,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 29,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 30,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 31,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 32,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 33,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 34,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 35,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 36,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 37,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 38,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 39,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 40,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 41,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 42,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 43,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 44,
+        "docente_id": "DOC-03",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 45,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 46,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 47,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 48,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-1-01"
+      },
+      {
+        "id": 49,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 50,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 51,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 52,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 53,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 54,
+        "docente_id": "DOC-04",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 55,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 56,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 57,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 58,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 59,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 60,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 61,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 62,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 63,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 64,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 65,
+        "docente_id": "DOC-05",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-2-01"
+      },
+      {
+        "id": 66,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 67,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 68,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 69,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 70,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 71,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 72,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 73,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 74,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 75,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 76,
+        "docente_id": "DOC-06",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-3-01"
+      },
+      {
+        "id": 77,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 78,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 79,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 80,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 81,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 82,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 83,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 84,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 85,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 86,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 87,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 88,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 89,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 90,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 91,
+        "docente_id": "DOC-07",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-3-02"
+      },
+      {
+        "id": 92,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 93,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 94,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 95,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-01",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 96,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 97,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 98,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 99,
+        "docente_id": "DOC-08",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 100,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 101,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 102,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 103,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 104,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 105,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 106,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 107,
+        "docente_id": "DOC-09",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 108,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 109,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 110,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 111,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 112,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 113,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 114,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 115,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 116,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 117,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 118,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 119,
+        "docente_id": "DOC-10",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 120,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 121,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 122,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 123,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 124,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 125,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 126,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 127,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 128,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 129,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 130,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 131,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 132,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-4-01"
+      },
+      {
+        "id": 133,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-4-02"
+      },
+      {
+        "id": 134,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-5-01"
+      },
+      {
+        "id": 135,
+        "docente_id": "DOC-11",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-5-02"
+      },
+      {
+        "id": 136,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 137,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 138,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 139,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 140,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 141,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 142,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 143,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 144,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 145,
+        "docente_id": "DOC-12",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 146,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 147,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 148,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 149,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 150,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 151,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 152,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 153,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 154,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 155,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 156,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 157,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 158,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 159,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 160,
+        "docente_id": "DOC-13",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 161,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 162,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 163,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 164,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 165,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 166,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 167,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 168,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 169,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-19",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 170,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-19",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 171,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-20",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 172,
+        "docente_id": "DOC-14",
+        "materia_id": "ASIG-20",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 173,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 174,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 175,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 176,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 177,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 178,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 179,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 180,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 181,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 182,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 183,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 184,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 185,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 186,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 187,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 188,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 189,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 190,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 191,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 192,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 193,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 194,
+        "docente_id": "DOC-15",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 195,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 196,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 197,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 198,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 199,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 200,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 201,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 202,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 203,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 204,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 205,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 206,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 207,
+        "docente_id": "DOC-16",
+        "materia_id": "ASIG-06",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 208,
+        "docente_id": "DOC-17",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 209,
+        "docente_id": "DOC-17",
+        "materia_id": "ASIG-07",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 210,
+        "docente_id": "DOC-17",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 211,
+        "docente_id": "DOC-17",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 212,
+        "docente_id": "DOC-17",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 213,
+        "docente_id": "DOC-17",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 214,
+        "docente_id": "DOC-17",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 215,
+        "docente_id": "DOC-18",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 216,
+        "docente_id": "DOC-18",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 217,
+        "docente_id": "DOC-18",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 218,
+        "docente_id": "DOC-18",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 219,
+        "docente_id": "DOC-18",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 220,
+        "docente_id": "DOC-19",
+        "materia_id": "ASIG-21",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 221,
+        "docente_id": "DOC-19",
+        "materia_id": "ASIG-22",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 222,
+        "docente_id": "DOC-19",
+        "materia_id": "ASIG-23",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 223,
+        "docente_id": "DOC-19",
+        "materia_id": "ASIG-23",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 224,
+        "docente_id": "DOC-19",
+        "materia_id": "ASIG-23",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 225,
+        "docente_id": "DOC-19",
+        "materia_id": "ASIG-23",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 226,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 227,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 228,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 229,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 230,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 231,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 232,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 233,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 234,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 235,
+        "docente_id": "DOC-20",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 236,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 237,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 238,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-04",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 239,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 240,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-05",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 241,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 242,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 243,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-10-01"
+      },
+      {
+        "id": 244,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-11-01"
+      },
+      {
+        "id": 245,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 246,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 247,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 248,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 249,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 250,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 251,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 252,
+        "docente_id": "DOC-21",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 253,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 254,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 255,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 256,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 257,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 258,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 259,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 260,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 261,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 262,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 263,
+        "docente_id": "DOC-22",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 264,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 265,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 266,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 267,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-16",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 268,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 269,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 270,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 271,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-17",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 272,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 273,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 274,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 275,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 276,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 277,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 278,
+        "docente_id": "DOC-23",
+        "materia_id": "ASIG-18",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 279,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 280,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 281,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 282,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 283,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-02",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 284,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 285,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 286,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 287,
+        "docente_id": "DOC-24",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 288,
+        "docente_id": "DOC-25",
+        "materia_id": "ASIG-03",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 289,
+        "docente_id": "DOC-25",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 290,
+        "docente_id": "DOC-25",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 291,
+        "docente_id": "DOC-25",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 292,
+        "docente_id": "DOC-25",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 293,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 294,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 295,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 296,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 297,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 298,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 299,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 300,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 301,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 302,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 303,
+        "docente_id": "DOC-26",
+        "materia_id": "ASIG-09",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 304,
+        "docente_id": "DOC-27",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 305,
+        "docente_id": "DOC-27",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 306,
+        "docente_id": "DOC-27",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 307,
+        "docente_id": "DOC-27",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 308,
+        "docente_id": "DOC-27",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 309,
+        "docente_id": "DOC-27",
+        "materia_id": "ASIG-11",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 310,
+        "docente_id": "DOC-27",
+        "materia_id": "ASIG-23",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 311,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 312,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 313,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 314,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 315,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 316,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 317,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 318,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 319,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 320,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 321,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-12",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 322,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 323,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 324,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 325,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 326,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 327,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 328,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 329,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 330,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 331,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 332,
+        "docente_id": "DOC-28",
+        "materia_id": "ASIG-13",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 333,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-6-01"
+      },
+      {
+        "id": 334,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-6-02"
+      },
+      {
+        "id": 335,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 336,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 337,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 338,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 339,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 340,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 341,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-8-03"
+      },
+      {
+        "id": 342,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-9-01"
+      },
+      {
+        "id": 343,
+        "docente_id": "DOC-29",
+        "materia_id": "ASIG-14",
+        "grado_id": "G-9-02"
+      },
+      {
+        "id": 344,
+        "docente_id": "DOC-30",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-6-03"
+      },
+      {
+        "id": 345,
+        "docente_id": "DOC-30",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 346,
+        "docente_id": "DOC-30",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 347,
+        "docente_id": "DOC-30",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-7-03"
+      },
+      {
+        "id": 348,
+        "docente_id": "DOC-30",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 349,
+        "docente_id": "DOC-30",
+        "materia_id": "ASIG-10",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 350,
+        "docente_id": "DOC-31",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-7-01"
+      },
+      {
+        "id": 351,
+        "docente_id": "DOC-31",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-7-02"
+      },
+      {
+        "id": 352,
+        "docente_id": "DOC-31",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-8-01"
+      },
+      {
+        "id": 353,
+        "docente_id": "DOC-31",
+        "materia_id": "ASIG-08",
+        "grado_id": "G-8-02"
+      },
+      {
+        "id": 354,
+        "docente_id": "DOC-31",
+        "materia_id": "ASIG-15",
+        "grado_id": "G-8-01"
+      }
+    ],
+    "periodos": [
+      {
+        "id": "P-2026-3",
+        "nombre": "3er Periodo - 2026",
+        "ano": 2026,
+        "activo": true,
+        "created_at": "2026-08-28T15:25:12.835923+00:00",
+        "cerrado": false
+      }
+    ],
+    "preinformes": [
+      {
+        "id": "dc5063bb-890c-428f-a204-b538e53ca38d",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 274,
+        "estudiante_codigo": "2025179",
+        "en_riesgo": false,
+        "nivel_riesgo": null,
+        "dificultad_temas": null,
+        "observacion": null,
+        "created_at": "2026-08-28T16:05:46.317126+00:00",
+        "updated_at": "2026-08-28T16:09:36.577+00:00"
+      },
+      {
+        "id": "642001cf-8a21-490f-aed5-7a039c331391",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 274,
+        "estudiante_codigo": "2021170",
+        "en_riesgo": false,
+        "nivel_riesgo": null,
+        "dificultad_temas": null,
+        "observacion": null,
+        "created_at": "2026-08-28T16:05:48.410274+00:00",
+        "updated_at": "2026-08-28T16:09:37.515+00:00"
+      },
+      {
+        "id": "901358cb-cff0-4bf1-a2f1-26b1525a3165",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 344,
+        "estudiante_codigo": "2025179",
+        "en_riesgo": false,
+        "nivel_riesgo": null,
+        "dificultad_temas": null,
+        "observacion": null,
+        "created_at": "2026-08-28T16:02:02.127393+00:00",
+        "updated_at": "2026-08-28T19:36:28.784+00:00"
+      },
+      {
+        "id": "052de5c0-61e8-4e97-bc55-c20efdf2dcdd",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 344,
+        "estudiante_codigo": "2021170",
+        "en_riesgo": false,
+        "nivel_riesgo": null,
+        "dificultad_temas": null,
+        "observacion": null,
+        "created_at": "2026-08-28T18:05:50.208697+00:00",
+        "updated_at": "2026-08-28T19:36:29.895+00:00"
+      },
+      {
+        "id": "664f63ed-f9b0-447a-b774-5bc0578fe5e2",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 344,
+        "estudiante_codigo": "2025468",
+        "en_riesgo": false,
+        "nivel_riesgo": null,
+        "dificultad_temas": null,
+        "observacion": null,
+        "created_at": "2026-08-28T18:05:52.464432+00:00",
+        "updated_at": "2026-08-28T19:36:31.647+00:00"
+      },
+      {
+        "id": "6f05838f-94dd-4f5d-a666-c453ff58b5dd",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 344,
+        "estudiante_codigo": "2025125",
+        "en_riesgo": false,
+        "nivel_riesgo": null,
+        "dificultad_temas": null,
+        "observacion": null,
+        "created_at": "2026-08-28T18:05:54.979847+00:00",
+        "updated_at": "2026-08-28T19:36:33.408+00:00"
+      },
+      {
+        "id": "71d9a76a-008e-410c-840b-9142a4840813",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 313,
+        "estudiante_codigo": "2021170",
+        "en_riesgo": false,
+        "nivel_riesgo": null,
+        "dificultad_temas": null,
+        "observacion": null,
+        "created_at": "2026-08-28T18:08:58.585845+00:00",
+        "updated_at": "2026-08-28T19:36:46.212+00:00"
+      },
+      {
+        "id": "d353a7f3-0377-48e1-8aa6-1c2d00359b58",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 16,
+        "estudiante_codigo": "2025143",
+        "en_riesgo": true,
+        "nivel_riesgo": "EN RIESGO",
+        "dificultad_temas": "",
+        "observacion": "",
+        "created_at": "2026-08-31T20:12:29.698403+00:00",
+        "updated_at": "2026-08-31T20:12:29.443+00:00"
+      },
+      {
+        "id": "de7e9a22-1f38-4618-8ce4-82dd37075c1a",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 16,
+        "estudiante_codigo": "2025384",
+        "en_riesgo": true,
+        "nivel_riesgo": "EN RIESGO",
+        "dificultad_temas": "",
+        "observacion": "",
+        "created_at": "2026-09-01T11:42:40.615325+00:00",
+        "updated_at": "2026-09-01T11:42:43.112+00:00"
+      },
+      {
+        "id": "9fd5619c-d748-497d-9fda-bc746bd6d4ee",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 18,
+        "estudiante_codigo": "2025143",
+        "en_riesgo": true,
+        "nivel_riesgo": "EN RIESGO",
+        "dificultad_temas": "",
+        "observacion": "",
+        "created_at": "2026-09-01T21:59:39.051994+00:00",
+        "updated_at": "2026-09-01T21:59:38.057+00:00"
+      },
+      {
+        "id": "088ab4a5-d5e3-4f15-ae9f-8a5ea8e0cb3e",
+        "periodo_id": "P-2026-3",
+        "asignacion_id": 18,
+        "estudiante_codigo": "2025384",
+        "en_riesgo": true,
+        "nivel_riesgo": "EN RIESGO",
+        "dificultad_temas": "",
+        "observacion": "",
+        "created_at": "2026-09-01T21:59:40.228169+00:00",
+        "updated_at": "2026-09-01T21:59:39.293+00:00"
+      }
+    ]
+  }
+}

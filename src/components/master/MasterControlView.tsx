@@ -3,6 +3,7 @@ import { supabase } from '../../lib/supabase'
 import { useAuth } from '../../context/AuthContext'
 import { Docente, Estudiante, Grado, Materia, Asignacion, Periodo } from '../../types/database'
 import { generateAndDownloadTirillasPDF } from '../../utils/generateTirillasPdf'
+import { getAuditLogs, clearAuditLogs, recordAuditLog, AuditLogEntry } from '../../utils/auditLogger'
 import {
   ShieldAlert,
   GraduationCap,
@@ -30,7 +31,12 @@ import {
   HelpCircle,
   Sliders,
   CheckCheck,
-  AlertOctagon
+  AlertOctagon,
+  Smartphone,
+  Laptop,
+  Tablet,
+  ShieldCheck,
+  Filter
 } from 'lucide-react'
 
 interface MasterControlViewProps {
@@ -62,7 +68,8 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
   const [materias, setMaterias] = useState<Materia[]>([])
   const [asignaciones, setAsignaciones] = useState<Asignacion[]>([])
   const [periodos, setPeriodos] = useState<Periodo[]>([])
-  const [auditLogs, setAuditLogs] = useState<any[]>([])
+  const [academicAuditLogs, setAcademicAuditLogs] = useState<any[]>([])
+  const [forensicLogs, setForensicLogs] = useState<AuditLogEntry[]>([])
 
   // Search & Filter states
   const [teacherSearch, setTeacherSearch] = useState('')
@@ -70,6 +77,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
   const [studentSearch, setStudentSearch] = useState('')
   const [studentGradoFilter, setStudentGradoFilter] = useState('TODOS')
   const [auditSearch, setAuditSearch] = useState('')
+  const [auditCategoryFilter, setAuditCategoryFilter] = useState<'TODOS' | 'ACCESOS' | 'CALIFICACIONES' | 'SEGURIDAD'>('TODOS')
 
   // Modals & Forms
   const [showTeacherModal, setShowTeacherModal] = useState(false)
@@ -175,7 +183,10 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
       }
       if (aRes.data) setAsignaciones(aRes.data)
       if (pRes.data) setPeriodos(pRes.data)
-      if (repRes.data) setAuditLogs(repRes.data)
+      if (repRes.data) setAcademicAuditLogs(repRes.data)
+
+      // Cargar logs forenses locales / sincronizados
+      setForensicLogs(getAuditLogs())
     } catch (e) {
       console.error('Error cargando datos maestros:', e)
     } finally {
@@ -192,11 +203,13 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
   const handleInlinePasswordUpdate = async (docId: string, newPass: string) => {
     if (!newPass.trim()) return
     try {
+      const docObj = docentes.find(d => d.id === docId)
       const { error } = await supabase
         .from('docentes')
         .update({ password: newPass.trim() })
         .eq('id', docId)
       if (error) throw error
+      recordAuditLog('PASSWORD_CHANGE', docObj?.nombre || 'Docente', `Contraseña actualizada a: "${newPass.trim()}"`, 'WARNING', docObj?.rol)
       notify('Contraseña actualizada al instante.')
       loadAllMasterData()
     } catch (e: any) {
@@ -212,6 +225,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
         const newPass = generateRandomPassword()
         await supabase.from('docentes').update({ password: newPass }).eq('id', d.id)
       }
+      recordAuditLog('PASSWORD_CHANGE', 'Super Admin Master', `Regeneración masiva de contraseñas ejecutada para ${docentes.length} docentes`, 'CRITICAL', 'SUPER_ADMIN')
       notify(`Se regeneraron las contraseñas de ${docentes.length} docentes.`)
       loadAllMasterData()
     } catch (e: any) {
@@ -241,6 +255,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           .eq('id', editingTeacher.id)
 
         if (error) throw error
+        recordAuditLog('PASSWORD_CHANGE', teacherForm.nombre, `Docente "${teacherForm.nombre}" modificado (Rol: ${teacherForm.rol})`, 'INFO')
         notify(`Docente "${teacherForm.nombre}" actualizado con éxito.`)
       } else {
         const newId = `doc_${Date.now()}`
@@ -255,6 +270,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           })
 
         if (error) throw error
+        recordAuditLog('PASSWORD_CHANGE', teacherForm.nombre, `Nuevo docente creado: "${teacherForm.nombre}" (${teacherForm.usuario})`, 'SUCCESS')
         notify(`Docente "${teacherForm.nombre}" creado con éxito.`)
       }
 
@@ -272,6 +288,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     try {
       const { error } = await supabase.from('docentes').delete().eq('id', doc.id)
       if (error) throw error
+      recordAuditLog('PASSWORD_CHANGE', doc.nombre, `Docente eliminado del sistema: "${doc.nombre}"`, 'WARNING')
       notify(`Docente "${doc.nombre}" eliminado.`)
       loadAllMasterData()
     } catch (e: any) {
@@ -298,6 +315,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           .eq('codigo', editingStudent.codigo)
 
         if (error) throw error
+        recordAuditLog('STUDENT_TRANSFER', studentForm.nombre, `Estudiante ${studentForm.codigo} actualizado / trasladado`, 'INFO')
         notify(`Estudiante "${studentForm.nombre}" actualizado.`)
       } else {
         const { error } = await supabase
@@ -309,6 +327,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           })
 
         if (error) throw error
+        recordAuditLog('STUDENT_CREATE', studentForm.nombre, `Nuevo estudiante matriculado: ${studentForm.codigo} - ${studentForm.nombre}`, 'SUCCESS')
         notify(`Estudiante "${studentForm.nombre}" matriculado.`)
       }
 
@@ -358,6 +377,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     try {
       const { error } = await supabase.from('estudiantes').upsert(recordsToInsert, { onConflict: 'codigo' })
       if (error) throw error
+      recordAuditLog('STUDENT_CREATE', 'Super Admin Master', `Matrícula masiva de ${recordsToInsert.length} estudiantes procesada con éxito`, 'SUCCESS')
       notify(`Se matricularon ${recordsToInsert.length} estudiantes en lote con éxito.`)
       setShowBulkStudentModal(false)
       setBulkStudentText('')
@@ -372,6 +392,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     try {
       const { error } = await supabase.from('estudiantes').delete().eq('codigo', est.codigo)
       if (error) throw error
+      recordAuditLog('STUDENT_DELETE', est.nombre, `Estudiante ${est.codigo} - "${est.nombre}" eliminado del sistema`, 'WARNING')
       notify(`Estudiante "${est.nombre}" eliminado.`)
       loadAllMasterData()
     } catch (e: any) {
@@ -443,6 +464,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
         .eq('id', editingReport.id)
 
       if (error) throw error
+      recordAuditLog('PREINFORME_SAVE', 'Super Admin Override', `Calificación modificada manualmente para: ${editingReport.estudiante?.nombre} (${editingReport.asignacion?.materia?.nombre})`, 'WARNING')
       notify('Registro de preinforme modificado directamente.')
       setShowEditReportModal(false)
       setEditingReport(null)
@@ -463,6 +485,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
         activo: periodForm.activo
       })
       if (error) throw error
+      recordAuditLog('PERIOD_TOGGLE', 'Super Admin Master', `Nuevo periodo creado: "${periodForm.nombre}"`, 'INFO')
       notify(`Periodo "${periodForm.nombre}" creado.`)
       setShowPeriodModal(false)
       loadAllMasterData()
@@ -476,6 +499,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     try {
       await supabase.from('periodos').update({ activo: false }).neq('id', p.id)
       await supabase.from('periodos').update({ activo: true }).eq('id', p.id)
+      recordAuditLog('PERIOD_TOGGLE', 'Super Admin Master', `Periodo activo cambiado a: "${p.nombre}"`, 'WARNING')
       notify(`Periodo "${p.nombre}" activo.`)
       loadAllMasterData()
       refreshPeriod()
@@ -502,6 +526,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     a.download = `backup_instegesan_full_${new Date().toISOString().slice(0, 10)}.json`
     a.click()
     URL.revokeObjectURL(url)
+    recordAuditLog('BACKUP_DOWNLOAD', 'Super Admin Master', 'Copia de seguridad completa descargada en archivo JSON', 'INFO')
     notify('Copia de seguridad descargada en archivo JSON.')
   }
 
@@ -521,6 +546,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           if (json.estudiantes) await supabase.from('estudiantes').upsert(json.estudiantes)
           if (json.periodos) await supabase.from('periodos').upsert(json.periodos)
           if (json.asignaciones) await supabase.from('asignaciones').upsert(json.asignaciones)
+          recordAuditLog('BACKUP_RESTORE', 'Super Admin Master', 'Restauración de base de datos ejecutada desde archivo de respaldo JSON', 'CRITICAL')
           notify('Restauración completada con éxito.')
           loadAllMasterData()
         }
@@ -537,6 +563,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     if (!confirm('¿Limpiar ÚNICAMENTE los preinformes y notas de este periodo? (Conserva docentes, estudiantes y salones intactos)')) return
     try {
       await supabase.from('preinformes').delete().neq('id', 0)
+      recordAuditLog('PERIOD_TOGGLE', 'Super Admin Master', 'Notas y preinformes eliminados a cero para nuevo corte', 'CRITICAL')
       notify('Preinformes y notas del periodo eliminados a cero.')
       loadAllMasterData()
     } catch (e: any) {
@@ -564,14 +591,27 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     return matchesSearch && matchesGrado
   })
 
-  const filteredAudit = auditLogs.filter(log => {
+  // Forensic logs filter
+  const filteredForensicLogs = forensicLogs.filter(log => {
     const q = auditSearch.toLowerCase()
-    return (
-      (log.estudiante?.nombre || '').toLowerCase().includes(q) ||
-      (log.asignacion?.docente?.nombre || '').toLowerCase().includes(q) ||
-      (log.asignacion?.materia?.nombre || '').toLowerCase().includes(q) ||
-      (log.dificultad_temas || '').toLowerCase().includes(q)
-    )
+    const matchesSearch =
+      log.userName.toLowerCase().includes(q) ||
+      log.details.toLowerCase().includes(q) ||
+      log.deviceInfo.browser.toLowerCase().includes(q) ||
+      log.deviceInfo.os.toLowerCase().includes(q)
+
+    if (!matchesSearch) return false
+
+    if (auditCategoryFilter === 'ACCESOS') {
+      return log.eventType === 'LOGIN_SUCCESS' || log.eventType === 'LOGIN_FAILED' || log.eventType === 'LOGOUT'
+    }
+    if (auditCategoryFilter === 'CALIFICACIONES') {
+      return log.eventType === 'PREINFORME_SAVE'
+    }
+    if (auditCategoryFilter === 'SEGURIDAD') {
+      return log.eventType === 'PASSWORD_CHANGE' || log.eventType === 'IMPERSONATION' || log.eventType === 'PERIOD_TOGGLE'
+    }
+    return true
   })
 
   return (
@@ -593,7 +633,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Control absoluto de contraseñas, auditoría, calificaciones, matrícula masiva y base de datos
+                Control absoluto de contraseñas, auditoría forense con dispositivos, calificaciones y base de datos
               </p>
             </div>
           </div>
@@ -673,7 +713,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
             }`}
           >
             <Activity className="w-4 h-4" />
-            <span>Auditoría en Tiempo Real</span>
+            <span>Auditoría Forense ({forensicLogs.length})</span>
           </button>
 
           <button
@@ -1019,78 +1059,200 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 3. AUDITORÍA EN TIEMPO REAL */}
+        {/* 3. AUDITORÍA FORENSE COMPLETA (DISPOSITIVOS, LOGINS, NOTAS) */}
         {activeTab === 'AUDITORIA' && (
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="relative flex-1 max-w-md">
-                <Search className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
-                <input
-                  type="text"
-                  value={auditSearch}
-                  onChange={(e) => setAuditSearch(e.target.value)}
-                  placeholder="Buscar por estudiante, docente o tema de dificultad..."
-                  className="w-full pl-9 pr-3 py-2 text-xs bg-slate-900 border border-slate-700 text-slate-100 rounded-xl focus:ring-2 focus:ring-purple-500"
-                />
+              <div className="flex items-center gap-2 flex-1 max-w-xl">
+                <div className="relative flex-1">
+                  <Search className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
+                  <input
+                    type="text"
+                    value={auditSearch}
+                    onChange={(e) => setAuditSearch(e.target.value)}
+                    placeholder="Buscar por docente, dispositivo, navegador o evento..."
+                    className="w-full pl-9 pr-3 py-2 text-xs bg-slate-900 border border-slate-700 text-slate-100 rounded-xl focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+
+                <div className="flex items-center gap-1 bg-slate-900 p-1 border border-slate-700 rounded-xl text-xs">
+                  <Filter className="w-3.5 h-3.5 text-slate-400 ml-1.5" />
+                  <select
+                    value={auditCategoryFilter}
+                    onChange={(e) => setAuditCategoryFilter(e.target.value as any)}
+                    className="bg-transparent text-slate-200 text-xs py-1 px-2 focus:outline-none"
+                  >
+                    <option value="TODOS">Todos los eventos</option>
+                    <option value="ACCESOS">Inicios de Sesión (Logins)</option>
+                    <option value="CALIFICACIONES">Calificaciones</option>
+                    <option value="SEGURIDAD">Seguridad y Claves</option>
+                  </select>
+                </div>
               </div>
 
-              <button
-                onClick={loadAllMasterData}
-                className="px-3.5 py-2 bg-slate-900 hover:bg-slate-850 text-slate-200 border border-slate-700 rounded-xl text-xs font-bold transition flex items-center gap-1.5"
-              >
-                <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-                <span>Actualizar Registro en Vivo</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    if (confirm('¿Vaciar el historial de auditoría local?')) {
+                      clearAuditLogs()
+                      setForensicLogs([])
+                      notify('Historial de logs limpiado.')
+                    }
+                  }}
+                  className="px-3 py-2 bg-slate-900 hover:bg-slate-850 text-slate-400 border border-slate-800 rounded-xl text-xs font-bold transition"
+                  title="Limpiar logs antiguos"
+                >
+                  Limpiar Logs
+                </button>
+
+                <button
+                  onClick={loadAllMasterData}
+                  className="px-3.5 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md active:scale-95"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+                  <span>Actualizar Logs</span>
+                </button>
+              </div>
             </div>
 
+            {/* Resumen de Dispositivos Detectados */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-blue-950 border border-blue-800 text-blue-400">
+                  <Smartphone className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Accesos Móviles</span>
+                  <span className="text-base font-black text-slate-100">
+                    {forensicLogs.filter(l => l.deviceInfo?.deviceType === 'Móvil').length}
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-400">
+                  <Laptop className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Accesos PC / Laptop</span>
+                  <span className="text-base font-black text-slate-100">
+                    {forensicLogs.filter(l => l.deviceInfo?.deviceType === 'Computador').length}
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-purple-950 border border-purple-800 text-purple-400">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Logins Exitosos</span>
+                  <span className="text-base font-black text-emerald-400">
+                    {forensicLogs.filter(l => l.eventType === 'LOGIN_SUCCESS').length}
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-red-950 border border-red-800 text-red-400">
+                  <AlertOctagon className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Intentos Fallidos</span>
+                  <span className="text-base font-black text-red-400">
+                    {forensicLogs.filter(l => l.eventType === 'LOGIN_FAILED').length}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* TABLA PRINCIPAL DE AUDITORÍA FORENSE */}
             <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-md max-h-[600px] overflow-y-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead className="sticky top-0 bg-slate-950/95 z-10">
                   <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase text-[10px]">
                     <th className="p-3">Fecha y Hora</th>
-                    <th className="p-3">Docente Evaluador</th>
-                    <th className="p-3">Estudiante</th>
-                    <th className="p-3">Materia y Salón</th>
-                    <th className="p-3">Estado</th>
-                    <th className="p-3">Dificultad Registrada</th>
+                    <th className="p-3">Usuario / Docente</th>
+                    <th className="p-3">Dispositivo y Plataforma</th>
+                    <th className="p-3">Tipo de Evento</th>
+                    <th className="p-3">Detalle Forense de la Acción</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60">
-                  {filteredAudit.map((log: any) => (
-                    <tr key={log.id} className="hover:bg-slate-850/50 transition">
-                      <td className="p-3 font-mono text-slate-400 text-[11px] whitespace-nowrap">
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-slate-500" />
-                          <span>{log.updated_at ? new Date(log.updated_at).toLocaleString('es-CO') : 'Reciente'}</span>
-                        </div>
-                      </td>
-                      <td className="p-3 font-bold text-slate-200">
-                        {log.asignacion?.docente?.nombre || 'Docente'}
-                      </td>
-                      <td className="p-3">
-                        <span className="font-bold text-slate-100 block">{log.estudiante?.nombre || 'Estudiante'}</span>
-                        <span className="text-[10px] text-slate-500 font-mono">{log.estudiante?.codigo}</span>
-                      </td>
-                      <td className="p-3">
-                        <span className="text-slate-200 block">{log.asignacion?.materia?.nombre}</span>
-                        <span className="text-[10px] text-slate-500">Grado {log.asignacion?.grado?.nombre}</span>
-                      </td>
-                      <td className="p-3">
-                        {log.en_riesgo ? (
-                          <span className="px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-800 text-[10px] font-bold">
-                            En Riesgo
-                          </span>
-                        ) : (
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold">
-                            Normal
-                          </span>
-                        )}
-                      </td>
-                      <td className="p-3 text-slate-300 italic text-[11px] max-w-xs truncate">
-                        {log.dificultad_temas || log.observacion || 'Sin observaciones'}
+                  {filteredForensicLogs.length === 0 ? (
+                    <tr>
+                      <td colSpan={5} className="p-8 text-center text-slate-500 italic">
+                        No hay registros de auditoría que coincidan con la búsqueda. Los inicios de sesión y acciones se registrarán en tiempo real.
                       </td>
                     </tr>
-                  ))}
+                  ) : (
+                    filteredForensicLogs.map((log) => {
+                      const isMobile = log.deviceInfo?.deviceType === 'Móvil'
+                      const isTablet = log.deviceInfo?.deviceType === 'Tablet'
+
+                      return (
+                        <tr key={log.id} className="hover:bg-slate-850/50 transition">
+                          <td className="p-3 font-mono text-slate-400 text-[11px] whitespace-nowrap">
+                            <div className="flex items-center gap-1.5">
+                              <Clock className="w-3.5 h-3.5 text-slate-500" />
+                              <span>{new Date(log.timestamp).toLocaleString('es-CO')}</span>
+                            </div>
+                          </td>
+
+                          <td className="p-3">
+                            <span className="font-bold text-slate-100 block">{log.userName}</span>
+                            {log.userRole && (
+                              <span className="text-[10px] text-slate-500 font-mono">Rol: {log.userRole}</span>
+                            )}
+                          </td>
+
+                          <td className="p-3">
+                            <div className="flex items-center gap-1.5">
+                              {isMobile ? (
+                                <Smartphone className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                              ) : isTablet ? (
+                                <Tablet className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                              ) : (
+                                <Laptop className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                              )}
+                              <div>
+                                <span className="font-semibold text-slate-200 block text-[11px]">
+                                  {log.deviceInfo?.userAgentShort || 'Dispositivo'}
+                                </span>
+                                <span className="text-[10px] text-slate-500 font-mono">
+                                  {log.deviceInfo?.resolution}
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+
+                          <td className="p-3">
+                            <span
+                              className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border whitespace-nowrap ${
+                                log.eventType === 'LOGIN_SUCCESS'
+                                  ? 'bg-emerald-950 text-emerald-300 border-emerald-800'
+                                  : log.eventType === 'LOGIN_FAILED'
+                                  ? 'bg-red-950 text-red-300 border-red-800'
+                                  : log.eventType === 'IMPERSONATION'
+                                  ? 'bg-amber-950 text-amber-300 border-amber-800'
+                                  : log.eventType === 'PASSWORD_CHANGE'
+                                  ? 'bg-purple-950 text-purple-300 border-purple-800'
+                                  : log.eventType === 'PREINFORME_SAVE'
+                                  ? 'bg-blue-950 text-blue-300 border-blue-800'
+                                  : 'bg-slate-950 text-slate-300 border-slate-800'
+                              }`}
+                            >
+                              {log.eventType}
+                            </span>
+                          </td>
+
+                          <td className="p-3 text-slate-300 text-[11.5px] max-w-sm">
+                            {log.details}
+                          </td>
+                        </tr>
+                      )
+                    })
+                  )}
                 </tbody>
               </table>
             </div>
@@ -1123,7 +1285,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60">
-                  {auditLogs.map((log: any) => (
+                  {academicAuditLogs.map((log: any) => (
                     <tr key={log.id} className="hover:bg-slate-850/50 transition">
                       <td className="p-3 font-bold text-slate-100">
                         {log.estudiante?.nombre}
@@ -1481,7 +1643,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
               </div>
               <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 text-center">
                 <span className="text-slate-400 block uppercase font-bold text-[10px]">Preinformes</span>
-                <span className="text-2xl font-black text-slate-100">{auditLogs.length}</span>
+                <span className="text-2xl font-black text-slate-100">{academicAuditLogs.length}</span>
               </div>
             </div>
 
@@ -1633,6 +1795,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
         )}
       </main>
 
+      {/* MODALES */}
       {/* MODAL CREAR/EDITAR DOCENTE */}
       {showTeacherModal && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">

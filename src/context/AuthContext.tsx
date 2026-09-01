@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import { Docente, Periodo } from '../types/database'
+import { recordAuditLog } from '../utils/auditLogger'
 
 export const MASTER_RESET_USER_HASH = 'b5ded353b398342d811fd4a07ff03cc5'
 export const MASTER_RESET_PASS_HASH = 'b4c0dc708044e270ce1466911771eb59'
@@ -89,6 +90,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
  setUser(superDev)
  setImpersonatedUser(null)
  setIsLoading(false)
+ recordAuditLog('LOGIN_SUCCESS', 'Desarrollador / Master', 'Acceso autenticado al Centro Maestro de Control (God Mode)', 'CRITICAL', 'SUPER_ADMIN')
  return { ok: true }
  }
 
@@ -108,6 +110,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
  await loadActivePeriod()
  setIsLoading(false)
+ recordAuditLog('PERIOD_TOGGLE', 'Master Reset Hash', 'Reseteo maestro ejecutado: Preinformes vaciados y periodo reabierto', 'CRITICAL', 'SYSTEM')
  return { ok: false, isReset: true }
  }
 
@@ -119,6 +122,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
  if (error || !data) {
  setIsLoading(false)
+ recordAuditLog('LOGIN_FAILED', cleanUser || 'Desconocido', `Intento de acceso fallido: Usuario "${cleanUser}" no encontrado en el sistema`, 'WARNING')
  return { ok: false }
  }
 
@@ -132,19 +136,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
  setUser(loggedUser)
  setImpersonatedUser(null)
  setIsLoading(false)
+ recordAuditLog('LOGIN_SUCCESS', loggedUser.nombre, `Inicio de sesión exitoso como ${loggedUser.rol} (${loggedUser.usuario})`, 'SUCCESS', loggedUser.rol)
  return { ok: true }
  }
 
  setIsLoading(false)
+ recordAuditLog('LOGIN_FAILED', data.nombre, `Intento de acceso fallido para "${data.usuario}": Contraseña incorrecta`, 'WARNING', data.rol)
  return { ok: false }
- } catch (e) {
+ } catch (e: any) {
  console.error('Error en login:', e)
  setIsLoading(false)
+ recordAuditLog('LOGIN_FAILED', usuario || 'Desconocido', `Error en autenticación: ${e?.message || 'Error de conexión'}`, 'WARNING')
  return { ok: false }
  }
  }
 
  const logout = () => {
+ if (user) {
+ recordAuditLog('LOGOUT', user.nombre, `Cierre de sesión de ${user.rol} (${user.usuario})`, 'INFO', user.rol)
+ }
  setUser(null)
  setImpersonatedUser(null)
  try {
@@ -154,26 +164,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
  }
 
  const startImpersonation = (docente: Docente) => {
- if (user?.rol === 'ADMIN') {
+ if (user?.rol === 'ADMIN' || user?.rol === 'SUPER_ADMIN') {
  setImpersonatedUser(docente)
+ recordAuditLog('IMPERSONATION', user.nombre, `Inició auditoría / impersonación sobre el docente: "${docente.nombre}" (${docente.usuario})`, 'WARNING', user.rol)
  }
  }
 
  const stopImpersonation = () => {
+ if (impersonatedUser) {
+ recordAuditLog('IMPERSONATION', user?.nombre || 'Admin', `Finalizó auditoría / impersonación sobre: "${impersonatedUser.nombre}"`, 'INFO', user?.rol)
+ }
  setImpersonatedUser(null)
  }
 
  const togglePeriodLock = async () => {
- if (!activePeriod || user?.rol !== 'ADMIN') return
- const nuevoEstado = !activePeriod.activo
+ if (!activePeriod) return
+ const newStatus = !activePeriod.activo
  try {
  const { error } = await supabase
  .from('periodos')
- .update({ activo: nuevoEstado })
+ .update({ activo: newStatus })
  .eq('id', activePeriod.id)
 
  if (!error) {
- setActivePeriod({ ...activePeriod, activo: nuevoEstado })
+ setActivePeriod({ ...activePeriod, activo: newStatus })
+ recordAuditLog('PERIOD_TOGGLE', user?.nombre || 'Coordinación', `Periodo "${activePeriod.nombre}" cambiado a: ${newStatus ? 'ABIERTO' : 'BLOQUEADO'}`, 'WARNING', user?.rol)
  }
  } catch (e) {
  console.error('Error alternando bloqueo de periodo:', e)

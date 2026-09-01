@@ -22,6 +22,7 @@ interface AuthContextType {
   activePeriod: Periodo | null
   isLoading: boolean
   login: (usuario: string, clave: string) => Promise<LoginResult>
+  loginStudent: (codigo: string) => Promise<LoginResult>
   logout: () => void
   startImpersonation: (docente: Docente) => void
   stopImpersonation: () => void
@@ -38,8 +39,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    // Por seguridad, no se persiste la sesión en almacenamiento local.
-    // Siempre se exige ingresar usuario y contraseña.
     try {
       localStorage.removeItem('instegesans_user')
       sessionStorage.removeItem('instegesans_user')
@@ -54,7 +53,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         user.nombre,
         user.rol,
         user.usuario,
-        user.rol === 'SUPER_ADMIN' ? 'En Panel Maestro (God Mode)' : user.rol === 'ADMIN' ? 'En Panel Coordinación' : 'En Calificador de Notas',
+        user.rol === 'SUPER_ADMIN'
+          ? 'En Panel Maestro (God Mode)'
+          : user.rol === 'ADMIN'
+          ? 'En Panel Coordinación'
+          : user.rol === 'ESTUDIANTE'
+          ? 'Consultando Preinforme Estudiantil'
+          : 'En Calificador de Notas',
         () => logout()
       )
     } else {
@@ -74,7 +79,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (!error && data) {
         setActivePeriod(data)
       } else {
-        // Periodo por defecto
         setActivePeriod({
           id: 'P-2026-3',
           nombre: '3er Periodo - 2026',
@@ -95,7 +99,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const cleanUser = usuario.trim()
       const cleanPass = clave.trim()
 
-      // Comprobación de Credenciales de Desarrollador / Pantalla Maestra (Super Admin)
+      // Comprobación de Super Admin (God Mode)
       if (cleanUser === MASTER_SUPER_ADMIN_USER && cleanPass === MASTER_SUPER_ADMIN_PASS) {
         const superDev: Docente = {
           id: 'super_admin_dev',
@@ -111,15 +115,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return { ok: true }
       }
 
-      // Comprobación de Hashes Maestros para Reseteo Seguro
+      // Comprobación de Hashes de Reseteo Seguro
       if (cleanUser.toLowerCase() === MASTER_RESET_USER_HASH.toLowerCase() && cleanPass === MASTER_RESET_PASS_HASH) {
-        // Eliminar todos los registros transaccionales (preinformes, dificultades y alertas)
         await supabase
           .from('preinformes')
           .delete()
           .neq('id', 0)
 
-        // Reactivar periodos a estado inicial abierto
         await supabase
           .from('periodos')
           .update({ activo: true })
@@ -165,6 +167,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error('Error en login:', e)
       setIsLoading(false)
       recordAuditLog('LOGIN_FAILED', usuario || 'Desconocido', `Error en autenticación: ${e?.message || 'Error de conexión'}`, 'WARNING')
+      return { ok: false }
+    }
+  }
+
+  const loginStudent = async (codigo: string): Promise<LoginResult> => {
+    setIsLoading(true)
+    try {
+      const cleanCode = codigo.trim().toUpperCase()
+      if (!cleanCode) {
+        setIsLoading(false)
+        return { ok: false }
+      }
+
+      const { data, error } = await supabase
+        .from('estudiantes')
+        .select('codigo, nombre, grado_id')
+        .ilike('codigo', cleanCode)
+        .single()
+
+      if (error || !data) {
+        setIsLoading(false)
+        recordAuditLog('LOGIN_FAILED', cleanCode, `Consulta fallida de estudiante: Código "${cleanCode}" no encontrado`, 'WARNING', 'ESTUDIANTE')
+        return { ok: false }
+      }
+
+      const studentUser: Docente = {
+        id: data.codigo,
+        nombre: data.nombre,
+        usuario: data.codigo,
+        rol: 'ESTUDIANTE'
+      }
+
+      clearKilledUser(studentUser.id, studentUser.usuario)
+      setUser(studentUser)
+      setImpersonatedUser(null)
+      setIsLoading(false)
+      recordAuditLog('LOGIN_SUCCESS', studentUser.nombre, `Estudiante o acudiente consultó su preinforme (${studentUser.usuario})`, 'INFO', 'ESTUDIANTE')
+      return { ok: true }
+    } catch (e: any) {
+      console.error('Error en login estudiante:', e)
+      setIsLoading(false)
       return { ok: false }
     }
   }
@@ -229,6 +272,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         activePeriod,
         isLoading,
         login,
+        loginStudent,
         logout,
         startImpersonation,
         stopImpersonation,

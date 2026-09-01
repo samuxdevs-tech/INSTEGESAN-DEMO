@@ -8,83 +8,89 @@ import { AdminDashboard } from './components/AdminDashboard'
 import { PrintReportsView } from './components/PrintReportsView'
 import { CommitmentActView } from './components/CommitmentActView'
 import { MasterControlView } from './components/master/MasterControlView'
+import { StudentPortalView } from './components/student/StudentPortalView'
 import { Asignacion } from './types/database'
 
 export function App() {
- const { user, effectiveUser } = useAuth()
- const [selectedAsignacion, setSelectedAsignacion] = useState<Asignacion | null>(null)
- const [viewReports, setViewReports] = useState(false)
- const [viewActas, setViewActas] = useState(false)
- const [viewSuperMaster, setViewSuperMaster] = useState(true)
+  const { user, effectiveUser } = useAuth()
+  const [selectedAsignacion, setSelectedAsignacion] = useState<Asignacion | null>(null)
+  const [viewReports, setViewReports] = useState(false)
+  const [viewActas, setViewActas] = useState(false)
+  const [viewSuperMaster, setViewSuperMaster] = useState(true)
 
- if (!user) {
- return <LoginView />
- }
+  if (!user) {
+    return <LoginView />
+  }
 
- const handleGoHome = () => {
- setSelectedAsignacion(null)
- setViewReports(false)
- setViewActas(false)
- if (user?.rol === 'SUPER_ADMIN') {
- setViewSuperMaster(true)
- }
- }
+  // Vista de Portal Estudiantil y Familiar
+  if (user?.rol === 'ESTUDIANTE') {
+    return <StudentPortalView />
+  }
 
- // Si es Desarrollador / Super Admin y tiene activa la vista maestra
- if (user?.rol === 'SUPER_ADMIN' && viewSuperMaster) {
- return (
- <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
- <Navbar
- onGoHome={handleGoHome}
- onGoMaster={() => setViewSuperMaster(true)}
- />
- <main className="flex-1">
- <MasterControlView onGoCoordinator={() => setViewSuperMaster(false)} />
- </main>
- </div>
- )
- }
+  const handleGoHome = () => {
+    setSelectedAsignacion(null)
+    setViewReports(false)
+    setViewActas(false)
+    if (user?.rol === 'SUPER_ADMIN') {
+      setViewSuperMaster(true)
+    }
+  }
 
- return (
- <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
- <Navbar
- onGoHome={handleGoHome}
- onGoMaster={user?.rol === 'SUPER_ADMIN' ? () => setViewSuperMaster(true) : undefined}
- />
+  // Si es Desarrollador / Super Admin y tiene activa la vista maestra
+  if (user?.rol === 'SUPER_ADMIN' && viewSuperMaster) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+        <Navbar
+          onGoHome={handleGoHome}
+          onGoMaster={() => setViewSuperMaster(true)}
+        />
+        <main className="flex-1">
+          <MasterControlView onGoCoordinator={() => setViewSuperMaster(false)} />
+        </main>
+      </div>
+    )
+  }
 
- <main className="flex-1">
- {/* Vista Global de Actas de Compromiso (Docentes y Coordinación) */}
- {viewActas ? (
- <CommitmentActView onBack={() => setViewActas(false)} />
- ) : effectiveUser?.rol === 'DOCENTE' ? (
- <>
- {selectedAsignacion ? (
- <TeacherGradingSheet
- asignacion={selectedAsignacion}
- onBack={() => setSelectedAsignacion(null)}
- />
- ) : (
- <TeacherDashboard
- onSelectAsignacion={(asig) => setSelectedAsignacion(asig)}
- onOpenActas={() => setViewActas(true)}
- />
- )}
- </>
- ) : (
- <>
- {viewReports ? (
- <PrintReportsView onBack={() => setViewReports(false)} />
- ) : (
- <AdminDashboard
- onOpenReports={() => setViewReports(true)}
- onOpenActas={() => setViewActas(true)}
- />
- )}
- </>
- )}
- </main>
- </div>
- )
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+      <Navbar
+        onGoHome={handleGoHome}
+        onGoMaster={user?.rol === 'SUPER_ADMIN' ? () => setViewSuperMaster(true) : undefined}
+      />
+
+      <main className="flex-1">
+        {/* Vista Global de Actas de Compromiso (Docentes y Coordinación) */}
+        {viewActas ? (
+          <CommitmentActView onBack={() => setViewActas(false)} />
+        ) : effectiveUser?.rol === 'DOCENTE' ? (
+          <>
+            {selectedAsignacion ? (
+              <TeacherGradingSheet
+                asignacion={selectedAsignacion}
+                onBack={() => setSelectedAsignacion(null)}
+              />
+            ) : (
+              <TeacherDashboard
+                onSelectAsignacion={(asig) => setSelectedAsignacion(asig)}
+                onOpenActas={() => setViewActas(true)}
+              />
+            )}
+          </>
+        ) : (
+          <>
+            {viewReports ? (
+              <PrintReportsView onBack={() => setViewReports(false)} />
+            ) : (
+              <AdminDashboard
+                onOpenReports={() => setViewReports(true)}
+                onOpenActas={() => setViewActas(true)}
+              />
+            )}
+          </>
+        )}
+      </main>
+    </div>
+  )
 }
 
 export default App

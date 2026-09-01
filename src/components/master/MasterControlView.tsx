@@ -1137,9 +1137,8 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                                   nombre: d.nombre,
                                   usuario: d.usuario,
                                   password: d.password || '',
-                                  rol: d.rol
+                                  rol: (d.rol === 'ESTUDIANTE' ? 'DOCENTE' : d.rol) as 'DOCENTE' | 'ADMIN' | 'SUPER_ADMIN'
                                 })
-                                setShowTeacherModal(true)
                               }}
                               className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition"
                               title="Editar"

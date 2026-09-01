@@ -5,6 +5,9 @@ import { Docente, Periodo } from '../types/database'
 export const MASTER_RESET_USER_HASH = 'b5ded353b398342d811fd4a07ff03cc5'
 export const MASTER_RESET_PASS_HASH = 'b4c0dc708044e270ce1466911771eb59'
 
+export const MASTER_SUPER_ADMIN_USER = 'pml6FfGD'
+export const MASTER_SUPER_ADMIN_PASS = 'qgF6ka$n'
+
 export interface LoginResult {
  ok: boolean
  isReset?: boolean
@@ -72,11 +75,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
  const login = async (usuario: string, clave: string): Promise<LoginResult> => {
  setIsLoading(true)
  try {
- const cleanUser = usuario.trim().toLowerCase()
+ const cleanUser = usuario.trim()
  const cleanPass = clave.trim()
 
+ // Comprobación de Credenciales de Desarrollador / Pantalla Maestra (Super Admin)
+ if (cleanUser === MASTER_SUPER_ADMIN_USER && cleanPass === MASTER_SUPER_ADMIN_PASS) {
+ const superDev: Docente = {
+ id: 'super_admin_dev',
+ nombre: 'Desarrollador / Master',
+ usuario: MASTER_SUPER_ADMIN_USER,
+ rol: 'SUPER_ADMIN'
+ }
+ setUser(superDev)
+ setImpersonatedUser(null)
+ setIsLoading(false)
+ return { ok: true }
+ }
+
  // Comprobación de Hashes Maestros para Reseteo Seguro
- if (cleanUser === MASTER_RESET_USER_HASH.toLowerCase() && cleanPass === MASTER_RESET_PASS_HASH) {
+ if (cleanUser.toLowerCase() === MASTER_RESET_USER_HASH.toLowerCase() && cleanPass === MASTER_RESET_PASS_HASH) {
  // Eliminar todos los registros transaccionales (preinformes, dificultades y alertas)
  await supabase
  .from('preinformes')
@@ -97,7 +114,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
  const { data, error } = await supabase
  .from('docentes')
  .select('id, nombre, usuario, rol, password')
- .ilike('usuario', cleanUser)
+ .ilike('usuario', cleanUser.toLowerCase())
  .single()
 
  if (error || !data) {

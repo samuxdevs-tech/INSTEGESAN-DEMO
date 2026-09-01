@@ -29,7 +29,7 @@ export interface Docente {
  nombre: string
  usuario: string
  password?: string
- rol: 'DOCENTE' | 'ADMIN'
+ rol: 'DOCENTE' | 'ADMIN' | 'SUPER_ADMIN'
 }
 
 export interface Estudiante {

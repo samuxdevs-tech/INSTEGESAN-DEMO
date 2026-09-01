@@ -7,6 +7,7 @@ import { TeacherGradingSheet } from './components/TeacherGradingSheet'
 import { AdminDashboard } from './components/AdminDashboard'
 import { PrintReportsView } from './components/PrintReportsView'
 import { CommitmentActView } from './components/CommitmentActView'
+import { MasterControlView } from './components/master/MasterControlView'
 import { Asignacion } from './types/database'
 
 export function App() {
@@ -14,6 +15,7 @@ export function App() {
  const [selectedAsignacion, setSelectedAsignacion] = useState<Asignacion | null>(null)
  const [viewReports, setViewReports] = useState(false)
  const [viewActas, setViewActas] = useState(false)
+ const [viewSuperMaster, setViewSuperMaster] = useState(true)
 
  if (!user) {
  return <LoginView />
@@ -23,11 +25,32 @@ export function App() {
  setSelectedAsignacion(null)
  setViewReports(false)
  setViewActas(false)
+ if (user?.rol === 'SUPER_ADMIN') {
+ setViewSuperMaster(true)
+ }
+ }
+
+ // Si es Desarrollador / Super Admin y tiene activa la vista maestra
+ if (user?.rol === 'SUPER_ADMIN' && viewSuperMaster) {
+ return (
+ <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+ <Navbar
+ onGoHome={handleGoHome}
+ onGoMaster={() => setViewSuperMaster(true)}
+ />
+ <main className="flex-1">
+ <MasterControlView onGoCoordinator={() => setViewSuperMaster(false)} />
+ </main>
+ </div>
+ )
  }
 
  return (
  <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
- <Navbar onGoHome={handleGoHome} />
+ <Navbar
+ onGoHome={handleGoHome}
+ onGoMaster={user?.rol === 'SUPER_ADMIN' ? () => setViewSuperMaster(true) : undefined}
+ />
 
  <main className="flex-1">
  {/* Vista Global de Actas de Compromiso (Docentes y Coordinación) */}

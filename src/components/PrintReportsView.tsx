@@ -17,6 +17,17 @@ interface FlaggedRecord {
   observacion: string
 }
 
+interface GroupedStudentRow {
+  estudiante: Estudiante
+  grado: Grado
+  asignaturas: {
+    materia: string
+    docente: string
+    dificultad: string
+    observacion: string
+  }[]
+}
+
 export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) => {
   const { activePeriod } = useAuth()
   const [mode, setMode] = useState<'GRADO_BATCH' | 'DOCENTE_REPORT'>('GRADO_BATCH')
@@ -91,7 +102,6 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
           observacion: (item.observacion && item.observacion.trim()) ? item.observacion.trim() : 'Sin temas especificados'
         }))
 
-        // Ordenar alfabéticamente por nombre de estudiante
         formatted.sort((a, b) => a.estudiante.nombre.localeCompare(b.estudiante.nombre))
         setFlaggedRecords(formatted)
       } else {
@@ -153,6 +163,29 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
     }
   }
 
+  // Agrupar todas las materias por estudiante: 1 sola fila por alumno
+  const groupedStudentsMap: { [cod: string]: GroupedStudentRow } = {}
+  flaggedRecords.forEach((item) => {
+    const cod = item.estudiante.codigo
+    if (!groupedStudentsMap[cod]) {
+      groupedStudentsMap[cod] = {
+        estudiante: item.estudiante,
+        grado: item.grado,
+        asignaturas: []
+      }
+    }
+    groupedStudentsMap[cod].asignaturas.push({
+      materia: item.materia.nombre,
+      docente: item.docente.nombre,
+      dificultad: item.dificultad,
+      observacion: item.observacion
+    })
+  })
+
+  const groupedStudents: GroupedStudentRow[] = Object.values(groupedStudentsMap).sort((a, b) =>
+    a.estudiante.nombre.localeCompare(b.estudiante.nombre)
+  )
+
   const selectedGradoObj = grados.find((g) => g.id === selectedGradoId)
   const selectedDocenteObj = docentes.find((d) => d.id === selectedDocenteId)
 
@@ -165,9 +198,6 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
     month: 'long',
     year: 'numeric'
   })
-
-  // Conteo de estudiantes únicos reportados
-  const uniqueStudentsCount = new Set(flaggedRecords.map((r) => r.estudiante.codigo)).size
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
@@ -187,7 +217,7 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
                 <span>Centro de Impresión y Documentos Oficiales</span>
               </h2>
               <p className="text-xs text-slate-400">
-                Planillas institucionales de citación y notificación para control y firmas
+                Planillas institucionales consolidadas por estudiante para control y firmas
               </p>
             </div>
           </div>
@@ -195,14 +225,14 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
           <div className="flex items-center gap-3">
             <button
               onClick={handlePrint}
-              disabled={flaggedRecords.length === 0}
+              disabled={groupedStudents.length === 0}
               className="flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-bold shadow-lg transition active:scale-95 disabled:opacity-50"
             >
               <Printer className="w-5 h-5" />
               <span>
                 {mode === 'GRADO_BATCH'
-                  ? `Imprimir Planilla del Salón (${flaggedRecords.length} filas)`
-                  : `Imprimir Planilla Docente (${flaggedRecords.length} filas)`}
+                  ? `Imprimir Planilla del Salón (${groupedStudents.length} estudiantes)`
+                  : `Imprimir Planilla Docente (${groupedStudents.length} estudiantes)`}
               </span>
             </button>
           </div>
@@ -279,7 +309,7 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
         <div className="text-sm text-slate-400 mb-4">
           {loading ? (
             <span>Cargando datos para impresión...</span>
-          ) : flaggedRecords.length === 0 ? (
+          ) : groupedStudents.length === 0 ? (
             <div className="p-8 text-center bg-slate-900 rounded-2xl border border-slate-800 text-slate-400">
               No hay estudiantes reportados en riesgo para la selección actual.
             </div>
@@ -288,17 +318,17 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
               Vista previa oficial:{' '}
               <strong className="text-slate-100">
-                {flaggedRecords.length} asignaturas reportadas ({uniqueStudentsCount} estudiantes en riesgo)
+                {groupedStudents.length} estudiantes en riesgo ({flaggedRecords.length} asignaturas reportadas en total)
               </strong>
             </span>
           )}
         </div>
       </div>
 
-      {/* ÁREA DE IMPRESIÓN OFICIAL: PLANILLA EN TABLA (Estudiante | Asignatura | Firma Estudiante | Firma Docente) */}
-      {flaggedRecords.length > 0 && (
+      {/* ÁREA DE IMPRESIÓN OFICIAL: PLANILLA CON TODAS LAS MATERIAS AGRUPADAS POR ESTUDIANTE */}
+      {groupedStudents.length > 0 && (
         <div className="max-w-5xl mx-auto px-4 pb-12 print:p-0 print:m-0 print:max-w-full">
-          <div className="bg-white text-slate-950 p-8 border border-slate-300 rounded-2xl shadow-2xl print:shadow-none print:border-0 print:p-0 print:rounded-none">
+          <div className="bg-white text-slate-950 p-8 border border-slate-300 rounded-2xl shadow-2xl print:shadow-none print:border-0 print:p-0 print:rounded-none font-sans">
             {/* Encabezado Institucional Legal */}
             <div className="flex items-center gap-4 border-b-2 border-slate-950 pb-3 mb-4">
               <img
@@ -353,53 +383,65 @@ export const PrintReportsView: React.FC<PrintReportsViewProps> = ({ onBack }) =>
               La presente planilla certifica la notificación formal a los estudiantes que registran dificultades académicas y asignaturas con bajo desempeño en el corte del periodo, con el respectivo compromiso pedagógico de nivelación y acompañamiento docente en cumplimiento del SIEE y el Manual de Convivencia Institucional.
             </p>
 
-            {/* TABLA PRINCIPAL: Estudiante | Asignatura | Firma Estudiante | Firma Docente */}
+            {/* TABLA PRINCIPAL: 1 FILA POR ESTUDIANTE CON TODAS SUS ASIGNATURAS CONSOLIDADAS */}
             <table className="w-full text-left border-collapse border border-slate-950 mb-6 font-sans text-xs">
               <thead>
                 <tr className="bg-slate-100 text-slate-950 font-bold border-b border-slate-950 text-[10.5px]">
-                  <th className="border border-slate-950 p-2 w-[6%] text-center">N°</th>
-                  <th className="border border-slate-950 p-2 w-[34%]">Estudiante</th>
-                  <th className="border border-slate-950 p-2 w-[28%]">Asignatura</th>
-                  <th className="border border-slate-950 p-2 w-[16%] text-center">Firma Estudiante</th>
-                  <th className="border border-slate-950 p-2 w-[16%] text-center">Firma Docente</th>
+                  <th className="border border-slate-950 p-2 w-[5%] text-center">N°</th>
+                  <th className="border border-slate-950 p-2 w-[32%]">Estudiante</th>
+                  <th className="border border-slate-950 p-2 w-[35%]">Asignaturas en Riesgo</th>
+                  <th className="border border-slate-950 p-2 w-[14%] text-center">Firma Estudiante</th>
+                  <th className="border border-slate-950 p-2 w-[14%] text-center">Firma Docente</th>
                 </tr>
               </thead>
               <tbody className="text-[11px]">
-                {flaggedRecords.map((item, idx) => (
-                  <tr key={idx} className="border-b border-slate-400 hover:bg-slate-50">
-                    <td className="border border-slate-950 p-2 text-center font-bold text-slate-700 align-middle">
+                {groupedStudents.map((st, idx) => (
+                  <tr key={st.estudiante.codigo} className="border-b border-slate-400 hover:bg-slate-50">
+                    <td className="border border-slate-950 p-2 text-center font-bold text-slate-700 align-top">
                       {idx + 1}
                     </td>
 
-                    <td className="border border-slate-950 p-2 align-middle">
+                    <td className="border border-slate-950 p-2 align-top">
                       <p className="font-bold text-slate-950 leading-tight">
-                        {item.estudiante.nombre}
+                        {st.estudiante.nombre}
                       </p>
                       <span className="text-[9.5px] text-slate-600 font-mono">
-                        Cód: {item.estudiante.codigo}
-                        {mode === 'DOCENTE_REPORT' && ` • Grado ${item.grado.nombre}`}
+                        Cód: {st.estudiante.codigo}
+                        {mode === 'DOCENTE_REPORT' && ` • Grado ${st.grado.nombre}`}
                       </span>
                     </td>
 
-                    <td className="border border-slate-950 p-2 align-middle">
-                      <p className="font-bold text-slate-900 leading-tight">
-                        {item.materia.nombre}
-                      </p>
-                      <span className="text-[9.5px] text-slate-600">
-                        {mode === 'GRADO_BATCH'
-                          ? `Docente: ${item.docente.nombre}`
-                          : item.materia.area}
-                      </span>
+                    {/* Mismo cuadro consolidando todas las asignaturas del estudiante */}
+                    <td className="border border-slate-950 p-2 align-top">
+                      <div className="space-y-1.5">
+                        {st.asignaturas.map((asig, aIdx) => (
+                          <div
+                            key={aIdx}
+                            className="border-b border-slate-200 last:border-b-0 pb-1 last:pb-0"
+                          >
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="font-bold text-slate-900 leading-tight text-xs">
+                                • {asig.materia}
+                              </span>
+                            </div>
+                            <p className="text-[10px] text-slate-600 pl-2.5 leading-none">
+                              {mode === 'GRADO_BATCH'
+                                ? `Docente: ${asig.docente}`
+                                : `Dificultad: ${asig.dificultad}`}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </td>
 
                     <td className="border border-slate-950 p-2 align-bottom text-center">
-                      <div className="h-8 border-b border-dashed border-slate-400 flex items-end justify-center">
+                      <div className="h-10 border-b border-dashed border-slate-400 flex items-end justify-center">
                         {/* Espacio para firma física manuscrita del estudiante */}
                       </div>
                     </td>
 
                     <td className="border border-slate-950 p-2 align-bottom text-center">
-                      <div className="h-8 border-b border-dashed border-slate-400 flex items-end justify-center">
+                      <div className="h-10 border-b border-dashed border-slate-400 flex items-end justify-center">
                         {/* Espacio para firma física manuscrita del docente */}
                       </div>
                     </td>

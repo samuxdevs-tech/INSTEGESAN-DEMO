@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import { Docente, Estudiante, Grado, Materia, Asignacion, Periodo } from '../../types/database'
 import { generateAndDownloadTirillasPDF } from '../../utils/generateTirillasPdf'
 import { getAuditLogs, clearAuditLogs, recordAuditLog, AuditLogEntry } from '../../utils/auditLogger'
+import { getLiveActiveSessions, killUserSession, ActiveSession } from '../../utils/sessionTracker'
 import {
   ShieldAlert,
   GraduationCap,
@@ -36,7 +37,10 @@ import {
   Laptop,
   Tablet,
   ShieldCheck,
-  Filter
+  Filter,
+  Radio,
+  UserX,
+  Power
 } from 'lucide-react'
 
 interface MasterControlViewProps {
@@ -44,6 +48,7 @@ interface MasterControlViewProps {
 }
 
 type TabType =
+  | 'SESIONES_ACTIVAS'
   | 'DOCENTES'
   | 'ESTUDIANTES'
   | 'AUDITORIA'
@@ -57,7 +62,7 @@ type TabType =
 
 export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordinator }) => {
   const { activePeriod, refreshPeriod, startImpersonation } = useAuth()
-  const [activeTab, setActiveTab] = useState<TabType>('DOCENTES')
+  const [activeTab, setActiveTab] = useState<TabType>('SESIONES_ACTIVAS')
   const [loading, setLoading] = useState(false)
   const [notification, setNotification] = useState<string | null>(null)
 
@@ -70,8 +75,10 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
   const [periodos, setPeriodos] = useState<Periodo[]>([])
   const [academicAuditLogs, setAcademicAuditLogs] = useState<any[]>([])
   const [forensicLogs, setForensicLogs] = useState<AuditLogEntry[]>([])
+  const [liveSessions, setLiveSessions] = useState<ActiveSession[]>([])
 
   // Search & Filter states
+  const [sessionSearch, setSessionSearch] = useState('')
   const [teacherSearch, setTeacherSearch] = useState('')
   const [showPasswords, setShowPasswords] = useState(true)
   const [studentSearch, setStudentSearch] = useState('')
@@ -121,6 +128,10 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
   useEffect(() => {
     loadAllMasterData()
+    const sessionTimer = setInterval(() => {
+      setLiveSessions(getLiveActiveSessions())
+    }, 5000)
+    return () => clearInterval(sessionTimer)
   }, [])
 
   const notify = (msg: string) => {
@@ -185,13 +196,22 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
       if (pRes.data) setPeriodos(pRes.data)
       if (repRes.data) setAcademicAuditLogs(repRes.data)
 
-      // Cargar logs forenses locales / sincronizados
       setForensicLogs(getAuditLogs())
+      setLiveSessions(getLiveActiveSessions())
     } catch (e) {
       console.error('Error cargando datos maestros:', e)
     } finally {
       setLoading(false)
     }
+  }
+
+  // --- KICK / FORCED LOGOUT ---
+  const handleKickSession = (userId: string, userHandle: string, userName: string) => {
+    if (!confirm(`¿Forzar el cierre de sesión inmediato de la cuenta "${userName}" (@${userHandle})?`)) return
+    killUserSession(userId, userHandle)
+    recordAuditLog('LOGOUT', 'Super Admin Master', `Expulsión / Cierre de sesión remoto forzado para la cuenta: "${userName}" (@${userHandle})`, 'CRITICAL', 'SUPER_ADMIN')
+    notify(`Sesión de ${userName} cerrada remotamente.`)
+    setLiveSessions(getLiveActiveSessions())
   }
 
   // --- PASSWORD & DOCENTES ACTIONS ---
@@ -614,6 +634,29 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     return true
   })
 
+  // Group accounts with their live session state
+  const accountsWithSessionStatus = docentes.map(doc => {
+    const sessionMatch = liveSessions.find(s => s.userId === doc.id || s.userHandle === doc.usuario)
+    const isOnline = !!sessionMatch?.isOnline
+    return {
+      docente: doc,
+      session: sessionMatch,
+      isOnline,
+      lastSeenAt: sessionMatch?.lastSeenAt,
+      currentActivity: sessionMatch?.currentActivity || (isOnline ? 'En línea' : 'Desconectado'),
+      deviceSummary: sessionMatch?.deviceSummary || 'Sin registro reciente'
+    }
+  }).filter(item => {
+    const q = sessionSearch.toLowerCase()
+    return (
+      item.docente.nombre.toLowerCase().includes(q) ||
+      item.docente.usuario.toLowerCase().includes(q) ||
+      item.currentActivity.toLowerCase().includes(q)
+    )
+  })
+
+  const onlineCount = accountsWithSessionStatus.filter(a => a.isOnline).length
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
       {/* HEADER MASTER HUB */}
@@ -633,7 +676,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Control absoluto de contraseñas, auditoría forense con dispositivos, calificaciones y base de datos
+                Control de sesiones activas en vivo por cuenta, contraseñas, auditoría forense y base de datos
               </p>
             </div>
           </div>
@@ -680,6 +723,18 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
       <main className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
         {/* NAVEGACIÓN POR PESTAÑAS */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-slate-800 no-scrollbar">
+          <button
+            onClick={() => setActiveTab('SESIONES_ACTIVAS')}
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition flex-shrink-0 ${
+              activeTab === 'SESIONES_ACTIVAS'
+                ? 'bg-purple-600 text-white shadow-md'
+                : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+            }`}
+          >
+            <Radio className="w-4 h-4 text-emerald-400 animate-pulse" />
+            <span>Sesiones en Vivo ({onlineCount} en línea)</span>
+          </button>
+
           <button
             onClick={() => setActiveTab('DOCENTES')}
             className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition flex-shrink-0 ${
@@ -800,6 +855,167 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
             <span>Manual Super Admin</span>
           </button>
         </div>
+
+        {/* 0. PESTAÑA: SESIONES EN VIVO (POR CUENTA) */}
+        {activeTab === 'SESIONES_ACTIVAS' && (
+          <div className="space-y-4">
+            {/* Barra Superior de Estado */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex items-center justify-between shadow-md">
+                <div>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Cuentas Conectadas Ahora</span>
+                  <span className="text-2xl font-black text-emerald-400">{onlineCount} de {docentes.length}</span>
+                </div>
+                <div className="p-3 bg-emerald-950/80 border border-emerald-700 rounded-2xl text-emerald-400">
+                  <Radio className="w-6 h-6 animate-pulse" />
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex items-center justify-between shadow-md">
+                <div>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Cuentas Desconectadas</span>
+                  <span className="text-2xl font-black text-slate-400">{docentes.length - onlineCount}</span>
+                </div>
+                <div className="p-3 bg-slate-950 border border-slate-800 rounded-2xl text-slate-500">
+                  <Power className="w-6 h-6" />
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex items-center justify-between shadow-md">
+                <div>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Frecuencia de Monitoreo</span>
+                  <span className="text-sm font-bold text-slate-200">En Tiempo Real (15s)</span>
+                </div>
+                <div className="p-3 bg-purple-950/80 border border-purple-700 rounded-2xl text-purple-300">
+                  <Activity className="w-6 h-6" />
+                </div>
+              </div>
+            </div>
+
+            {/* Buscador de Cuentas */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="relative flex-1 max-w-md">
+                <Search className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
+                <input
+                  type="text"
+                  value={sessionSearch}
+                  onChange={(e) => setSessionSearch(e.target.value)}
+                  placeholder="Buscar cuenta por nombre, usuario o actividad..."
+                  className="w-full pl-9 pr-3 py-2 text-xs bg-slate-900 border border-slate-700 text-slate-100 rounded-xl focus:ring-2 focus:ring-purple-500"
+                />
+              </div>
+
+              <button
+                onClick={() => setLiveSessions(getLiveActiveSessions())}
+                className="px-3.5 py-2 bg-slate-900 hover:bg-slate-850 text-slate-200 border border-slate-700 rounded-xl text-xs font-bold transition flex items-center gap-1.5"
+              >
+                <RefreshCw className="w-3.5 h-3.5" />
+                <span>Actualizar Sesiones en Vivo</span>
+              </button>
+            </div>
+
+            {/* TABLA DE SESIONES EN VIVO POR CUENTA */}
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-md max-h-[600px] overflow-y-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead className="sticky top-0 bg-slate-950/95 z-10">
+                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase text-[10px]">
+                    <th className="p-3">Cuenta / Docente</th>
+                    <th className="p-3">Estado en Vivo</th>
+                    <th className="p-3">Actividad Actual en la Web</th>
+                    <th className="p-3">Última Señal (Heartbeat)</th>
+                    <th className="p-3">Dispositivo Usado</th>
+                    <th className="p-3 text-right">Acciones de Mando</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800/60">
+                  {accountsWithSessionStatus.map((acc) => {
+                    return (
+                      <tr key={acc.docente.id} className="hover:bg-slate-850/50 transition">
+                        <td className="p-3">
+                          <div className="flex items-center gap-2">
+                            <div className="relative">
+                              <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-xs text-slate-200 uppercase">
+                                {acc.docente.nombre.slice(0, 2)}
+                              </div>
+                              {acc.isOnline && (
+                                <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full animate-ping" />
+                              )}
+                              {acc.isOnline && (
+                                <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full" />
+                              )}
+                            </div>
+                            <div>
+                              <span className="font-bold text-slate-100 block">{acc.docente.nombre}</span>
+                              <span className="text-[10px] text-slate-500 font-mono">@{acc.docente.usuario} • {acc.docente.rol}</span>
+                            </div>
+                          </div>
+                        </td>
+
+                        <td className="p-3">
+                          {acc.isOnline ? (
+                            <span className="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700 text-[10.5px] font-black uppercase flex items-center gap-1.5 w-max shadow-sm">
+                              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                              EN LÍNEA
+                            </span>
+                          ) : (
+                            <span className="px-2.5 py-1 rounded-full bg-slate-950 text-slate-500 border border-slate-800 text-[10px] font-bold uppercase flex items-center gap-1.5 w-max">
+                              <span className="w-1.5 h-1.5 rounded-full bg-slate-600" />
+                              DESCONECTADO
+                            </span>
+                          )}
+                        </td>
+
+                        <td className="p-3">
+                          <span className={`font-semibold text-[11.5px] block ${acc.isOnline ? 'text-purple-300' : 'text-slate-400'}`}>
+                            {acc.currentActivity}
+                          </span>
+                        </td>
+
+                        <td className="p-3 font-mono text-slate-400 text-[11px]">
+                          {acc.lastSeenAt ? (
+                            <div className="flex items-center gap-1">
+                              <Clock className="w-3 h-3 text-slate-500" />
+                              <span>{new Date(acc.lastSeenAt).toLocaleTimeString('es-CO')}</span>
+                            </div>
+                          ) : (
+                            'Sin registro'
+                          )}
+                        </td>
+
+                        <td className="p-3 text-slate-300 text-[11px]">
+                          {acc.deviceSummary}
+                        </td>
+
+                        <td className="p-3 text-right">
+                          <div className="flex items-center justify-end gap-1.5">
+                            {acc.isOnline && (
+                              <button
+                                onClick={() => handleKickSession(acc.docente.id, acc.docente.usuario, acc.docente.nombre)}
+                                className="px-2.5 py-1 bg-red-950/80 hover:bg-red-900 border border-red-800 text-red-300 rounded-lg text-xs font-bold transition flex items-center gap-1 shadow-sm"
+                                title="Cerrar sesión de este usuario remotamente"
+                              >
+                                <UserX className="w-3.5 h-3.5" />
+                                <span>Expulsar</span>
+                              </button>
+                            )}
+
+                            <button
+                              onClick={() => startImpersonation(acc.docente)}
+                              className="p-1.5 bg-blue-950/80 hover:bg-blue-900 border border-blue-800 text-blue-300 rounded-lg transition"
+                              title="Auditar pantalla de este docente"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
 
         {/* 1. DOCENTES Y GESTIÓN DE CONTRASEÑAS */}
         {activeTab === 'DOCENTES' && (
@@ -1761,7 +1977,16 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
             <div className="space-y-4">
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                 <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
-                  <span>1. Protocolo de Inicio de Periodo Nuevo</span>
+                  <span>1. Monitoreo de Sesiones en Vivo y Expulsión Remota</span>
+                </h4>
+                <p>
+                  En la pestaña <strong>Sesiones en Vivo</strong> puedes ver exactamente qué docente está conectado en tiempo real, qué está haciendo (ej. en qué salón o materia está calificando) y su dispositivo. Puedes cerrar su sesión remotamente presionando <strong>Expulsar</strong>.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
+                  <span>2. Protocolo de Inicio de Periodo Nuevo</span>
                 </h4>
                 <ol className="list-decimal list-inside space-y-1 text-slate-300">
                   <li>Ve a la pestaña <strong>Base de Datos</strong> y descarga un <strong>Backup JSON</strong> de seguridad.</li>
@@ -1773,7 +1998,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                 <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
-                  <span>2. Protocolo de Nuevo Docente o Traslado</span>
+                  <span>3. Protocolo de Nuevo Docente o Traslado</span>
                 </h4>
                 <ol className="list-decimal list-inside space-y-1 text-slate-300">
                   <li>Crea el docente en la pestaña <strong>Docentes y Claves</strong>. La clave se genera automática con <code>GS-XXX</code>.</li>
@@ -1784,7 +2009,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                 <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
-                  <span>3. Protocolo de Recuperación ante Desastres (Rollback)</span>
+                  <span>4. Protocolo de Recuperación ante Desastres (Rollback)</span>
                 </h4>
                 <p>
                   Si por error se borran datos o se hace un reseteo no deseado, ve a <strong>Base de Datos</strong> &gt; <strong>Restaurar desde JSON</strong> y sube el archivo de backup más reciente. El sistema reconstruirá automáticamente todos los docentes, salones y estudiantes.

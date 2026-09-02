@@ -33,7 +33,7 @@ export const generateIndividualStudentPDF = async (
   doc.setTextColor(203, 213, 225) // slate-300
   doc.text('BOLETA DE PREINFORME ACADÉMICO Y SEGUIMIENTO PEDAGÓGICO', 108, 25, { align: 'center' })
   doc.text(`AÑO LECTIVO 2026 • ${periodoNombre.toUpperCase()}`, 108, 30, { align: 'center' })
-  doc.text('DANE: 123001002125 • NIT: 800170307 • MONTELÍBANO, CÓRDOBA', 108, 35, { align: 'center' })
+  doc.text('DANE: 123001002125 • NIT: 800170307 • MONTERÍA, CÓRDOBA', 108, 35, { align: 'center' })
 
   // Student Info Card
   doc.setFillColor(248, 250, 252) // slate-50

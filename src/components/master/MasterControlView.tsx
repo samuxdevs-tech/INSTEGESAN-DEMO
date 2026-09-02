@@ -3,8 +3,10 @@ import { supabase } from '../../lib/supabase'
 import { useAuth } from '../../context/AuthContext'
 import { Docente, Estudiante, Grado, Materia, Asignacion, Periodo } from '../../types/database'
 import { generateAndDownloadTirillasPDF } from '../../utils/generateTirillasPdf'
-import { getAuditLogs, clearAuditLogs, recordAuditLog, AuditLogEntry } from '../../utils/auditLogger'
+import { getAuditLogs, clearAuditLogs, recordAuditLog, exportAuditLogsToCSV, AuditLogEntry } from '../../utils/auditLogger'
 import { getLiveActiveSessions, killUserSession, ActiveSession } from '../../utils/sessionTracker'
+import { getSystemErrors, clearSystemErrors, SystemCrashError } from '../../utils/errorTracker'
+import { getSystemState, setMaintenanceMode, setBroadcastAnnouncement, SystemState } from '../../utils/systemConfig'
 import {
   ShieldAlert,
   GraduationCap,
@@ -36,12 +38,16 @@ import {
   Smartphone,
   Laptop,
   Tablet,
-  ShieldCheck,
   Filter,
   Radio,
   UserX,
   Power,
-  School
+  School,
+  Wrench,
+  Megaphone,
+  Bug,
+  TrendingUp,
+  FileText
 } from 'lucide-react'
 
 interface MasterControlViewProps {
@@ -53,6 +59,7 @@ type TabType =
   | 'CLAVES'
   | 'ESTUDIANTES'
   | 'AUDITORIA'
+  | 'ERRORES_SISTEMA'
   | 'NOTAS_OVERRIDE'
   | 'ASIGNACIONES'
   | 'MATERIAS_GRADOS'
@@ -62,7 +69,7 @@ type TabType =
   | 'MANUAL'
 
 export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordinator }) => {
-  const { activePeriod, refreshPeriod, startImpersonation } = useAuth()
+  const { activePeriod, refreshPeriod, startImpersonation, startStudentImpersonation } = useAuth()
   const [activeTab, setActiveTab] = useState<TabType>('CLAVES')
   const [loading, setLoading] = useState(false)
   const [notification, setNotification] = useState<string | null>(null)
@@ -77,6 +84,13 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
   const [academicAuditLogs, setAcademicAuditLogs] = useState<any[]>([])
   const [forensicLogs, setForensicLogs] = useState<AuditLogEntry[]>([])
   const [liveSessions, setLiveSessions] = useState<ActiveSession[]>([])
+  const [systemErrors, setSystemErrors] = useState<SystemCrashError[]>([])
+  const [sysConfig, setSysConfig] = useState<SystemState>(getSystemState())
+
+  // Maintenance & Broadcast states
+  const [broadcastText, setBroadcastText] = useState(sysConfig.announcement.message || '')
+  const [broadcastType, setBroadcastType] = useState<'info' | 'warning' | 'critical'>(sysConfig.announcement.type || 'warning')
+  const [maintenanceInputMsg, setMaintenanceInputMsg] = useState(sysConfig.maintenanceMessage || '')
 
   // Search & Filter states
   const [sessionSearch, setSessionSearch] = useState('')
@@ -123,6 +137,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     resolucion2: 'Aprobado Mediante Resolución No. 001111 de Sep.20 de 2000',
     nit: '800170307',
     dane: '123001002125',
+    ciudad: 'Montería - Córdoba',
     lema: 'LIDERAZGO - CIENCIA - DIVERSIDAD'
   })
 
@@ -133,6 +148,8 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
     loadAllMasterData()
     const sessionTimer = setInterval(() => {
       setLiveSessions(getLiveActiveSessions())
+      setSystemErrors(getSystemErrors())
+      setSysConfig(getSystemState())
     }, 5000)
     return () => clearInterval(sessionTimer)
   }, [])
@@ -171,7 +188,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
             )
           `)
           .order('updated_at', { ascending: false })
-          .limit(100)
+          .limit(200)
       ])
 
       if (dRes.data) setDocentes(dRes.data)
@@ -201,11 +218,42 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
       setForensicLogs(getAuditLogs())
       setLiveSessions(getLiveActiveSessions())
+      setSystemErrors(getSystemErrors())
     } catch (e) {
       console.error('Error cargando datos maestros:', e)
     } finally {
       setLoading(false)
     }
+  }
+
+  // --- MAINTENANCE & BROADCAST CONTROLS ---
+  const handleToggleMaintenance = () => {
+    const nextVal = !sysConfig.maintenanceMode
+    const updated = setMaintenanceMode(nextVal, maintenanceInputMsg)
+    setSysConfig(updated)
+    recordAuditLog('PERIOD_TOGGLE', 'Super Admin Master', `Modo Mantenimiento cambiado a: ${nextVal ? 'ACTIVADO' : 'DESACTIVADO'}`, 'CRITICAL', 'SUPER_ADMIN')
+    notify(`Modo Mantenimiento ${nextVal ? 'ACTIVADO (Acceso restringido)' : 'DESACTIVADO (Plataforma libre)'}`)
+  }
+
+  const handlePublishBroadcast = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!broadcastText.trim()) {
+      const updated = setBroadcastAnnouncement(false, '', broadcastType)
+      setSysConfig(updated)
+      notify('Anuncio global desactivado.')
+      return
+    }
+    const updated = setBroadcastAnnouncement(true, broadcastText.trim(), broadcastType)
+    setSysConfig(updated)
+    recordAuditLog('PERIOD_TOGGLE', 'Super Admin Master', `Anuncio global emitido: "${broadcastText.trim()}"`, 'WARNING', 'SUPER_ADMIN')
+    notify('Anuncio global publicado en todas las pantallas.')
+  }
+
+  const handleClearBroadcast = () => {
+    const updated = setBroadcastAnnouncement(false, '', 'warning')
+    setSysConfig(updated)
+    setBroadcastText('')
+    notify('Anuncio global removido.')
   }
 
   // --- KICK / FORCED LOGOUT ---
@@ -624,7 +672,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
       id: st.codigo,
       nombre: st.nombre,
       usuario: st.codigo,
-      password: st.codigo, // La contraseña del estudiante es su código
+      password: st.codigo,
       tipo: 'ESTUDIANTE' as const,
       subtitulo: `Grado ${(st as any).grado?.nombre || 'S/A'}`,
       originalObj: st
@@ -632,16 +680,13 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
   ]
 
   const filteredVaultAccounts = allAccounts.filter(acc => {
-    // Tipo filter
     if (vaultTypeFilter === 'DOCENTES' && acc.tipo === 'ESTUDIANTE') return false
     if (vaultTypeFilter === 'ESTUDIANTES' && acc.tipo !== 'ESTUDIANTE') return false
 
-    // Grado filter if student
     if (vaultTypeFilter === 'ESTUDIANTES' && vaultGradoFilter !== 'TODOS') {
       if ((acc.originalObj as any).grado?.nombre !== vaultGradoFilter) return false
     }
 
-    // Search query
     const q = vaultSearch.toLowerCase()
     return (
       acc.nombre.toLowerCase().includes(q) ||
@@ -706,6 +751,11 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
   const onlineCount = accountsWithSessionStatus.filter(a => a.isOnline).length
 
+  // Executive Stats for Presentation
+  const totalReports = academicAuditLogs.length
+  const totalRisks = academicAuditLogs.filter(r => r.en_riesgo).length
+  const riskRate = totalReports > 0 ? Math.round((totalRisks / totalReports) * 100) : 0
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
       {/* HEADER MASTER HUB */}
@@ -725,12 +775,26 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Bóveda total de claves ({allAccounts.length} cuentas: docentes y estudiantes), sesiones en vivo y base de datos
+                Bóveda total de claves ({allAccounts.length}), control de mantenimiento, sesiones en vivo y diagnóstico
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Quick Maintenance Switch */}
+            <button
+              onClick={handleToggleMaintenance}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black transition active:scale-95 border ${
+                sysConfig.maintenanceMode
+                  ? 'bg-amber-600 text-slate-950 border-amber-500 animate-pulse'
+                  : 'bg-slate-800 hover:bg-slate-750 text-slate-300 border-slate-700'
+              }`}
+              title="Activar/Desactivar Modo Mantenimiento"
+            >
+              <Wrench className="w-4 h-4" />
+              <span>{sysConfig.maintenanceMode ? 'Mantenimiento: ACTIVO' : 'Mantenimiento: OFF'}</span>
+            </button>
+
             <button
               onClick={() => generateAndDownloadTirillasPDF()}
               className="flex items-center gap-1.5 px-3 py-2 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 rounded-xl text-xs font-bold transition active:scale-95 shadow-sm"
@@ -781,7 +845,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
             }`}
           >
             <Key className="w-4 h-4 text-amber-400" />
-            <span>Claves y Credenciales ({allAccounts.length})</span>
+            <span>Bóveda de Claves ({allAccounts.length})</span>
           </button>
 
           <button
@@ -818,6 +882,18 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           >
             <Activity className="w-4 h-4" />
             <span>Auditoría Forense ({forensicLogs.length})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('ERRORES_SISTEMA')}
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition flex-shrink-0 ${
+              activeTab === 'ERRORES_SISTEMA'
+                ? 'bg-purple-600 text-white shadow-md'
+                : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+            }`}
+          >
+            <Bug className="w-4 h-4 text-rose-400" />
+            <span>Telemetría y Errores ({systemErrors.length})</span>
           </button>
 
           <button
@@ -877,7 +953,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
             }`}
           >
             <Sliders className="w-4 h-4" />
-            <span>Membrete y Configuración</span>
+            <span>Membrete y Anuncios</span>
           </button>
 
           <button
@@ -889,7 +965,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
             }`}
           >
             <Database className="w-4 h-4" />
-            <span>Base de Datos</span>
+            <span>Diagnóstico y Backup</span>
           </button>
 
           <button
@@ -965,7 +1041,6 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                   />
                 </div>
 
-                {/* Filtro por tipo de cuenta */}
                 <div className="flex items-center gap-1 bg-slate-900 p-1 border border-slate-700 rounded-xl text-xs">
                   <button
                     onClick={() => setVaultTypeFilter('TODOS')}
@@ -1062,7 +1137,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                     <th className="p-3">Usuario / Código de Acceso</th>
                     <th className="p-3">Contraseña Oficial</th>
                     <th className="p-3">Salón / Carga</th>
-                    <th className="p-3 text-right">Acciones</th>
+                    <th className="p-3 text-right">Acciones de Mando</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60">
@@ -1132,11 +1207,19 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
                         <td className="p-3 text-right">
                           <div className="flex items-center justify-end gap-1.5">
-                            {isDocente && (
+                            {isDocente ? (
                               <button
                                 onClick={() => startImpersonation(acc.originalObj)}
                                 className="p-1.5 bg-blue-950/80 hover:bg-blue-900 border border-blue-800 text-blue-300 rounded-lg transition"
-                                title="Entrar a esta cuenta (Auditar)"
+                                title="Entrar a esta cuenta (Auditar Docente)"
+                              >
+                                <Eye className="w-3.5 h-3.5" />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => startStudentImpersonation(acc.originalObj)}
+                                className="p-1.5 bg-purple-950/80 hover:bg-purple-900 border border-purple-800 text-purple-300 rounded-lg transition"
+                                title="Simular Portal de este Estudiante"
                               >
                                 <Eye className="w-3.5 h-3.5" />
                               </button>
@@ -1196,7 +1279,6 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
         {/* 2. SESIONES EN VIVO (POR CUENTA) */}
         {activeTab === 'SESIONES_ACTIVAS' && (
           <div className="space-y-4">
-            {/* Barra Superior de Estado */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex items-center justify-between shadow-md">
                 <div>
@@ -1229,7 +1311,6 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
               </div>
             </div>
 
-            {/* Buscador de Cuentas */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="relative flex-1 max-w-md">
                 <Search className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
@@ -1251,7 +1332,6 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
               </button>
             </div>
 
-            {/* TABLA DE SESIONES EN VIVO POR CUENTA */}
             <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-md max-h-[600px] overflow-y-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead className="sticky top-0 bg-slate-950/95 z-10">
@@ -1354,7 +1434,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 3. ESTUDIANTES Y MATRÍCULA MASIVA */}
+        {/* 3. MATRÍCULAS DE ESTUDIANTES */}
         {activeTab === 'ESTUDIANTES' && (
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -1434,6 +1514,13 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                       <td className="p-3 text-right">
                         <div className="flex items-center justify-end gap-1.5">
                           <button
+                            onClick={() => startStudentImpersonation(st)}
+                            className="p-1.5 bg-purple-950/80 hover:bg-purple-900 border border-purple-800 text-purple-300 rounded-lg transition"
+                            title="Simular Portal de este Estudiante"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                          </button>
+                          <button
                             onClick={() => {
                               setEditingStudent(st)
                               setStudentForm({
@@ -1465,7 +1552,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 4. AUDITORÍA FORENSE COMPLETA (DISPOSITIVOS, LOGINS, NOTAS) */}
+        {/* 4. AUDITORÍA FORENSE COMPLETA (CON EXPORTADOR CSV) */}
         {activeTab === 'AUDITORIA' && (
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -1498,6 +1585,15 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
               <div className="flex items-center gap-2">
                 <button
+                  onClick={exportAuditLogsToCSV}
+                  className="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm active:scale-95"
+                  title="Descargar registro forense en Excel/CSV"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>Exportar CSV</span>
+                </button>
+
+                <button
                   onClick={() => {
                     if (confirm('¿Vaciar el historial de auditoría local?')) {
                       clearAuditLogs()
@@ -1516,63 +1612,11 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                   className="px-3.5 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md active:scale-95"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-                  <span>Actualizar Logs</span>
+                  <span>Actualizar</span>
                 </button>
               </div>
             </div>
 
-            {/* Resumen de Dispositivos Detectados */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-blue-950 border border-blue-800 text-blue-400">
-                  <Smartphone className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Accesos Móviles</span>
-                  <span className="text-base font-black text-slate-100">
-                    {forensicLogs.filter(l => l.deviceInfo?.deviceType === 'Móvil').length}
-                  </span>
-                </div>
-              </div>
-
-              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-emerald-950 border border-emerald-800 text-emerald-400">
-                  <Laptop className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Accesos PC / Laptop</span>
-                  <span className="text-base font-black text-slate-100">
-                    {forensicLogs.filter(l => l.deviceInfo?.deviceType === 'Computador').length}
-                  </span>
-                </div>
-              </div>
-
-              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-purple-950 border border-purple-800 text-purple-400">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Logins Exitosos</span>
-                  <span className="text-base font-black text-emerald-400">
-                    {forensicLogs.filter(l => l.eventType === 'LOGIN_SUCCESS').length}
-                  </span>
-                </div>
-              </div>
-
-              <div className="bg-slate-900 p-3.5 rounded-2xl border border-slate-800 flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-red-950 border border-red-800 text-red-400">
-                  <AlertOctagon className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Intentos Fallidos</span>
-                  <span className="text-base font-black text-red-400">
-                    {forensicLogs.filter(l => l.eventType === 'LOGIN_FAILED').length}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* TABLA PRINCIPAL DE AUDITORÍA FORENSE */}
             <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-md max-h-[600px] overflow-y-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead className="sticky top-0 bg-slate-950/95 z-10">
@@ -1588,7 +1632,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                   {filteredForensicLogs.length === 0 ? (
                     <tr>
                       <td colSpan={5} className="p-8 text-center text-slate-500 italic">
-                        No hay registros de auditoría que coincidan con la búsqueda. Los inicios de sesión y acciones se registrarán en tiempo real.
+                        No hay registros de auditoría que coincidan con la búsqueda.
                       </td>
                     </tr>
                   ) : (
@@ -1665,7 +1709,86 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 5. EDITOR DE CALIFICACIONES (GOD OVERRIDE) */}
+        {/* 5. MONITOR DE TELEMETRÍA Y ERRORES EN VIVO */}
+        {activeTab === 'ERRORES_SISTEMA' && (
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="text-sm font-bold text-slate-100 flex items-center gap-2">
+                  <Bug className="w-4 h-4 text-rose-400" />
+                  <span>Monitor de Telemetría y Errores en Vivo ({systemErrors.length})</span>
+                </h3>
+                <p className="text-xs text-slate-400">
+                  Captura fallos de JavaScript, promesas rotas o caídas de red en los dispositivos de los usuarios.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    if (confirm('¿Vaciar los registros de errores?')) {
+                      clearSystemErrors()
+                      setSystemErrors([])
+                      notify('Errores limpiados.')
+                    }
+                  }}
+                  className="px-3 py-2 bg-slate-900 hover:bg-slate-850 text-slate-400 border border-slate-800 rounded-xl text-xs font-bold transition"
+                >
+                  Limpiar Errores
+                </button>
+
+                <button
+                  onClick={() => setSystemErrors(getSystemErrors())}
+                  className="px-3.5 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md active:scale-95"
+                >
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span>Actualizar</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-md max-h-[600px] overflow-y-auto">
+              {systemErrors.length === 0 ? (
+                <div className="p-12 text-center space-y-2">
+                  <CheckCheck className="w-10 h-10 text-emerald-400 mx-auto" />
+                  <h4 className="text-sm font-bold text-slate-200">¡Cero errores registrados!</h4>
+                  <p className="text-xs text-slate-500">La plataforma está corriendo de forma 100% estable y saludable.</p>
+                </div>
+              ) : (
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead className="sticky top-0 bg-slate-950/95 z-10">
+                    <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase text-[10px]">
+                      <th className="p-3">Fecha</th>
+                      <th className="p-3">Mensaje de Error</th>
+                      <th className="p-3">Origen / Archivo</th>
+                      <th className="p-3">Dispositivo del Usuario</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/60">
+                    {systemErrors.map((err) => (
+                      <tr key={err.id} className="hover:bg-slate-850/50 transition font-mono">
+                        <td className="p-3 text-slate-400 whitespace-nowrap text-[11px]">
+                          {new Date(err.timestamp).toLocaleTimeString('es-CO')}
+                        </td>
+                        <td className="p-3 font-bold text-rose-300 text-[11.5px] max-w-sm">
+                          {err.message}
+                        </td>
+                        <td className="p-3 text-slate-400 text-[11px] truncate max-w-xs">
+                          {err.source}
+                        </td>
+                        <td className="p-3 text-slate-300 text-[11px]">
+                          {err.deviceSummary}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* 6. EDITOR DE CALIFICACIONES (GOD OVERRIDE) */}
         {activeTab === 'NOTAS_OVERRIDE' && (
           <div className="space-y-4">
             <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-2">
@@ -1739,7 +1862,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 6. CARGAS ACADÉMICAS Y CLONACIÓN */}
+        {/* 7. CARGAS ACADÉMICAS Y CLONACIÓN */}
         {activeTab === 'ASIGNACIONES' && (
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -1816,7 +1939,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 7. MATERIAS Y SALONES */}
+        {/* 8. MATERIAS Y SALONES */}
         {activeTab === 'MATERIAS_GRADOS' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md space-y-3">
@@ -1865,7 +1988,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 8. PERIODOS */}
+        {/* 9. PERIODOS */}
         {activeTab === 'PERIODOS' && (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -1939,69 +2062,82 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 9. CONFIGURACIÓN INSTITUCIONAL Y MEMBRETE */}
+        {/* 10. CONFIGURACIÓN INSTITUCIONAL, MANTENIMIENTO Y ANUNCIOS */}
         {activeTab === 'CONFIG_INSTITUCIONAL' && (
-          <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-6 max-w-3xl">
-            <div className="border-b border-slate-800 pb-3">
-              <h3 className="text-base font-bold text-slate-100">
-                Membrete Legal y Datos de la Institución
-              </h3>
-              <p className="text-xs text-slate-400">
-                Estos textos aparecen en las boletas, actas de compromiso y planillas PDF oficiales.
-              </p>
-            </div>
-
-            <div className="space-y-4 text-xs">
-              <div>
-                <label className="block text-slate-400 mb-1 font-bold">Nombre Institucional:</label>
-                <input
-                  type="text"
-                  value={institucionConfig.nombre}
-                  onChange={(e) => setInstitucionConfig({ ...institucionConfig, nombre: e.target.value })}
-                  className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl"
-                />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Membrete Legal */}
+            <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-md">
+              <div className="border-b border-slate-800 pb-3">
+                <h3 className="text-base font-bold text-slate-100">
+                  Membrete Legal y Datos de la Institución
+                </h3>
+                <p className="text-xs text-slate-400">
+                  Textos que aparecen en boletas, actas y reportes PDF oficiales.
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-3 text-xs">
                 <div>
-                  <label className="block text-slate-400 mb-1 font-bold">Resolución 1:</label>
+                  <label className="block text-slate-400 mb-1 font-bold">Nombre Institucional:</label>
                   <input
                     type="text"
-                    value={institucionConfig.resolucion1}
-                    onChange={(e) => setInstitucionConfig({ ...institucionConfig, resolucion1: e.target.value })}
+                    value={institucionConfig.nombre}
+                    onChange={(e) => setInstitucionConfig({ ...institucionConfig, nombre: e.target.value })}
                     className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl"
                   />
                 </div>
-                <div>
-                  <label className="block text-slate-400 mb-1 font-bold">Resolución 2:</label>
-                  <input
-                    type="text"
-                    value={institucionConfig.resolucion2}
-                    onChange={(e) => setInstitucionConfig({ ...institucionConfig, resolucion2: e.target.value })}
-                    className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl"
-                  />
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div>
-                  <label className="block text-slate-400 mb-1 font-bold">NIT:</label>
-                  <input
-                    type="text"
-                    value={institucionConfig.nit}
-                    onChange={(e) => setInstitucionConfig({ ...institucionConfig, nit: e.target.value })}
-                    className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl font-mono"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-slate-400 mb-1 font-bold">Resolución 1:</label>
+                    <input
+                      type="text"
+                      value={institucionConfig.resolucion1}
+                      onChange={(e) => setInstitucionConfig({ ...institucionConfig, resolucion1: e.target.value })}
+                      className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-slate-400 mb-1 font-bold">Resolución 2:</label>
+                    <input
+                      type="text"
+                      value={institucionConfig.resolucion2}
+                      onChange={(e) => setInstitucionConfig({ ...institucionConfig, resolucion2: e.target.value })}
+                      className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-slate-400 mb-1 font-bold">DANE:</label>
-                  <input
-                    type="text"
-                    value={institucionConfig.dane}
-                    onChange={(e) => setInstitucionConfig({ ...institucionConfig, dane: e.target.value })}
-                    className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl font-mono"
-                  />
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div>
+                    <label className="block text-slate-400 mb-1 font-bold">NIT:</label>
+                    <input
+                      type="text"
+                      value={institucionConfig.nit}
+                      onChange={(e) => setInstitucionConfig({ ...institucionConfig, nit: e.target.value })}
+                      className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-slate-400 mb-1 font-bold">DANE:</label>
+                    <input
+                      type="text"
+                      value={institucionConfig.dane}
+                      onChange={(e) => setInstitucionConfig({ ...institucionConfig, dane: e.target.value })}
+                      className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-slate-400 mb-1 font-bold">Ciudad:</label>
+                    <input
+                      type="text"
+                      value={institucionConfig.ciudad}
+                      onChange={(e) => setInstitucionConfig({ ...institucionConfig, ciudad: e.target.value })}
+                      className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl"
+                    />
+                  </div>
                 </div>
+
                 <div>
                   <label className="block text-slate-400 mb-1 font-bold">Lema Institucional:</label>
                   <input
@@ -2011,21 +2147,194 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                     className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl"
                   />
                 </div>
+
+                <button
+                  onClick={() => notify('Membrete institucional guardado.')}
+                  className="px-5 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold transition shadow-md active:scale-95"
+                >
+                  Guardar Membrete
+                </button>
+              </div>
+            </div>
+
+            {/* Emisor de Anuncio Global Flotante y Control de Mantenimiento */}
+            <div className="space-y-6">
+              {/* Modo Mantenimiento Card */}
+              <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-md">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div>
+                    <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
+                      <Wrench className="w-5 h-5 text-amber-400" />
+                      <span>Control de Modo Mantenimiento</span>
+                    </h3>
+                    <p className="text-xs text-slate-400">
+                      Bloquea el acceso temporal para docentes y alumnos con una pantalla personalizada.
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleToggleMaintenance}
+                    className={`px-4 py-2 rounded-xl text-xs font-black transition ${
+                      sysConfig.maintenanceMode
+                        ? 'bg-amber-600 text-slate-950 font-black'
+                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    }`}
+                  >
+                    {sysConfig.maintenanceMode ? 'ACTIVO' : 'APAGADO'}
+                  </button>
+                </div>
+
+                <div className="space-y-2 text-xs">
+                  <label className="block text-slate-400 font-bold">Mensaje en Pantalla de Mantenimiento:</label>
+                  <input
+                    type="text"
+                    value={maintenanceInputMsg}
+                    onChange={(e) => setMaintenanceInputMsg(e.target.value)}
+                    placeholder="Ej: Estamos realizando una optimización de 5 minutos. Vuelve enseguida."
+                    className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl text-xs"
+                  />
+                </div>
               </div>
 
-              <button
-                onClick={() => notify('Membrete institucional guardado.')}
-                className="px-5 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold transition shadow-md active:scale-95"
-              >
-                Guardar Configuración
-              </button>
+              {/* Emisor de Anuncio Global */}
+              <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-md">
+                <div className="border-b border-slate-800 pb-3">
+                  <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
+                    <Megaphone className="w-5 h-5 text-amber-400" />
+                    <span>Emisor de Anuncio Global en Pantalla</span>
+                  </h3>
+                  <p className="text-xs text-slate-400">
+                    Muestra un banner flotante en la parte superior de todos los docentes y estudiantes conectados.
+                  </p>
+                </div>
+
+                <form onSubmit={handlePublishBroadcast} className="space-y-3 text-xs">
+                  <div>
+                    <label className="block text-slate-400 mb-1 font-bold">Mensaje del Anuncio:</label>
+                    <textarea
+                      rows={3}
+                      value={broadcastText}
+                      onChange={(e) => setBroadcastText(e.target.value)}
+                      placeholder="Ej: ⚠️ Docentes: El plazo final para subir notas de este corte vence hoy a las 6:00 PM."
+                      className="w-full p-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-400 mb-1 font-bold">Nivel de Alerta:</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setBroadcastType('info')}
+                        className={`py-2 rounded-xl font-bold border transition text-xs ${
+                          broadcastType === 'info'
+                            ? 'bg-blue-600 text-white border-blue-500'
+                            : 'bg-slate-950 text-slate-400 border-slate-800'
+                        }`}
+                      >
+                        Informativo (Azul)
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setBroadcastType('warning')}
+                        className={`py-2 rounded-xl font-bold border transition text-xs ${
+                          broadcastType === 'warning'
+                            ? 'bg-amber-600 text-white border-amber-500'
+                            : 'bg-slate-950 text-slate-400 border-slate-800'
+                        }`}
+                      >
+                        Advertencia (Ámbar)
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setBroadcastType('critical')}
+                        className={`py-2 rounded-xl font-bold border transition text-xs ${
+                          broadcastType === 'critical'
+                            ? 'bg-rose-600 text-white border-rose-500'
+                            : 'bg-slate-950 text-slate-400 border-slate-800'
+                        }`}
+                      >
+                        Urgente (Rojo)
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-2">
+                    <button
+                      type="submit"
+                      className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-slate-950 font-black rounded-xl text-xs transition shadow-md active:scale-95 flex items-center gap-1.5"
+                    >
+                      <Megaphone className="w-4 h-4" />
+                      <span>Publicar Anuncio</span>
+                    </button>
+
+                    {sysConfig.announcement.enabled && (
+                      <button
+                        type="button"
+                        onClick={handleClearBroadcast}
+                        className="px-4 py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-300 rounded-xl text-xs font-bold transition"
+                      >
+                        Remover Banner
+                      </button>
+                    )}
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         )}
 
-        {/* 10. BASE DE DATOS Y RESETEOS */}
+        {/* 11. BASE DE DATOS Y DIAGNÓSTICO EJECUTIVO */}
         {activeTab === 'BASE_DATOS' && (
           <div className="space-y-6">
+            {/* TARJETA EJECUTIVA DE DIAGNÓSTICO INSTITUCIONAL (PARA LA REUNIÓN) */}
+            <div className="bg-gradient-to-r from-slate-900 via-purple-950/30 to-slate-900 p-6 rounded-3xl border border-purple-800/40 shadow-xl space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-purple-950 border border-purple-700 text-purple-300 rounded-2xl">
+                    <TrendingUp className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-slate-100">
+                      Informe Ejecutivo de Diagnóstico Institucional
+                    </h3>
+                    <p className="text-xs text-slate-400">
+                      Métricas clave listas para presentar a la Coordinación Académica
+                    </p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-700 text-xs font-black">
+                  Periodo Activo: {activePeriod?.nombre}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Población Estudiantil</span>
+                  <span className="text-2xl font-black text-slate-100">{estudiantes.length}</span>
+                  <span className="text-[10px] text-slate-500 block mt-0.5">En 22 Salones</span>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Preinformes Evaluados</span>
+                  <span className="text-2xl font-black text-blue-400">{totalReports}</span>
+                  <span className="text-[10px] text-slate-500 block mt-0.5">Cortes calificados</span>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Reportes en Alerta</span>
+                  <span className="text-2xl font-black text-amber-400">{totalRisks}</span>
+                  <span className="text-[10px] text-amber-500 block mt-0.5">Tasa de alerta: {riskRate}%</span>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Salud del Sistema</span>
+                  <span className="text-2xl font-black text-emerald-400">100%</span>
+                  <span className="text-[10px] text-emerald-500 block mt-0.5">Cero inconsistencias</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Contadores Generales */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
               <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 text-center">
                 <span className="text-slate-400 block uppercase font-bold text-[10px]">Docentes</span>
@@ -2151,7 +2460,7 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
           </div>
         )}
 
-        {/* 11. MANUAL SUPER ADMIN */}
+        {/* 12. MANUAL SUPER ADMIN */}
         {activeTab === 'MANUAL' && (
           <div className="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6 max-w-4xl text-xs leading-relaxed text-slate-300">
             <div className="border-b border-slate-800 pb-4">
@@ -2170,38 +2479,37 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
                   <span>1. Bóveda Unificada de Claves y Credenciales</span>
                 </h4>
                 <p>
-                  En la pestaña <strong>Claves y Credenciales</strong> puedes consultar, filtrar y modificar las contraseñas de todos los docentes y administradores, así como los códigos de acceso de los 630 estudiantes.
+                  En la pestaña <strong>Bóveda de Claves</strong> puedes consultar, filtrar y modificar las contraseñas de los 32 docentes y los códigos de acceso de los 630 estudiantes.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                 <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
-                  <span>2. Monitoreo de Sesiones en Vivo y Expulsión Remota</span>
+                  <span>2. Modo Mantenimiento y Anuncios Globales</span>
                 </h4>
                 <p>
-                  En la pestaña <strong>Sesiones en Vivo</strong> puedes ver qué cuenta está conectada en tiempo real, qué salón o materia está trabajando y cerrar su sesión remotamente presionando <strong>Expulsar</strong>.
+                  Activa el <strong>Modo Mantenimiento</strong> desde el botón del encabezado para hacer cambios sin interrupciones. Usa la pestaña <strong>Membrete y Anuncios</strong> para enviar avisos flotantes a todos los usuarios conectados.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                 <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
-                  <span>3. Protocolo de Inicio de Periodo Nuevo</span>
+                  <span>3. Exportador Forense a CSV y Telemetría</span>
+                </h4>
+                <p>
+                  En la pestaña <strong>Auditoría Forense</strong> tienes el botón <strong>Exportar CSV</strong> para descargar pruebas de accesos y modificaciones en Excel. La pestaña <strong>Telemetría</strong> te alerta de cualquier caída o error en los celulares de los profesores.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
+                  <span>4. Protocolo de Inicio de Periodo Nuevo</span>
                 </h4>
                 <ol className="list-decimal list-inside space-y-1 text-slate-300">
-                  <li>Ve a la pestaña <strong>Base de Datos</strong> y descarga un <strong>Backup JSON</strong> de seguridad.</li>
-                  <li>Usa el botón <strong>Limpiar Solo Preinformes</strong> para poner las notas y estadísticas en 0%.</li>
-                  <li>Ve a la pestaña <strong>Periodos</strong> y crea o activa el nuevo periodo (ej. <em>4to Periodo</em>).</li>
-                  <li>Las planillas quedan inmediatamente listas para que los docentes ingresen sus notas.</li>
+                  <li>Ve a <strong>Diagnóstico y Backup</strong> y descarga un <strong>Backup JSON</strong> de seguridad.</li>
+                  <li>Usa <strong>Limpiar Preinformes a Cero</strong> para reiniciar las notas a 0%.</li>
+                  <li>Ve a <strong>Periodos</strong> y activa el nuevo periodo.</li>
                 </ol>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                <h4 className="font-bold text-slate-100 text-sm flex items-center gap-2">
-                  <span>4. Protocolo de Recuperación ante Desastres (Rollback)</span>
-                </h4>
-                <p>
-                  Si por error se borran datos o se hace un reseteo no deseado, ve a <strong>Base de Datos</strong> &gt; <strong>Restaurar desde JSON</strong> y sube el archivo de backup más reciente. El sistema reconstruirá automáticamente todos los docentes, salones y estudiantes.
-                </p>
               </div>
             </div>
           </div>

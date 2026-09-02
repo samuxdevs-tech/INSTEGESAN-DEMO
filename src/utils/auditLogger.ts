@@ -31,7 +31,6 @@ export interface AuditLogEntry {
   severity: 'INFO' | 'SUCCESS' | 'WARNING' | 'CRITICAL'
 }
 
-// Device & Browser Detection Helper
 export const getDeviceInfo = () => {
   if (typeof window === 'undefined' || typeof navigator === 'undefined') {
     return {
@@ -48,7 +47,6 @@ export const getDeviceInfo = () => {
   let os = 'Windows'
   let browser = 'Chrome'
 
-  // Detect Device Type
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
     deviceType = 'Tablet'
   } else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated/i.test(ua)) {
@@ -57,7 +55,6 @@ export const getDeviceInfo = () => {
     deviceType = 'Computador'
   }
 
-  // Detect OS
   if (/Windows NT 10.0/i.test(ua)) os = 'Windows 10/11'
   else if (/Windows NT 6.3/i.test(ua)) os = 'Windows 8.1'
   else if (/Windows NT 6.1/i.test(ua)) os = 'Windows 7'
@@ -73,7 +70,6 @@ export const getDeviceInfo = () => {
     os = 'Linux'
   }
 
-  // Detect Browser
   if (/Edg\//i.test(ua)) browser = 'Microsoft Edge'
   else if (/Chrome\//i.test(ua) && !/Chromium|Edg/i.test(ua)) browser = 'Google Chrome'
   else if (/Safari\//i.test(ua) && !/Chrome/i.test(ua)) browser = 'Apple Safari'
@@ -112,14 +108,12 @@ export const recordAuditLog = (
       severity
     }
 
-    // Save to localStorage
     const existingStr = localStorage.getItem(STORAGE_KEY)
     let logs: AuditLogEntry[] = existingStr ? JSON.parse(existingStr) : []
     logs.unshift(entry)
     if (logs.length > 500) logs = logs.slice(0, 500)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(logs))
 
-    // Optional async sync to Supabase table if it exists
     ;(async () => {
       try {
         await supabase.from('logs_auditoria').insert({
@@ -134,9 +128,7 @@ export const recordAuditLog = (
           severity: severity,
           created_at: entry.timestamp
         })
-      } catch (err) {
-        // Table may not exist yet, ignore
-      }
+      } catch (err) {}
     })()
 
     return entry
@@ -160,4 +152,35 @@ export const clearAuditLogs = () => {
   try {
     localStorage.removeItem(STORAGE_KEY)
   } catch (e) {}
+}
+
+export const exportAuditLogsToCSV = () => {
+  const logs = getAuditLogs()
+  if (logs.length === 0) {
+    alert('No hay registros de auditoría para exportar.')
+    return
+  }
+
+  const headers = ['Fecha y Hora', 'Usuario', 'Rol', 'Tipo de Dispositivo', 'Sistema Operativo', 'Navegador', 'Resolución', 'Tipo de Evento', 'Severidad', 'Detalle de la Acción']
+  const rows = logs.map(l => [
+    new Date(l.timestamp).toLocaleString('es-CO'),
+    l.userName,
+    l.userRole || 'N/A',
+    l.deviceInfo.deviceType,
+    l.deviceInfo.os,
+    l.deviceInfo.browser,
+    l.deviceInfo.resolution,
+    l.eventType,
+    l.severity,
+    `"${l.details.replace(/"/g, '""')}"`
+  ])
+
+  const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n')
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `Auditoria_Forense_IE_General_Santander_${new Date().toISOString().slice(0, 10)}.csv`
+  a.click()
+  URL.revokeObjectURL(url)
 }

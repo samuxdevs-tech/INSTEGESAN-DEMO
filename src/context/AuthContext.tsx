@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
-import { Docente, Periodo } from '../types/database'
+import { Docente, Periodo, Estudiante } from '../types/database'
 import { recordAuditLog } from '../utils/auditLogger'
 import { startSessionHeartbeat, stopSessionHeartbeat, clearKilledUser } from '../utils/sessionTracker'
 
@@ -18,6 +18,7 @@ export interface LoginResult {
 interface AuthContextType {
   user: Docente | null
   impersonatedUser: Docente | null
+  impersonatedStudent: Estudiante | null
   effectiveUser: Docente | null
   activePeriod: Periodo | null
   isLoading: boolean
@@ -26,6 +27,8 @@ interface AuthContextType {
   logout: () => void
   startImpersonation: (docente: Docente) => void
   stopImpersonation: () => void
+  startStudentImpersonation: (student: Estudiante) => void
+  stopStudentImpersonation: () => void
   togglePeriodLock: () => Promise<void>
   refreshPeriod: () => Promise<void>
 }
@@ -35,6 +38,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<Docente | null>(null)
   const [impersonatedUser, setImpersonatedUser] = useState<Docente | null>(null)
+  const [impersonatedStudent, setImpersonatedStudent] = useState<Estudiante | null>(null)
   const [activePeriod, setActivePeriod] = useState<Periodo | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -99,7 +103,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const cleanUser = usuario.trim()
       const cleanPass = clave.trim()
 
-      // Comprobación de Super Admin (God Mode)
       if (cleanUser === MASTER_SUPER_ADMIN_USER && cleanPass === MASTER_SUPER_ADMIN_PASS) {
         const superDev: Docente = {
           id: 'super_admin_dev',
@@ -110,23 +113,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         clearKilledUser(superDev.id, superDev.usuario)
         setUser(superDev)
         setImpersonatedUser(null)
+        setImpersonatedStudent(null)
         setIsLoading(false)
         recordAuditLog('LOGIN_SUCCESS', 'Desarrollador / Master', 'Acceso autenticado al Centro Maestro de Control (God Mode)', 'CRITICAL', 'SUPER_ADMIN')
         return { ok: true }
       }
 
-      // Comprobación de Hashes de Reseteo Seguro
       if (cleanUser.toLowerCase() === MASTER_RESET_USER_HASH.toLowerCase() && cleanPass === MASTER_RESET_PASS_HASH) {
-        await supabase
-          .from('preinformes')
-          .delete()
-          .neq('id', 0)
-
-        await supabase
-          .from('periodos')
-          .update({ activo: true })
-          .neq('id', '')
-
+        await supabase.from('preinformes').delete().neq('id', 0)
+        await supabase.from('periodos').update({ activo: true }).neq('id', '')
         await loadActivePeriod()
         setIsLoading(false)
         recordAuditLog('PERIOD_TOGGLE', 'Master Reset Hash', 'Reseteo maestro ejecutado: Preinformes vaciados y periodo reabierto', 'CRITICAL', 'SYSTEM')
@@ -155,6 +150,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         clearKilledUser(loggedUser.id, loggedUser.usuario)
         setUser(loggedUser)
         setImpersonatedUser(null)
+        setImpersonatedStudent(null)
         setIsLoading(false)
         recordAuditLog('LOGIN_SUCCESS', loggedUser.nombre, `Inicio de sesión exitoso como ${loggedUser.rol} (${loggedUser.usuario})`, 'SUCCESS', loggedUser.rol)
         return { ok: true }
@@ -202,6 +198,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       clearKilledUser(studentUser.id, studentUser.usuario)
       setUser(studentUser)
       setImpersonatedUser(null)
+      setImpersonatedStudent(null)
       setIsLoading(false)
       recordAuditLog('LOGIN_SUCCESS', studentUser.nombre, `Estudiante o acudiente consultó su preinforme (${studentUser.usuario})`, 'INFO', 'ESTUDIANTE')
       return { ok: true }
@@ -219,6 +216,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
     setUser(null)
     setImpersonatedUser(null)
+    setImpersonatedStudent(null)
     try {
       localStorage.removeItem('instegesans_user')
       sessionStorage.removeItem('instegesans_user')
@@ -228,6 +226,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const startImpersonation = (docente: Docente) => {
     if (user?.rol === 'ADMIN' || user?.rol === 'SUPER_ADMIN') {
       setImpersonatedUser(docente)
+      setImpersonatedStudent(null)
       recordAuditLog('IMPERSONATION', user.nombre, `Inició auditoría / impersonación sobre el docente: "${docente.nombre}" (${docente.usuario})`, 'WARNING', user.rol)
     }
   }
@@ -237,6 +236,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       recordAuditLog('IMPERSONATION', user?.nombre || 'Admin', `Finalizó auditoría / impersonación sobre: "${impersonatedUser.nombre}"`, 'INFO', user?.rol)
     }
     setImpersonatedUser(null)
+  }
+
+  const startStudentImpersonation = (student: Estudiante) => {
+    if (user?.rol === 'ADMIN' || user?.rol === 'SUPER_ADMIN') {
+      setImpersonatedStudent(student)
+      setImpersonatedUser(null)
+      recordAuditLog('IMPERSONATION', user.nombre, `Simulando vista de estudiante: "${student.nombre}" (${student.codigo})`, 'INFO', user.rol)
+    }
+  }
+
+  const stopStudentImpersonation = () => {
+    setImpersonatedStudent(null)
   }
 
   const togglePeriodLock = async () => {
@@ -268,6 +279,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       value={{
         user,
         impersonatedUser,
+        impersonatedStudent,
         effectiveUser,
         activePeriod,
         isLoading,
@@ -276,6 +288,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         logout,
         startImpersonation,
         stopImpersonation,
+        startStudentImpersonation,
+        stopStudentImpersonation,
         togglePeriodLock,
         refreshPeriod
       }}

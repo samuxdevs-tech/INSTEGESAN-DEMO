@@ -3,7 +3,7 @@ import { supabase } from '../../lib/supabase'
 import { useAuth } from '../../context/AuthContext'
 import { Docente, Estudiante, Grado, Materia, Asignacion, Periodo } from '../../types/database'
 import { generateAndDownloadTirillasPDF } from '../../utils/generateTirillasPdf'
-import { getAuditLogs, clearAuditLogs, recordAuditLog, exportAuditLogsToCSV, AuditLogEntry } from '../../utils/auditLogger'
+import { getAuditLogs, clearAuditLogs, recordAuditLog, exportAuditLogsToExcelVisual, exportAuditLogsToCSV, AuditLogEntry } from '../../utils/auditLogger'
 import { getLiveActiveSessions, killUserSession, ActiveSession } from '../../utils/sessionTracker'
 import { getSystemErrors, clearSystemErrors, SystemCrashError } from '../../utils/errorTracker'
 import { getSystemState, setMaintenanceMode, setBroadcastAnnouncement, SystemState } from '../../utils/systemConfig'
@@ -1585,12 +1585,21 @@ export const MasterControlView: React.FC<MasterControlViewProps> = ({ onGoCoordi
 
               <div className="flex items-center gap-2">
                 <button
+                  onClick={exportAuditLogsToExcelVisual}
+                  className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md active:scale-95"
+                  title="Descargar registro forense en Excel estilizado y con colores"
+                >
+                  <FileSpreadsheet className="w-4 h-4" />
+                  <span>Excel Visual</span>
+                </button>
+
+                <button
                   onClick={exportAuditLogsToCSV}
-                  className="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm active:scale-95"
-                  title="Descargar registro forense en Excel/CSV"
+                  className="px-3 py-2 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 rounded-xl text-xs font-bold transition flex items-center gap-1.5 active:scale-95"
+                  title="Descargar archivo CSV compatible con Excel en español"
                 >
                   <FileText className="w-3.5 h-3.5" />
-                  <span>Exportar CSV</span>
+                  <span>CSV</span>
                 </button>
 
                 <button

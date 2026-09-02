@@ -154,6 +154,130 @@ export const clearAuditLogs = () => {
   } catch (e) {}
 }
 
+/**
+ * EXPORTADOR EXCEL VISUAL ESTILIZADO (.XLS / HTML XML)
+ * Diseñado con membrete corporativo, colores por severidad, bordes y fuentes ejecutivas.
+ */
+export const exportAuditLogsToExcelVisual = () => {
+  const logs = getAuditLogs()
+  if (logs.length === 0) {
+    alert('No hay registros de auditoría para exportar.')
+    return
+  }
+
+  const exportDate = new Date().toLocaleString('es-CO')
+
+  const rowsHtml = logs
+    .map((l, index) => {
+      const isAlt = index % 2 === 1
+      const bgStyle = isAlt ? 'background-color: #F8FAFC;' : 'background-color: #FFFFFF;'
+      
+      let severityBadge = ''
+      if (l.severity === 'CRITICAL') {
+        severityBadge = 'background-color: #FEE2E2; color: #991B1B; font-weight: bold;'
+      } else if (l.severity === 'WARNING') {
+        severityBadge = 'background-color: #FEF3C7; color: #92400E; font-weight: bold;'
+      } else if (l.severity === 'SUCCESS') {
+        severityBadge = 'background-color: #DCFCE7; color: #166534; font-weight: bold;'
+      } else {
+        severityBadge = 'background-color: #E0E7FF; color: #3730A3; font-weight: bold;'
+      }
+
+      let deviceIcon = l.deviceInfo.deviceType === 'Móvil' ? '📱' : l.deviceInfo.deviceType === 'Tablet' ? '📟' : '💻'
+
+      return `
+        <tr style="${bgStyle}">
+          <td style="font-family: 'Consolas', monospace; font-size: 9pt; text-align: center; border: 1px solid #CBD5E1;">${new Date(l.timestamp).toLocaleString('es-CO')}</td>
+          <td style="font-weight: bold; color: #0F172A; border: 1px solid #CBD5E1;">${l.userName}</td>
+          <td style="text-align: center; font-family: 'Consolas', monospace; font-weight: bold; color: #475569; border: 1px solid #CBD5E1;">${l.userRole || 'DOCENTE'}</td>
+          <td style="text-align: center; border: 1px solid #CBD5E1;">${deviceIcon} ${l.deviceInfo.deviceType}</td>
+          <td style="border: 1px solid #CBD5E1;">${l.deviceInfo.os}</td>
+          <td style="border: 1px solid #CBD5E1;">${l.deviceInfo.browser}</td>
+          <td style="text-align: center; font-family: 'Consolas', monospace; font-size: 8.5pt; color: #64748B; border: 1px solid #CBD5E1;">${l.deviceInfo.resolution}</td>
+          <td style="text-align: center; font-weight: bold; font-size: 9pt; border: 1px solid #CBD5E1;">${l.eventType}</td>
+          <td style="text-align: center; ${severityBadge} border: 1px solid #CBD5E1;">${l.severity}</td>
+          <td style="color: #1E293B; font-size: 9pt; border: 1px solid #CBD5E1;">${l.details}</td>
+        </tr>
+      `
+    })
+    .join('')
+
+  const template = `
+    <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+      <!--[if gte mso 9]>
+      <xml>
+        <x:ExcelWorkbook>
+          <x:ExcelWorksheets>
+            <x:ExcelWorksheet>
+              <x:Name>Auditoría Forense</x:Name>
+              <x:WorksheetOptions>
+                <x:DisplayGridlines/>
+              </x:WorksheetOptions>
+            </x:ExcelWorksheet>
+          </x:ExcelWorksheets>
+        </x:ExcelWorkbook>
+      </xml>
+      <![endif]-->
+      <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; }
+        .header-title { background-color: #0F172A; color: #FFFFFF; font-size: 15pt; font-weight: bold; text-align: center; height: 35pt; vertical-align: middle; }
+        .header-subtitle { background-color: #1E293B; color: #CBD5E1; font-size: 10pt; font-weight: bold; text-align: center; height: 24pt; vertical-align: middle; }
+        .meta-bar { background-color: #F1F5F9; color: #334155; font-size: 9pt; height: 20pt; vertical-align: middle; font-weight: bold; }
+        .th-cell { background-color: #334155; color: #FFFFFF; font-weight: bold; font-size: 9.5pt; text-align: center; border: 1px solid #1E293B; height: 26pt; vertical-align: middle; }
+      </style>
+    </head>
+    <body>
+      <table border="1" style="border-collapse: collapse; width: 100%;">
+        <thead>
+          <tr>
+            <th colspan="10" class="header-title">
+              INSTITUCIÓN EDUCATIVA GENERAL SANTANDER — MONTERÍA, CÓRDOBA
+            </th>
+          </tr>
+          <tr>
+            <th colspan="10" class="header-subtitle">
+              INFORME FORENSE DE AUDITORÍA DIGITAL Y TRAZABILIDAD DE ACCESOS
+            </th>
+          </tr>
+          <tr class="meta-bar">
+            <td colspan="5" style="border: 1px solid #CBD5E1;">&nbsp;📅 Fecha de Emisión: ${exportDate}</td>
+            <td colspan="5" style="text-align: right; border: 1px solid #CBD5E1;">Total Registros: ${logs.length}&nbsp;</td>
+          </tr>
+          <tr>
+            <th class="th-cell" style="width: 140pt;">Fecha y Hora</th>
+            <th class="th-cell" style="width: 160pt;">Usuario Titular</th>
+            <th class="th-cell" style="width: 90pt;">Rol</th>
+            <th class="th-cell" style="width: 100pt;">Dispositivo</th>
+            <th class="th-cell" style="width: 110pt;">Sistema Operativo</th>
+            <th class="th-cell" style="width: 120pt;">Navegador Web</th>
+            <th class="th-cell" style="width: 80pt;">Resolución</th>
+            <th class="th-cell" style="width: 110pt;">Tipo de Evento</th>
+            <th class="th-cell" style="width: 90pt;">Severidad</th>
+            <th class="th-cell" style="width: 320pt;">Detalle Forense de la Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+    </body>
+    </html>
+  `
+
+  const blob = new Blob([template], { type: 'application/vnd.ms-excel;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `Auditoria_Visual_IE_General_Santander_${new Date().toISOString().slice(0, 10)}.xls`
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
+/**
+ * EXPORTADOR CSV FORMATEADO CON SEPARADOR PUNTO Y COMA (;) PARA EXCEL EN ESPAÑOL
+ */
 export const exportAuditLogsToCSV = () => {
   const logs = getAuditLogs()
   if (logs.length === 0) {
@@ -161,21 +285,23 @@ export const exportAuditLogsToCSV = () => {
     return
   }
 
+  // Usamos ';' para que Excel en español separe automáticamente las columnas sin apelmazar en la columna A
   const headers = ['Fecha y Hora', 'Usuario', 'Rol', 'Tipo de Dispositivo', 'Sistema Operativo', 'Navegador', 'Resolución', 'Tipo de Evento', 'Severidad', 'Detalle de la Acción']
   const rows = logs.map(l => [
-    new Date(l.timestamp).toLocaleString('es-CO'),
-    l.userName,
-    l.userRole || 'N/A',
-    l.deviceInfo.deviceType,
-    l.deviceInfo.os,
-    l.deviceInfo.browser,
-    l.deviceInfo.resolution,
-    l.eventType,
-    l.severity,
+    `"${new Date(l.timestamp).toLocaleString('es-CO').replace(/"/g, '""')}"`,
+    `"${l.userName.replace(/"/g, '""')}"`,
+    `"${(l.userRole || 'N/A').replace(/"/g, '""')}"`,
+    `"${l.deviceInfo.deviceType}"`,
+    `"${l.deviceInfo.os}"`,
+    `"${l.deviceInfo.browser}"`,
+    `"${l.deviceInfo.resolution}"`,
+    `"${l.eventType}"`,
+    `"${l.severity}"`,
     `"${l.details.replace(/"/g, '""')}"`
   ])
 
-  const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n')
+  // UTF-8 BOM + delimitador ';'
+  const csvContent = '\uFEFF' + [headers.join(';'), ...rows.map(r => r.join(';'))].join('\r\n')
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')

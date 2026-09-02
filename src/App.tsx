@@ -60,21 +60,21 @@ export function App() {
     )
   }
 
-  // 2. SIMULADOR DE ALUMNO EN VIVO (Para Super Admin / Coordinación)
+  // 2. VISTA PREVIA DE ESTUDIANTE EN VIVO (Para Super Admin / Coordinación)
   if (impersonatedStudent) {
     return (
       <div className="min-h-screen bg-slate-950 flex flex-col font-sans">
-        <div className="bg-purple-600 text-white px-4 py-2 text-xs font-bold flex items-center justify-between shadow-lg sticky top-0 z-50">
+        <div className="bg-slate-800 border-b border-slate-700 text-slate-200 px-4 py-2.5 text-xs font-semibold flex items-center justify-between shadow-lg sticky top-0 z-50">
           <div className="flex items-center gap-2">
-            <span className="animate-pulse">👁️</span>
-            <span>Simulando Portal del Estudiante: <strong>{impersonatedStudent.nombre}</strong> ({impersonatedStudent.codigo})</span>
+            <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+            <span>Vista Previa del Estudiante: <strong className="text-white">{impersonatedStudent.nombre}</strong> (Código: {impersonatedStudent.codigo})</span>
           </div>
           <button
             onClick={stopStudentImpersonation}
-            className="flex items-center gap-1.5 px-3 py-1 bg-slate-950 text-white rounded-lg text-xs font-bold hover:bg-slate-850 transition"
+            className="flex items-center gap-1.5 px-3 py-1 bg-slate-900 text-slate-200 hover:text-white border border-slate-700 rounded-lg text-xs font-bold transition"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Volver a Bóveda Maestra</span>
+            <span>Volver a Administración</span>
           </button>
         </div>
         <StudentPortalView />

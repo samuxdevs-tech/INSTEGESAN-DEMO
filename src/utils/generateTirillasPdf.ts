@@ -875,7 +875,7 @@ function renderSingleTirillaClean(
 
  doc.setTextColor(255, 255, 255)
  doc.setFontSize(7.2)
- doc.text('CREDENCIAL DE ACCESO - PREINFORMES 2026', x + w / 2, y + 10.5, { align: 'center' })
+ doc.text('CREDENCIAL INSTITUCIONAL DE ACCESO 2026', x + w / 2, y + 10.5, { align: 'center' })
 
  // 4. Datos del Docente
  doc.setTextColor(100, 116, 139)
@@ -1007,7 +1007,7 @@ function renderSingleTirillaClean(
  doc.setFont('helvetica', 'normal')
  doc.setFontSize(5.2)
  doc.setTextColor(148, 163, 184)
- doc.text('Uso personal e intransferible - Coordinacion 2026', x + 4, y + h - 3)
+ doc.text('Documento Institucional de Uso Personal • Coordinación Académica 2026', x + 4, y + h - 3)
 
  doc.setFont('helvetica', 'bold')
  doc.text(d.id, x + w - 4, y + h - 3, { align: 'right' })

@@ -153,10 +153,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports, o
  <button
  onClick={handleDownloadTirillas}
  className="flex items-center gap-2 px-3.5 py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 rounded-xl text-sm font-semibold transition active:scale-95 shadow-sm"
- title="Descargar archivo PDF vectorial de tirillas recortables para los 31 docentes"
+ title="Descargar credenciales institucionales de acceso para el cuerpo docente"
  >
  <FileDown className="w-4 h-4 text-blue-400" />
- <span>Descargar Tirillas (PDF)</span>
+ <span>Fichas de Acceso QR (PDF)</span>
  </button>
 
  <button
@@ -164,7 +164,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onOpenReports, o
  className="flex items-center gap-2 px-3.5 py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 rounded-xl text-sm font-semibold transition active:scale-95"
  >
  <Eye className="w-4 h-4 text-slate-400" />
- <span>Ver como docente...</span>
+ <span>Supervisión Docente</span>
  </button>
 
  <button

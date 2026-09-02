@@ -1,48 +1,54 @@
-# Plataforma de Preinformes Académicos - IE General Santander (Instegesans)
+# Sistema Institucional de Preinformes y Seguimiento Académico
+**Institución Educativa General Santander — Montería, Córdoba**
 
-Plataforma web institucional desarrollada para digitalizar, estructurar y optimizar el proceso de **Preinformes Académicos y Citaciones a Acudientes** en la **Institución Educativa General Santander**.
-
----
-
-## Identidad Institucional
-- **Institución:** I.E. General Santander
-- **Resoluciones:** Ratificado mediante Resolución 0776 de 16 de Julio de 2009 | Aprobado mediante Resolución No. 001111 de Sep.20 de 2000
-- **NIT:** 800170307 • **DANE:** 123001002125
-- **Lema:** *"Liderazgo - Ciencia - Diversidad"*
+Plataforma digital institucional desarrollada para la gestión, seguimiento pedagógico, emisión de alertas tempranas y consulta en línea de preinformes académicos para directivos, docentes, acudientes y estudiantes.
 
 ---
 
-## Principios y Características Principales
-
-1. **Mobile First & Facilidad para Docentes de 60+ Años:**
- - Botones y tarjetas táctiles de gran tamaño (mínimo 48px).
- - Planilla vertical libre de scroll lateral horizontal.
- - **Banco de Frases Frecuentes:** Selección de dificultades académicas y comportamentales comunes en 1 solo toque.
-2. **Autoguardado Inteligente con Debounce (600ms):**
- - Guardado instantáneo al alternar estado (`[ Normal ]` / `[ En riesgo ]`).
- - Debounce de 600 ms en cajas de texto para evitar saturación de red en conexiones móviles lentas.
- - Indicador visual sutil: `Guardando...` → ` Guardado`.
-3. **Modo Oscuro Predeterminado (High-Contrast Dark Mode):**
- - Paleta moderna basada en `Slate-950` y `Slate-900` con textos de alto contraste (`Slate-100`) para descanso visual.
-4. **Motor Vectorial Directo a PDF (Tirillas de Acceso):**
- - Generador en TypeScript con `jsPDF` que construye y descarga directamente el archivo `Tirillas_Acceso_Docentes_IE_General_Santander.pdf` (4 tarjetas por hoja carta con marcas de corte).
-5. **Impresión Oficial sin Colapso de Memoria (CSS Print Nativo):**
- - Boletas de citación oficiales agrupadas por estudiante o por docente con saltos de página vectoriales limpios (`@media print` y `break-after: page`).
-6. **Panel de Coordinación Académica:**
- - Métricas en tiempo real del avance de los 31 docentes y 22 grados (630 estudiantes).
- - **Modo Solo Lectura (Bloqueo de Periodo):** Interruptor para congelar las planillas una vez impresas las citaciones.
- - **Auditoría e Impersonación ("Ver como docente..."):** Permite a Coordinación inspeccionar e interactuar con la planilla de cualquier docente con barra de retorno superior.
+## 🏛️ Identidad y Datos Institucionales
+* **Institución Educativa:** General Santander
+* **Ubicación:** Montería, Córdoba, Colombia
+* **Resoluciones Oficiales:** Ratificado mediante Resolución 0776 de 16 de Julio de 2009 | Aprobado mediante Resolución No. 001111 de Sep. 20 de 2000
+* **NIT:** 800170307 • **Código DANE:** 123001002125
+* **Lema Institucional:** *"Liderazgo - Ciencia - Diversidad"*
 
 ---
 
-## Stack Tecnológico
-- **Frontend:** React 18, Vite 6, TypeScript, Tailwind CSS, Lucide Icons.
-- **Base de Datos & Backend:** Supabase (PostgreSQL), `@supabase/supabase-js`.
-- **Generación de Documentos:** `jsPDF`, CSS Print Nativo (`@media print`).
+## 📋 Arquitectura y Módulos del Sistema
+
+### 1. Registro y Evaluación Docente (Mobile First)
+* **Diseño Ergonómico y Accesible:** Interfaz optimizada para teléfonos móviles y computadores, con botones táctiles de alta visibilidad (mínimo 48px) y disposición vertical continua libre de desplazamiento horizontal.
+* **Banco de Descriptores Pedagógicos:** Inserción rápida de dificultades académicas y compromisos formativos estandarizados.
+* **Autoguardado Inteligente con Debounce (600ms):** Persistencia en tiempo real al alternar estados de alerta (`Al Día` / `En Riesgo`) y protección de red móvil ante conexiones intermitentes.
+
+### 2. Portal de Consulta Estudiantil y Familiar
+* **Acceso Directo:** Consulta inmediata de valoraciones pedagógicas mediante el código de matrícula del estudiante.
+* **Boleta Oficial en PDF:** Generación e impresión de boletas individuales con membrete oficial institucional.
+* **Canal Informativo:** Resumen pedagógico estructurado para comunicación formal con acudientes.
+
+### 3. Panel de Coordinación Académica
+* **Tablero de Control en Vivo:** Supervisión del avance y cumplimiento del cuerpo docente (32 docentes, 22 grados, 630 estudiantes).
+* **Control de Periodos:** Bloqueo y habilitación administrativa de planillas para salvaguarda de datos tras la emisión de citaciones.
+* **Supervisión Docente:** Acompañamiento e inspección de planillas curriculares.
+
+### 4. Dirección Técnica y Mantenimiento del Sistema
+* **Directorio Centralizado de Credenciales:** Administración unificada de las 662 cuentas de acceso de la institución con filtros por grado y rol.
+* **Monitoreo de Sesiones en Tiempo Real:** Detección de conectividad activa mediante latidos (*heartbeat* de 15 segundos) y finalización remota de sesiones.
+* **Auditoría Forense y Trazabilidad:** Registro cronológico de inicios de sesión, dispositivos (Móvil, Computador, Tablet), navegadores y modificaciones, con exportación en Excel estructurado (`.xls`) y CSV delimitado.
+* **Control de Mantenimiento Preventivo:** Restricción programada de acceso con avisos institucionales flotantes para todas las terminales conectadas.
+* **Copias de Seguridad y Respaldo:** Exportación e importación integral de la estructura institucional en formato JSON.
 
 ---
 
-## Instalación y Ejecución Local
+## 🛠️ Especificaciones Técnicas
+* **Frontend:** React 18, Vite 6, TypeScript, Tailwind CSS, Lucide Icons.
+* **Base de Datos y Backend:** Supabase (PostgreSQL), `@supabase/supabase-js`.
+* **Generación Documental:** `jsPDF` (Motor vectorial nativo), CSS Print Oficial (`@media print`).
+* **Seguridad y Trazabilidad:** Autenticación por roles (`SUPER_ADMIN`, `ADMIN`, `DOCENTE`, `ESTUDIANTE`), registro de sesiones y auditoría de integridad técnica.
+
+---
+
+## 🚀 Despliegue e Instalación Local
 
 ```bash
 # 1. Clonar el repositorio
@@ -52,20 +58,12 @@ cd INSTEGESAN-DEMO
 # 2. Instalar dependencias
 npm install
 
-# 3. Iniciar servidor de desarrollo
+# 3. Iniciar el servidor local
 npm run dev
 ```
 
-La aplicación estará corriendo en [http://localhost:3000](http://localhost:3000).
+La plataforma estará disponible localmente en `http://localhost:3000`.
 
 ---
 
-## Credenciales de Acceso
-
-- **Coordinación (Administrador):**
- - Usuario: `admin` | Contraseña: `admin123`
-- **Docentes:**
- - `adoria` / `GS-126` (Andrés Doria)
- - `lmarina` / `GS-125` (Luz Marina Berrío)
- - `fvidal` / `GS-131` (Francisco Vidal)
- - `dacosta` / `GS-123` (Diana Acosta Castro)
+**Institución Educativa General Santander • Montería, Córdoba • Año Lectivo 2026**

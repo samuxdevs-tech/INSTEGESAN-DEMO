@@ -134,11 +134,11 @@ export const StudentPortalView: React.FC = () => {
     text += `📅 *Periodo:* ${activePeriod?.nombre || 'Actual'}\n\n`
 
     if (hasRisks) {
-      text += `⚠️ *Asignaturas con Alerta Pedagógica (${riskSubjects.length}):*\n${riskNames}\n\n`
-      text += `✅ *Asignaturas al Día:* ${passingSubjects.length} de ${totalSubjects}\n\n`
-      text += `_Por favor comunicarse con la institución para coordinar el plan de mejoramiento pedagógico._`
+      text += `*Asignaturas con Alerta Pedagógica (${riskSubjects.length}):*\n${riskNames}\n\n`
+      text += `*Asignaturas al Día:* ${passingSubjects.length} de ${totalSubjects}\n\n`
+      text += `_Se solicita coordinar con la institución el plan de acompañamiento pedagógico correspondiente._`
     } else {
-      text += `🎉 *¡Felicitaciones! Todas las ${totalSubjects} asignaturas se encuentran AL DÍA y en desempeño satisfactorio.* 🌟`
+      text += `*Constancia:* Todas las ${totalSubjects} asignaturas evaluadas se encuentran al día con desempeño satisfactorio.`
     }
 
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`

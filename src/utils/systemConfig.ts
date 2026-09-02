@@ -17,7 +17,7 @@ const STORAGE_SYSTEM_STATE = 'instegesans_system_state_v1'
 
 const defaultState: SystemState = {
   maintenanceMode: false,
-  maintenanceMessage: 'Estamos realizando una optimización técnica en la plataforma. El servicio se restablecerá en breves minutos.',
+  maintenanceMessage: 'La plataforma se encuentra en mantenimiento preventivo programado. El servicio se restablecerá a la mayor brevedad.',
   announcement: {
     enabled: false,
     message: '',

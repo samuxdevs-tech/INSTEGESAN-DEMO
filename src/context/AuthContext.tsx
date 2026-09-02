@@ -58,12 +58,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         user.rol,
         user.usuario,
         user.rol === 'SUPER_ADMIN'
-          ? 'En Panel Maestro (God Mode)'
+          ? 'En Panel de Administración Técnica'
           : user.rol === 'ADMIN'
-          ? 'En Panel Coordinación'
+          ? 'En Panel de Coordinación Académica'
           : user.rol === 'ESTUDIANTE'
-          ? 'Consultando Preinforme Estudiantil'
-          : 'En Calificador de Notas',
+          ? 'En Consulta de Preinforme'
+          : 'En Registro de Calificaciones',
         () => logout()
       )
     } else {
@@ -106,7 +106,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (cleanUser === MASTER_SUPER_ADMIN_USER && cleanPass === MASTER_SUPER_ADMIN_PASS) {
         const superDev: Docente = {
           id: 'super_admin_dev',
-          nombre: 'Desarrollador / Master',
+          nombre: 'Dirección Técnica / Administración',
           usuario: MASTER_SUPER_ADMIN_USER,
           rol: 'SUPER_ADMIN'
         }
@@ -115,7 +115,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setImpersonatedUser(null)
         setImpersonatedStudent(null)
         setIsLoading(false)
-        recordAuditLog('LOGIN_SUCCESS', 'Desarrollador / Master', 'Acceso autenticado al Centro Maestro de Control (God Mode)', 'CRITICAL', 'SUPER_ADMIN')
+        recordAuditLog('LOGIN_SUCCESS', 'Dirección Técnica', 'Acceso autenticado al Panel de Administración Técnica', 'CRITICAL', 'SUPER_ADMIN')
         return { ok: true }
       }
 
